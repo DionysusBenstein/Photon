@@ -18,6 +18,7 @@ ApplicationWindow {
     }
 
     SeekBar { id: seekBar }
+    FileDialog { id: fileDialog }
 
     MediaPlayer {
         id: player
@@ -32,13 +33,6 @@ ApplicationWindow {
         MouseArea {
             anchors.fill: parent
             onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-        }
-    }
-
-    FileDialog {
-        id: fileDialog
-        onAccepted:{
-            console.log("You chose: " + fileDialog.fileUrl)
         }
     }
 }

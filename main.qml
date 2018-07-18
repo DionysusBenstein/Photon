@@ -16,6 +16,14 @@ ApplicationWindow {
     function isMaximize() {
         return mainWindow.visibility === ApplicationWindow.Maximized
     }
+Rectangle {
+    height: 72
+    anchors {
+        left: parent.left
+        right: parent.right
+        bottom: parent.bottom
+    }
+}
 
     SeekBar { id: seekBar }
     FileDialog { id: fileDialog }
@@ -25,14 +33,14 @@ ApplicationWindow {
         source: fileDialog.fileUrl
     }
 
-    VideoOutput {
-        id: videoOutput
-        anchors.fill: parent
-        source: player
+//    VideoOutput {
+//        id: videoOutput
+//        anchors.fill: parent
+//        source: player
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-        }
-    }
+//        MouseArea {
+//            anchors.fill: parent
+//            onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+//        }
+//    }
 }

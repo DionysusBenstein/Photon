@@ -13,7 +13,6 @@ Slider {
         bottomMargin: isMaximize() ? 54 : 36
     }
 
-    value: 0.5
     background: Rectangle {
         x: control.leftPadding
         y: control.topPadding + control.availableHeight / 2 - height / 2

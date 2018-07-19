@@ -36,10 +36,18 @@ ApplicationWindow {
         anchors {
             left: parent.left
             right: parent.right
-            top: toolBar.bottom
-            bottom: seekBar.top
+            top: parent.top
+            bottom: bottom.top
         }
 
+        onClicked: {
+            console.log("Play pressed")
+            player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+        }
+    }
+
+    MouseArea {
+        anchors.fill: parent
         onClicked: {
             console.log("Play pressed")
             player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
@@ -54,5 +62,8 @@ ApplicationWindow {
         }
     }
 
-    SeekBar { id: seekBar }
+    SeekBar {
+        id: seekBar
+        value: player.position / player.duration
+    }
 }

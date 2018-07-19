@@ -17,28 +17,42 @@ ApplicationWindow {
         return mainWindow.visibility === ApplicationWindow.Maximized
     }
 
-    SeekBar { id: seekBar }
+
     FileDialog { id: fileDialog }
 
     MediaPlayer {
         id: player
         source: fileDialog.fileUrl
+        autoPlay: true
     }
 
     VideoOutput {
         id: videoOutput
         anchors.fill: parent
         source: player
+    }
 
-        MouseArea {
-            anchors {
-                left: parent.left
-                right: parent.right
-                top: parent.top
-                bottom: seekBar.top
-            }
+    MouseArea {
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: toolBar.bottom
+            bottom: seekBar.top
+        }
 
-            onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+        onClicked: {
+            console.log("Play pressed")
+            player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
         }
     }
+
+    ToolBar {
+        id: toolBar
+        ToolButton {
+            text: "Open"
+            onClicked: fileDialog.open()
+        }
+    }
+
+    SeekBar { id: seekBar }
 }

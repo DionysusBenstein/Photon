@@ -7,7 +7,7 @@ ApplicationWindow {
     id: mainWindow
     visible: true
     width: 854; height: 480
-    title: qsTr("Photon Player")
+    title: qsTr("Photon Player v" + appVersion)
 
     property string appVersion: "0.1.0"
     property color primaryColor: "#ff0000"

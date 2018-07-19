@@ -10,7 +10,8 @@ Slider {
         bottom: parent.bottom
         leftMargin: isMaximize() ? 24 : 12
         rightMargin: isMaximize() ? 24 : 12
-        bottomMargin: isMaximize() ? 54 : 36
+        //bottomMargin: isMaximize() ? 54 : 36
+        bottomMargin: isMaximize() ? (control.pressed || control.hovered ? 44 : 54) : (control.pressed || control.hovered ? 29 : 36)
     }
 
     background: Rectangle {
@@ -31,7 +32,7 @@ Slider {
         x: control.leftPadding + control.visualPosition * (control.availableWidth - width)
         y: control.topPadding + control.availableHeight / 2 - height / 2
         implicitWidth: isMaximize() ? (control.pressed || control.hovered ? 20 : 0) : (control.pressed || control.hovered === true ? 13 : 0)
-        //implicitHeight: isMaximize() ? (control.pressed || control.hovered ? 20 : 0) : (control.pressed || control.hovered ? 13 : 0)
+        implicitHeight: isMaximize() ? (control.pressed || control.hovered ? 20 : 0) : (control.pressed || control.hovered ? 13 : 0)
         radius: implicitWidth / 2
         color: primaryColor
     }

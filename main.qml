@@ -33,32 +33,15 @@ ApplicationWindow {
     }
 
     MouseArea {
-        anchors {
-            left: parent.left
-            right: parent.right
-            top: parent.top
-            bottom: bottom.top
-        }
-
-        onClicked: {
-            console.log("Play pressed")
-            player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-        }
-    }
-
-    MouseArea {
         anchors.fill: parent
-        onClicked: {
-            console.log("Play pressed")
-            player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-        }
+        onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
     }
 
     ToolBar {
         id: toolBar
         ToolButton {
             text: "Open"
-            onClicked: fileDialog.open()
+            onPressed: fileDialog.open()
         }
     }
 

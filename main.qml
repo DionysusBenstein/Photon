@@ -39,10 +39,10 @@ ApplicationWindow {
         id: videoArea
         anchors.fill: parent
         focus: true
-        Keys.onSpacePressed: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-        Keys.onLeftPressed: player.seek(player.position - 5000)
-        Keys.onRightPressed: player.seek(player.position + 5000)
         onReleased: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+        Keys.onSpacePressed: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+        Keys.onRightPressed: player.seek(player.position + 5000)
+        Keys.onLeftPressed: player.seek(player.position - 5000)
         onDoubleClicked: {
             isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
             isMaximize() || isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()

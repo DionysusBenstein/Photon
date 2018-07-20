@@ -38,21 +38,21 @@ ApplicationWindow {
 
     MouseArea {
         anchors.fill: parent
-        onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+        onReleased: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
         onDoubleClicked: {
             isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
             isMaximize() || isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
         }
     }
 
-    ToolBar {
-        id: toolBar
+
         Button {
+            y: -6
             text: "Open"
             flat: true
             onClicked: fileDialog.open()
         }
-    }
+
 
     SeekBar {
         id: seekBar

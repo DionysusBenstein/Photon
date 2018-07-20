@@ -49,4 +49,16 @@ ApplicationWindow {
         id: seekBar
         value: player.position / player.duration
     }
+
+    Button {
+        id: playButton
+        width: 24
+        height: 24
+        anchors {
+            left: parent.left
+            top: seekBar.bottom
+            leftMargin: 29
+            topMargin: 9
+        }
+    }
 }

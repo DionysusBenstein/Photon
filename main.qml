@@ -35,6 +35,7 @@ ApplicationWindow {
     MouseArea {
         anchors.fill: parent
         onPressed: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+        onDoubleClicked: isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
     }
 
     ToolBar {
@@ -50,6 +51,7 @@ ApplicationWindow {
         value: player.position / player.duration
     }
 
+    // play/pause button
     Image {
         id: playButton
         anchors {
@@ -61,9 +63,9 @@ ApplicationWindow {
 
         source: {
             if (player.playbackState === MediaPlayer.PlayingState) {
-                "images/baseline_pause_white_16dp.png"
+                isMaximize() ? "images/baseline_pause_white_24dp.png" : "images/baseline_pause_white_16dp.png"
             } else {
-                "images/baseline_play_arrow_white_16dp.png"
+                isMaximize() ? "images/baseline_play_arrow_white_24dp.png" : "images/baseline_play_arrow_white_16dp.png"
             }
         }
 

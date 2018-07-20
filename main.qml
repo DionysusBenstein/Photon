@@ -36,7 +36,11 @@ ApplicationWindow {
     }
 
     MouseArea {
+        id: videoArea
         anchors.fill: parent
+        Keys.onSpacePressed: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+        Keys.onLeftPressed: player.seek(player.position - 5000)
+        Keys.onRightPressed: player.seek(player.position + 5000)
         onReleased: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
         onDoubleClicked: {
             isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
@@ -44,14 +48,16 @@ ApplicationWindow {
         }
     }
 
-
-        Button {
-            y: -6
-            text: "Open"
-            flat: true
-            onClicked: fileDialog.open()
+    Button {
+        y: -6
+        text: "Open"
+        flat: true
+        focus: false
+        onClicked: {
+            fileDialog.open()
+            videoArea.focus = true
         }
-
+    }
 
     SeekBar {
         id: seekBar

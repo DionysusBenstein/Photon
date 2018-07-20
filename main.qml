@@ -18,6 +18,10 @@ ApplicationWindow {
         return mainWindow.visibility === ApplicationWindow.Maximized
     }
 
+    function isFullScreen() {
+        return mainWindow.visibility === ApplicationWindow.FullScreen
+    }
+
     FileDialog { id: fileDialog }
 
     MediaPlayer {
@@ -35,7 +39,10 @@ ApplicationWindow {
     MouseArea {
         anchors.fill: parent
         onPressed: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-        onDoubleClicked: isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
+        onDoubleClicked: {
+            isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
+            isFullScreen() || isMaximize() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+        }
     }
 
     ToolBar {

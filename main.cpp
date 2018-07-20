@@ -8,6 +8,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
     QGuiApplication::setApplicationName("Photon");
+    QGuiApplication::setApplicationVersion("0.1.0");
     QGuiApplication::setOrganizationName("Benstein Industries"); //ЧСВ Mode: true
 
     QQmlApplicationEngine engine;

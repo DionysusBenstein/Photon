@@ -34,7 +34,7 @@ ApplicationWindow {
 
     MouseArea {
         anchors.fill: parent
-        onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+        onPressed: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
     }
 
     ToolBar {
@@ -50,15 +50,27 @@ ApplicationWindow {
         value: player.position / player.duration
     }
 
-    Button {
+    Image {
         id: playButton
-        width: 24
-        height: 24
         anchors {
             left: parent.left
-            top: seekBar.bottom
+            bottom: parent.bottom
             leftMargin: 29
-            topMargin: 9
+            bottomMargin: 10
+        }
+
+        source: {
+            if (player.playbackState === MediaPlayer.PlayingState) {
+                "images/baseline_pause_white_16dp.png"
+            } else {
+                "images/baseline_play_arrow_white_16dp.png"
+            }
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            cursorShape: Qt.PointingHandCursor
+            onPressed: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
         }
     }
 }

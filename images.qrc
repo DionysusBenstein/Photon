@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/baseline_pause_white_16dp.png</file>
+        <file>images/baseline_play_arrow_white_16dp.png</file>
+    </qresource>
+</RCC>

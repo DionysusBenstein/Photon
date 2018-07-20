@@ -8,9 +8,9 @@ Slider {
         left: parent.left
         right: parent.right
         bottom: parent.bottom
-        leftMargin: isMaximize() ? 24 : 12
-        rightMargin: isMaximize() ? 24 : 12
-        bottomMargin: isMaximize() ? (control.pressed || control.hovered ? 43.5 : 54) : (control.pressed || control.hovered ? 29 : 36)
+        leftMargin: isMaximize() ? 18 : 6
+        rightMargin: isMaximize() ? 18 : 6
+        bottomMargin: isMaximize() ? (control.pressed || control.hovered ? 39.5 : 50) : (control.pressed || control.hovered ? 25 : 32)
     }
 
     background: Rectangle {

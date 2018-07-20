@@ -17,7 +17,6 @@ ApplicationWindow {
     function isMaximize() {
         return mainWindow.visibility === ApplicationWindow.Maximized
     }
-
     function isFullScreen() {
         return mainWindow.visibility === ApplicationWindow.FullScreen
     }
@@ -65,8 +64,8 @@ ApplicationWindow {
         anchors {
             left: parent.left
             bottom: parent.bottom
-            leftMargin: 29
-            bottomMargin: 10
+            leftMargin: isMaximize() || isFullScreen() ? 49 :  29
+            bottomMargin: isMaximize() || isFullScreen() ? 15 : 10
         }
 
         source: {

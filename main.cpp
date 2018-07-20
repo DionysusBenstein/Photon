@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 
     QGuiApplication app(argc, argv);
-    QGuiApplication::setApplicationName("Counter");
+    QGuiApplication::setApplicationName("Photon");
     QGuiApplication::setOrganizationName("Benstein Industries"); //ЧСВ Mode: true
 
     QQmlApplicationEngine engine;

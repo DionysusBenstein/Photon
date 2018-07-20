@@ -18,7 +18,6 @@ ApplicationWindow {
         return mainWindow.visibility === ApplicationWindow.Maximized
     }
 
-
     FileDialog { id: fileDialog }
 
     MediaPlayer {

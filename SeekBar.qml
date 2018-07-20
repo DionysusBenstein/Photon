@@ -10,8 +10,7 @@ Slider {
         bottom: parent.bottom
         leftMargin: isMaximize() ? 24 : 12
         rightMargin: isMaximize() ? 24 : 12
-        //bottomMargin: isMaximize() ? 54 : 36
-        bottomMargin: isMaximize() ? (control.pressed || control.hovered ? 44 : 54) : (control.pressed || control.hovered ? 29 : 36)
+        bottomMargin:36 //isMaximize() ? (control.pressed || control.hovered ? 43.5 : 54) : (control.pressed || control.hovered ? 29 : 36)
     }
 
     background: Rectangle {
@@ -29,11 +28,52 @@ Slider {
     }
 
     handle: Rectangle {
+        id: handle
         x: control.leftPadding + control.visualPosition * (control.availableWidth - width)
         y: control.topPadding + control.availableHeight / 2 - height / 2
-        implicitWidth: isMaximize() ? (control.pressed || control.hovered ? 20 : 0) : (control.pressed || control.hovered === true ? 13 : 0)
-        implicitHeight: isMaximize() ? (control.pressed || control.hovered ? 20 : 0) : (control.pressed || control.hovered ? 13 : 0)
+        //implicitWidth: isMaximize() ? (control.pressed || control.hovered ? 20 : 0) : (control.pressed || control.hovered ? 13 : 0)
+        //implicitHeight: isMaximize() ? (control.pressed || control.hovered ? 20 : 0) : (control.pressed || control.hovered ? 13 : 0)
         radius: implicitWidth / 2
         color: primaryColor
+        state: "notHovered"
+        states: State {
+            name: "notHovered"
+
+            PropertyChanges {
+                target: handle
+                implicitWidth:  0
+                implicitHeight: 0
+            }
+        }
+
+        State {
+            name: "hovered"
+
+            PropertyChanges {
+                target: handle
+                implicitWidth:  isMaximize() ? 20 : 13
+                implicitHeight: isMaximize() ? 20 : 13
+            }
+        }
+
+        transitions: [
+            Transition {
+                from: "notHovered"; to: "hovered"
+
+                NumberAnimation {
+                    target: handle
+                    duration: 100
+                }
+            },
+
+            Transition {
+                from: "hovered"; to: "notHovered"
+
+                NumberAnimation {
+                    target: handle
+                    duration: 100
+                }
+            }
+        ]
     }
 }

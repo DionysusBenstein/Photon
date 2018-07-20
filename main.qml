@@ -38,18 +38,19 @@ ApplicationWindow {
 
     MouseArea {
         anchors.fill: parent
-        onPressed: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+        onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
         onDoubleClicked: {
             isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
-            isFullScreen() || isMaximize() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+            isMaximize() || isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
         }
     }
 
     ToolBar {
         id: toolBar
-        ToolButton {
+        Button {
             text: "Open"
-            onPressed: fileDialog.open()
+            flat: true
+            onClicked: fileDialog.open()
         }
     }
 
@@ -70,16 +71,16 @@ ApplicationWindow {
 
         source: {
             if (player.playbackState === MediaPlayer.PlayingState) {
-                isMaximize() ? "images/baseline_pause_white_24dp.png" : "images/baseline_pause_white_16dp.png"
+                isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png" : "images/baseline_pause_white_16dp.png"
             } else {
-                isMaximize() ? "images/baseline_play_arrow_white_24dp.png" : "images/baseline_play_arrow_white_16dp.png"
+                isMaximize() || isFullScreen() ? "images/baseline_play_arrow_white_24dp.png" : "images/baseline_play_arrow_white_16dp.png"
             }
         }
 
         MouseArea {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor
-            onPressed: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+            onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
         }
     }
 }

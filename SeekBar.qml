@@ -37,5 +37,8 @@ Slider {
         color: primaryColor
     }
 
-    onValueChanged: player.seek(player.duration * control.value)
+    onValueChanged: {
+        player.seek(player.duration * control.value)
+        videoArea.focus = true
+    }
 }

@@ -38,6 +38,7 @@ ApplicationWindow {
     MouseArea {
         id: videoArea
         anchors.fill: parent
+        focus: true
         Keys.onSpacePressed: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
         Keys.onLeftPressed: player.seek(player.position - 5000)
         Keys.onRightPressed: player.seek(player.position + 5000)

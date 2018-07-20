@@ -21,7 +21,7 @@ ApplicationWindow {
         return mainWindow.visibility === ApplicationWindow.FullScreen
     }
 
-    FileDialog { id: fileDialog }
+    FileDialog { id: fileDialog; folder: shortcuts.desktop }
 
     MediaPlayer {
         id: player

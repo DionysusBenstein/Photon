@@ -18,7 +18,7 @@ Slider {
         y: control.topPadding + control.availableHeight / 2 - height / 2
         width: control.availableWidth
         height: isMaximize() ? (control.pressed || control.hovered ? 8 : 5) : (control.pressed || control.hovered ? 5 : 3)
-        color: "#c2c2c2"
+        color: "#C0C0C0"
 
         Rectangle {
             width: control.visualPosition * parent.width
@@ -36,4 +36,6 @@ Slider {
         radius: implicitWidth / 2
         color: primaryColor
     }
+
+    onValueChanged: player.seek(player.duration * control.value)
 }

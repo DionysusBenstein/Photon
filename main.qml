@@ -116,4 +116,9 @@ ApplicationWindow {
             onClicked: isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
         }
     }
+
+    VolumeSlider {
+        id: volumeSlider
+        anchors.centerIn: parent
+    }
 }

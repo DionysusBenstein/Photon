@@ -1,5 +1,4 @@
 import QtQuick 2.11
-import QtMultimedia 5.9
 import QtQuick.Controls 2.4
 
 Slider {

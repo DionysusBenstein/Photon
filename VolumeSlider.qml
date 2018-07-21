@@ -29,8 +29,8 @@ Slider {
         id: handle
         x: control.leftPadding + control.visualPosition * (control.availableWidth - width)
         y: control.topPadding + control.availableHeight / 2 - height / 2
-        implicitWidth: isMaximize() || isFullScreen() ? 18 : 11
-        implicitHeight: isMaximize() || isFullScreen() ? 18 : 11
+        implicitWidth: isMaximize() || isFullScreen() ? 18 : 13
+        implicitHeight: isMaximize() || isFullScreen() ? 18 : 13
         radius: implicitWidth / 2
         color: "#f2f2f2"
     }

@@ -14,17 +14,25 @@ Slider {
     }
 
     background: Rectangle {
+        id: background
         x: control.leftPadding
         y: control.topPadding + control.availableHeight / 2 - height / 2
         width: control.availableWidth
         height: isMaximize() || isFullScreen() ? (control.pressed || control.hovered ? 8 : 5) : (control.pressed || control.hovered ? 5 : 3)
-        color: "#C0C0C0"
+        color: "#f2f2f2"
+        opacity: 0.21
 
-        Rectangle {
-            width: control.visualPosition * parent.width
-            height: parent.height
-            color: primaryColor
+
+    }
+
+    Rectangle {
+        width: control.visualPosition * background.width
+        anchors {
+            left: background.left
+            top: background.top
+            bottom: background.bottom
         }
+        color: primaryColor
     }
 
     handle: Rectangle {

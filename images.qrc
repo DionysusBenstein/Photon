@@ -4,5 +4,8 @@
         <file>images/baseline_pause_white_24dp.png</file>
         <file>images/baseline_play_arrow_white_16dp.png</file>
         <file>images/baseline_play_arrow_white_24dp.png</file>
+        <file>images/baseline-fullscreen_exit-white-24dp.png</file>
+        <file>images/baseline-fullscreen-white-16dp.png</file>
+        <file>images/baseline-fullscreen-white-24dp.png</file>
     </qresource>
 </RCC>

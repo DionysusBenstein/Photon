@@ -89,4 +89,31 @@ ApplicationWindow {
             onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
         }
     }
+
+    //fullscreen
+    Image {
+        id: fullscreenButton
+        anchors {
+            right: parent.right
+            bottom: parent.bottom
+            rightMargin: isMaximize() || isFullScreen() ? 49 :  22
+            bottomMargin: isMaximize() || isFullScreen() ? 15 : 10
+        }
+
+        source: {
+            if (isFullScreen()) {
+                "images/baseline-fullscreen_exit-white-24dp.png"
+            } else if (isMaximize()) {
+                "images/baseline-fullscreen-white-24dp.png"
+            } else {
+                "images/baseline-fullscreen-white-16dp.png"
+            }
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            cursorShape: Qt.PointingHandCursor
+            onClicked: isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+        }
+    }
 }

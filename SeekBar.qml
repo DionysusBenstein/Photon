@@ -20,8 +20,6 @@ Slider {
         height: isMaximize() || isFullScreen() ? (control.pressed || control.hovered ? 8 : 5) : (control.pressed || control.hovered ? 5 : 3)
         color: "#f2f2f2"
         opacity: 0.21
-
-
     }
 
     Rectangle {

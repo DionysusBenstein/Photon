@@ -3,8 +3,15 @@ import QtQuick.Controls 2.4
 
 Slider {
     id: control
-    width: isMaximize() || isFullScreen() ? 78 : 64
+    width: isMaximize() || isFullScreen() ? 90 : 64
+    anchors {
+        left: playButton.right
+        bottom: parent.bottom
+        leftMargin: isMaximize() || isFullScreen() ? 30 : 10
+        bottomMargin: isMaximize() || isFullScreen() ? 12 : 6
+    }
 
+    value: player.volume
     background: Rectangle {
         id: background
         x: control.leftPadding

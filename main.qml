@@ -117,8 +117,5 @@ ApplicationWindow {
         }
     }
 
-    VolumeSlider {
-        id: volumeSlider
-        anchors.centerIn: parent
-    }
+    VolumeSlider { id: volumeSlider }
 }

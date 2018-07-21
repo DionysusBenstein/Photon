@@ -66,6 +66,7 @@ ApplicationWindow {
         }
     }
 
+    //DEBUG
     Text {
         id: metaDataOutput
         anchors {
@@ -75,7 +76,7 @@ ApplicationWindow {
         }
 
         horizontalAlignment: Text.AlignRight
-        color: "#eeeeee"
+        color: "#f2f2f2"
         text: player.metaData.videoFrameRate + "\n"
               + player.metaData.videoCodec + "\n"
               + player.metaData.audioCodec

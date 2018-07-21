@@ -66,12 +66,48 @@ ApplicationWindow {
         }
     }
 
+    Text {
+        id: metaDataOutput
+        anchors {
+            right: parent.right
+            top: parent.top
+            margins: isMaximize() || isFullScreen() ? 18 : 10
+        }
+
+        horizontalAlignment: Text.AlignRight
+        color: "#eeeeee"
+        text: player.metaData.videoFrameRate + "\n"
+              + player.metaData.videoCodec + "\n"
+              + player.metaData.audioCodec
+
+        font {
+            family: robotoMediumFont.name
+            pixelSize: 20
+        }
+    }
+
     SeekBar {
         id: seekBar
         value: player.position / player.duration
     }
 
     VolumeSlider { id: volumeSlider; value: 1 }
+
+    Text {
+        anchors {
+            left: volumeSlider.right
+            bottom: parent.bottom
+            leftMargin: 2
+            bottomMargin: 11
+        }
+
+        color: "#eeeeee"
+        text: "0:03 / 2:12"
+        font {
+            family: robotoRegularFont.name
+            pixelSize: 13
+        }
+    }
 
     // play/pause button
     Image {

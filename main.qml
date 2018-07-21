@@ -21,6 +21,11 @@ ApplicationWindow {
         return mainWindow.visibility === ApplicationWindow.FullScreen
     }
 
+    FontLoader { id: robotoThinFont; source: "fonts/Roboto-Thin_0.ttf"       }
+    FontLoader { id: robotoLightFont; source: "fonts/Roboto-Light.ttf"       }
+    FontLoader { id: robotoMediumFont; source: "fonts/Roboto-Medium.ttf"     }
+    FontLoader { id: robotoRegularFont; source: "fonts/Roboto-Regular_0.ttf" }
+
     FileDialog { id: fileDialog; folder: shortcuts.desktop }
 
     MediaPlayer {
@@ -93,7 +98,7 @@ ApplicationWindow {
         }
     }
 
-    //fullscreen
+    // fullscreen
     Image {
         id: fullscreenButton
         anchors {

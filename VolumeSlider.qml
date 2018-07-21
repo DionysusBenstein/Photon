@@ -23,14 +23,20 @@ Slider {
     }
 
     Rectangle {
-        width: control.visualPosition * background.width
-        anchors {
-            left: background.left
-            top: background.top
-            bottom: background.bottom
-        }
+        anchors.fill: background
         color: "#f2f2f2"
     }
+
+//    Rectangle {
+//        width:
+//        anchors {
+//            left: background.left
+//            top: background.top
+//            bottom: background.bottom
+//        }
+//        color: "#f2f2f2"
+//        opacity: 0.63
+//    }
 
     handle: Rectangle {
         id: handle

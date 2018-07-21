@@ -38,6 +38,17 @@ Slider {
         color: primaryColor
     }
 
+    //Rectangle {
+    //    anchors {
+    //        left: background.left
+    //        top: background.top
+    //        bottom: background.bottom
+    //    }
+    //
+    //    color: "#f2f2f2"
+    //    opacity: 0.63=
+    //}
+
     handle: Rectangle {
         id: handle
         x: control.leftPadding + control.visualPosition * (control.availableWidth - width)

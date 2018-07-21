@@ -10,7 +10,6 @@ Slider {
         leftMargin: isMaximize() || isFullScreen() ? 30 : 10
         bottomMargin: isMaximize() || isFullScreen() ? 12 : 6
     }
-    value: player.volume
 
     MouseArea {
         anchors.fill: parent
@@ -37,17 +36,6 @@ Slider {
         }
         color: "#f2f2f2"
     }
-
-    //Rectangle {
-    //    anchors {
-    //        left: background.left
-    //        top: background.top
-    //        bottom: background.bottom
-    //    }
-    //
-    //    color: "#f2f2f2"
-    //    opacity: 0.63=
-    //}
 
     handle: Rectangle {
         id: handle

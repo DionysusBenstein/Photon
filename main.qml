@@ -27,6 +27,7 @@ ApplicationWindow {
         id: player
         source: fileDialog.fileUrl
         autoPlay: true
+        volume: volumeSlider.value
     }
 
     VideoOutput {
@@ -64,6 +65,8 @@ ApplicationWindow {
         id: seekBar
         value: player.position / player.duration
     }
+
+    VolumeSlider { id: volumeSlider; value: 1 }
 
     // play/pause button
     Image {
@@ -116,6 +119,4 @@ ApplicationWindow {
             onClicked: isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
         }
     }
-
-    VolumeSlider { id: volumeSlider }
 }

@@ -96,7 +96,7 @@ ApplicationWindow {
         anchors {
             right: parent.right
             bottom: parent.bottom
-            rightMargin: isMaximize() || isFullScreen() ? 49 :  22
+            rightMargin: isMaximize() || isFullScreen() ? 39 : 22
             bottomMargin: isMaximize() || isFullScreen() ? 15 : 10
         }
 

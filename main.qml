@@ -17,9 +17,21 @@ ApplicationWindow {
     function isMaximize() {
         return mainWindow.visibility === ApplicationWindow.Maximized
     }
+
     function isFullScreen() {
         return mainWindow.visibility === ApplicationWindow.FullScreen
     }
+
+    function msToTime(duration) {
+        var seconds = parseInt((duration/1000)%60);
+        var minutes = parseInt((duration/(1000*60))%60);
+
+        minutes = (minutes < 10) ? "0" + minutes : minutes;
+        seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+        return minutes + ":" + seconds;
+    }
+
 
     FontLoader { id: robotoThinFont; source: "fonts/Roboto-Thin_0.ttf"       }
     FontLoader { id: robotoLightFont; source: "fonts/Roboto-Light.ttf"       }
@@ -103,7 +115,8 @@ ApplicationWindow {
         }
 
         color: "#eeeeee"
-        text: "0:03 / 2:12"
+        //text: "0:03 / 2:12"
+        text: msToTime(player.duration)
         font {
             family: robotoRegularFont.name
             pixelSize: 13

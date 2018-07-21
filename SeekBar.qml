@@ -12,6 +12,12 @@ Slider {
         bottomMargin: isMaximize() || isFullScreen() ? (control.pressed || control.hovered ? 39.5 : 50) : (control.pressed || control.hovered ? 25 : 32)
     }
 
+    MouseArea {
+        anchors.fill: parent
+        cursorShape: Qt.PointingHandCursor
+        enabled: false
+    }
+
     background: Rectangle {
         id: background
         x: control.leftPadding

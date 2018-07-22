@@ -28,14 +28,14 @@ ApplicationWindow {
 
     function msToTime(duration) {
         var seconds = parseInt((duration / 1000) % 60)
-        var minutes = parseInt((duration / (1000 * 60)) % 60);
+        var minutes = parseInt((duration / (1000 * 60)) % 60)
+        var hours   = parseInt((duration / (1000 * 60 * 60)) % 60)
 
-        //minutes = (minutes < 10) ? "0" + minutes : minutes;
+        minutes = (minutes < 10) ? "0" + minutes : minutes;
         seconds = (seconds < 10) ? "0" + seconds : seconds;
 
-        return minutes + ":" + seconds;
+        return hours + ":" + minutes + ":" + seconds;
     }
-
 
     FontLoader { id: robotoThinFont; source: "fonts/Roboto-Thin_0.ttf"       }
     FontLoader { id: robotoLightFont; source: "fonts/Roboto-Light.ttf"       }
@@ -70,20 +70,20 @@ ApplicationWindow {
             isMaximize() || isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
         }
 
-        //        onPressed: {
-        //            previousX = mouseX
-        //            previousY = mouseY
-        //        }
+        //onPressed: {
+        //    previousX = mouseX
+        //   previousY = mouseY
+        //}
 
-        //        onMouseXChanged: {
-        //            var dx = mouseX - previousX
-        //            mainWindow.setX(mainWindow.x + dx)
-        //        }
+        //onMouseXChanged: {
+        //    var dx = mouseX - previousX
+        //    mainWindow.setX(mainWindow.x + dx)
+        //}
 
-        //        onMouseYChanged: {
-        //            var dy = mouseY - previousY
-        //            mainWindow.setY(mainWindow.y + dy)
-        //        }
+        //onMouseYChanged: {
+        //   var dy = mouseY - previousY
+        //    mainWindow.setY(mainWindow.y + dy)
+        //}
     }
 
     Rectangle {

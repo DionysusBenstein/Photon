@@ -8,11 +8,15 @@ ApplicationWindow {
     visible: true
     width: 854; height: 480
     title: qsTr("Photon Player v" + appVersion)
+    //flags: Qt.FramelessWindowHint | Qt.Window
 
     property string appVersion: "0.1.0"
     property color primaryColor: "#ff0000"
     property color lightColor: "#ff5a36"
     property color darkColor: "#c20000"
+    //property int previousX
+    //property int previousY
+
 
     function isMaximize() {
         return mainWindow.visibility === ApplicationWindow.Maximized
@@ -65,6 +69,21 @@ ApplicationWindow {
             isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
             isMaximize() || isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
         }
+
+//        onPressed: {
+//            previousX = mouseX
+//            previousY = mouseY
+//        }
+
+//        onMouseXChanged: {
+//            var dx = mouseX - previousX
+//            mainWindow.setX(mainWindow.x + dx)
+//        }
+
+//        onMouseYChanged: {
+//            var dy = mouseY - previousY
+//            mainWindow.setY(mainWindow.y + dy)
+//        }
     }
 
     Button {
@@ -115,7 +134,6 @@ ApplicationWindow {
         }
 
         color: "#eeeeee"
-        //text: "0:03 / 2:12"
         text: msToTime(player.position) + " / " + msToTime(player.duration)
         font {
             family: robotoRegularFont.name

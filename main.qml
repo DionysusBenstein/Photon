@@ -23,8 +23,8 @@ ApplicationWindow {
     }
 
     function msToTime(duration) {
-        var seconds = parseInt((duration/1000)%60);
-        var minutes = parseInt((duration/(1000*60))%60);
+        var seconds = parseInt((duration / 1000) % 60)
+        var minutes = parseInt((duration / (1000 * 60)) % 60);
 
         minutes = (minutes < 10) ? "0" + minutes : minutes;
         seconds = (seconds < 10) ? "0" + seconds : seconds;
@@ -116,7 +116,7 @@ ApplicationWindow {
 
         color: "#eeeeee"
         //text: "0:03 / 2:12"
-        text: msToTime(player.duration)
+        text: msToTime(player.position) + " / " + msToTime(player.duration)
         font {
             family: robotoRegularFont.name
             pixelSize: 13

@@ -118,9 +118,11 @@ ApplicationWindow {
         opacity: 0
         source: {
             if (player.playbackState === MediaPlayer.PlayingState) {
-                isMaximize() || isFullScreen() ? "images/baseline_play_arrow_white_24dp.png" : "images/baseline_play_arrow_white_16dp.png"
+                isMaximize() || isFullScreen() ? "images/baseline_play_arrow_white_24dp.png"
+                                               : "images/baseline_play_arrow_white_16dp.png"
             } else {
-                isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png" : "images/baseline_pause_white_16dp.png"
+                isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png"
+                                               : "images/baseline_pause_white_16dp.png"
             }
         }
     }
@@ -192,9 +194,11 @@ ApplicationWindow {
 
         source: {
             if (player.playbackState === MediaPlayer.PlayingState) {
-                isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png" : "images/baseline_pause_white_16dp.png"
+                isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png"
+                                               : "images/baseline_pause_white_16dp.png"
             } else {
-                isMaximize() || isFullScreen() ? "images/baseline_play_arrow_white_24dp.png" : "images/baseline_play_arrow_white_16dp.png"
+                isMaximize() || isFullScreen() ? "images/baseline_play_arrow_white_24dp.png"
+                                               : "images/baseline_play_arrow_white_16dp.png"
             }
         }
 

@@ -10,10 +10,10 @@ ApplicationWindow {
     title: qsTr("Photon Player v" + appVersion)
     //flags: Qt.FramelessWindowHint | Qt.Window
 
-    property string appVersion: "0.1.0"
     property color primaryColor: "#ff0000"
     property color lightColor: "#ff5a36"
     property color darkColor: "#c20000"
+    property string appVersion: "0.1.0"
     //property int previousX
     //property int previousY
 
@@ -61,13 +61,20 @@ ApplicationWindow {
         id: videoArea
         anchors.fill: parent
         focus: true
-        onReleased: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
         Keys.onSpacePressed: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
         Keys.onRightPressed: player.seek(player.position + 5000)
         Keys.onLeftPressed: player.seek(player.position - 5000)
         onDoubleClicked: {
             isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
             isMaximize() || isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+        }
+
+        onReleased: {
+            player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+            oButtonBackgroundAnim.running = true
+            oButtonIconAnim.running = true
+            wButtonBackgroundAnim.running = true
+            wButtonIconAnim.running = true
         }
 
         //onPressed: {
@@ -87,21 +94,23 @@ ApplicationWindow {
     }
 
     Rectangle {
+        id: buttonBackground
         width: isMaximize() || isFullScreen() ? 78 : 54
         height: isMaximize() || isFullScreen() ? 78 : 54
         anchors.centerIn: parent
         radius: width / 2
         color: "#0d0d0d"
         opacity: 0.53
+    }
 
-        Image {
-            anchors.centerIn: parent
-            source: {
-                if (player.playbackState === MediaPlayer.PlayingState) {
-                    isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png" : "images/baseline_pause_white_16dp.png"
-                } else {
-                    isMaximize() || isFullScreen() ? "images/baseline_play_arrow_white_24dp.png" : "images/baseline_play_arrow_white_16dp.png"
-                }
+    Image {
+        id: buttonIcon
+        anchors.centerIn: buttonBackground
+        source: {
+            if (player.playbackState === MediaPlayer.PlayingState) {
+                isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png" : "images/baseline_pause_white_16dp.png"
+            } else {
+                isMaximize() || isFullScreen() ? "images/baseline_play_arrow_white_24dp.png" : "images/baseline_play_arrow_white_16dp.png"
             }
         }
     }
@@ -211,5 +220,38 @@ ApplicationWindow {
             cursorShape: Qt.PointingHandCursor
             onClicked: isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
         }
+    }
+
+    OpacityAnimator {
+        id: oButtonBackgroundAnim
+        target: buttonBackground
+        from: 0.53; to: 0
+        duration: 500
+        running: false
+    }
+
+    OpacityAnimator {
+        id: oButtonIconAnim
+        target: buttonIcon
+        from: 1; to: 0
+        duration: 500
+        running: false
+    }
+
+    NumberAnimation on width {
+        id: wButtonBackgroundAnim
+        target: buttonBackground
+
+        from: 54; to: 96
+        duration: 500
+        running: false
+    }
+
+    NumberAnimation on width {
+        id: wButtonIconAnim
+        target: buttonIcon
+        from: 54; to: 96
+        duration: 500
+        running: false
     }
 }

@@ -31,10 +31,14 @@ ApplicationWindow {
         var minutes = parseInt((duration / (1000 * 60)) % 60)
         var hours   = parseInt((duration / (1000 * 60 * 60)) % 60)
 
-        minutes = (minutes < 10) ? "0" + minutes : minutes;
-        seconds = (seconds < 10) ? "0" + seconds : seconds;
+        seconds = (seconds < 10) ? "0" + seconds : seconds
 
-        return hours + ":" + minutes + ":" + seconds;
+        if (hours !==  0) {
+            minutes = (minutes < 10) ? "0" + minutes : minutes
+            return hours + ":" + minutes + ":" + seconds
+        } else {
+            return minutes + ":" + seconds
+        }
     }
 
     FontLoader { id: robotoThinFont; source: "fonts/Roboto-Thin_0.ttf"       }

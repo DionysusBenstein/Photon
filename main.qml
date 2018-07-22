@@ -67,8 +67,8 @@ ApplicationWindow {
         Keys.onSpacePressed: {
             player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
             oButtonBackgroundAnim.running = true
-            oButtonIconAnim.running = true
             wButtonBackgroundAnim.running = true
+            oButtonIconAnim.running = true
             wButtonIconAnim.running = true
         }
 
@@ -80,8 +80,8 @@ ApplicationWindow {
         onReleased: {
             player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
             oButtonBackgroundAnim.running = true
-            oButtonIconAnim.running = true
             wButtonBackgroundAnim.running = true
+            oButtonIconAnim.running = true
             wButtonIconAnim.running = true
         }
 

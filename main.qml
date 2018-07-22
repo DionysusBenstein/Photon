@@ -100,12 +100,14 @@ ApplicationWindow {
         anchors.centerIn: parent
         radius: width / 2
         color: "#0d0d0d"
-        opacity: 0.53
+        //opacity: 0.53
+        opacity: 0
     }
 
     Image {
         id: buttonIcon
         anchors.centerIn: buttonBackground
+        opacity: 0
         source: {
             if (player.playbackState === MediaPlayer.PlayingState) {
                 isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png" : "images/baseline_pause_white_16dp.png"
@@ -241,7 +243,6 @@ ApplicationWindow {
     NumberAnimation on width {
         id: wButtonBackgroundAnim
         target: buttonBackground
-
         from: 54; to: 96
         duration: 500
         running: false

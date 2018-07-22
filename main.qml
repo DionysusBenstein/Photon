@@ -61,9 +61,17 @@ ApplicationWindow {
         id: videoArea
         anchors.fill: parent
         focus: true
-        Keys.onSpacePressed: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+
         Keys.onRightPressed: player.seek(player.position + 5000)
         Keys.onLeftPressed: player.seek(player.position - 5000)
+        Keys.onSpacePressed: {
+            player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+            oButtonBackgroundAnim.running = true
+            oButtonIconAnim.running = true
+            wButtonBackgroundAnim.running = true
+            wButtonIconAnim.running = true
+        }
+
         onDoubleClicked: {
             isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
             isMaximize() || isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
@@ -110,9 +118,9 @@ ApplicationWindow {
         opacity: 0
         source: {
             if (player.playbackState === MediaPlayer.PlayingState) {
-                isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png" : "images/baseline_pause_white_16dp.png"
-            } else {
                 isMaximize() || isFullScreen() ? "images/baseline_play_arrow_white_24dp.png" : "images/baseline_play_arrow_white_16dp.png"
+            } else {
+                isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png" : "images/baseline_pause_white_16dp.png"
             }
         }
     }
@@ -240,18 +248,18 @@ ApplicationWindow {
         running: false
     }
 
-    NumberAnimation on width {
+    ScaleAnimator {
         id: wButtonBackgroundAnim
         target: buttonBackground
-        from: 54; to: 96
+        from: 1; to: 2
         duration: 500
         running: false
     }
 
-    NumberAnimation on width {
+    ScaleAnimator {
         id: wButtonIconAnim
         target: buttonIcon
-        from: 54; to: 96
+        from: 1; to: 2
         duration: 500
         running: false
     }

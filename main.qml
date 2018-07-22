@@ -30,7 +30,7 @@ ApplicationWindow {
         var seconds = parseInt((duration / 1000) % 60)
         var minutes = parseInt((duration / (1000 * 60)) % 60);
 
-        minutes = (minutes < 10) ? "0" + minutes : minutes;
+        //minutes = (minutes < 10) ? "0" + minutes : minutes;
         seconds = (seconds < 10) ? "0" + seconds : seconds;
 
         return minutes + ":" + seconds;
@@ -70,20 +70,40 @@ ApplicationWindow {
             isMaximize() || isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
         }
 
-//        onPressed: {
-//            previousX = mouseX
-//            previousY = mouseY
-//        }
+        //        onPressed: {
+        //            previousX = mouseX
+        //            previousY = mouseY
+        //        }
 
-//        onMouseXChanged: {
-//            var dx = mouseX - previousX
-//            mainWindow.setX(mainWindow.x + dx)
-//        }
+        //        onMouseXChanged: {
+        //            var dx = mouseX - previousX
+        //            mainWindow.setX(mainWindow.x + dx)
+        //        }
 
-//        onMouseYChanged: {
-//            var dy = mouseY - previousY
-//            mainWindow.setY(mainWindow.y + dy)
-//        }
+        //        onMouseYChanged: {
+        //            var dy = mouseY - previousY
+        //            mainWindow.setY(mainWindow.y + dy)
+        //        }
+    }
+
+    Rectangle {
+        width: isMaximize() || isFullScreen() ? 78 : 54
+        height: isMaximize() || isFullScreen() ? 78 : 54
+        anchors.centerIn: parent
+        radius: width / 2
+        color: "#0d0d0d"
+        opacity: 0.53
+
+        Image {
+            anchors.centerIn: parent
+            source: {
+                if (player.playbackState === MediaPlayer.PlayingState) {
+                    isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png" : "images/baseline_pause_white_16dp.png"
+                } else {
+                    isMaximize() || isFullScreen() ? "images/baseline_play_arrow_white_24dp.png" : "images/baseline_play_arrow_white_16dp.png"
+                }
+            }
+        }
     }
 
     Button {

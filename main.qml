@@ -2,6 +2,7 @@ import QtQuick 2.11
 import QtMultimedia 5.9
 import QtQuick.Dialogs 1.3
 import QtQuick.Controls 2.4
+import Qt.labs.settings 1.0
 
 ApplicationWindow {
     id: mainWindow
@@ -242,6 +243,13 @@ ApplicationWindow {
             cursorShape: Qt.PointingHandCursor
             onClicked: isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
         }
+    }
+
+    Settings {
+        id: settings
+        property alias position: player.position
+        property alias duration: player.duration
+        property alias source: player.source
     }
 
     OpacityAnimator {

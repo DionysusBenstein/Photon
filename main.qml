@@ -7,7 +7,7 @@ ApplicationWindow {
     id: mainWindow
     visible: true
     width: 854; height: 480
-    title: qsTr("Photon Player v" + appVersion)
+    title: player.metaData.title + " - " + qsTr("Photon Player v" + appVersion)
     //flags: Qt.FramelessWindowHint | Qt.Window
 
     property color primaryColor: "#ff0000"
@@ -46,7 +46,11 @@ ApplicationWindow {
     FontLoader { id: robotoMediumFont; source: "fonts/Roboto-Medium.ttf"     }
     FontLoader { id: robotoRegularFont; source: "fonts/Roboto-Regular_0.ttf" }
 
-    FileDialog { id: fileDialog; folder: shortcuts.desktop }
+    FileDialog {
+        id: fileDialog
+        folder: shortcuts.desktop
+        nameFilters: [ "Медиафайлы ( *.ogg *.mpg *.wav *.mp3 *.mp4 *.avi *.mkv *.mov )", "Все файлы (*)" ]
+    }
 
     MediaPlayer {
         id: player
@@ -143,25 +147,25 @@ ApplicationWindow {
     }
 
     //DEBUG
-    Text {
-        id: metaDataOutput
-        anchors {
-            right: parent.right
-            top: parent.top
-            margins: isMaximize() || isFullScreen() ? 18 : 10
-        }
-
-        horizontalAlignment: Text.AlignRight
-        color: "#f2f2f2"
-        text: player.metaData.videoFrameRate + "\n"
-              + player.metaData.videoCodec + "\n"
-              + player.metaData.audioCodec
-
-        font {
-            family: robotoMediumFont.name
-            pixelSize: 20
-        }
-    }
+    //Text {
+    //    id: metaDataOutput
+    //    anchors {
+    //        right: parent.right
+    //       top: parent.top
+    //        margins: isMaximize() || isFullScreen() ? 18 : 10
+    //    }
+    //
+    //    horizontalAlignment: Text.AlignRight
+    //    color: "#f2f2f2"
+    //    text: player.metaData.videoFrameRate + "\n"
+    //          + player.metaData.videoCodec + "\n"
+    //          + player.metaData.audioCodec
+    //
+    //    font {
+    //        family: robotoMediumFont.name
+    //        pixelSize: 20
+    //    }
+    //}
 
     SeekBar {
         id: seekBar

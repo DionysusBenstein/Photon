@@ -71,7 +71,7 @@ ApplicationWindow {
         anchors.fill: parent
         states: [
             State {
-                name: "contains mouse"; when: ui.contains(mouse)
+                name: "contains mouse"
                 PropertyChanges { target: ui; opacity: 1 }
             }
         ]

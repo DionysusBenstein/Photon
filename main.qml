@@ -66,182 +66,196 @@ ApplicationWindow {
         source: player
     }
 
-    MouseArea {
-        id: videoArea
+    Item {
+        id: ui
         anchors.fill: parent
-        focus: true
-
-        Keys.onRightPressed: player.seek(player.position + 5000)
-        Keys.onLeftPressed: player.seek(player.position - 5000)
-        Keys.onSpacePressed: {
-            player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-            oButtonBackgroundAnim.running = true
-            wButtonBackgroundAnim.running = true
-            oButtonIconAnim.running = true
-            wButtonIconAnim.running = true
-        }
-
-        onDoubleClicked: {
-            isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
-            isMaximize() || isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
-        }
-
-        onReleased: {
-            player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-            oButtonBackgroundAnim.running = true
-            wButtonBackgroundAnim.running = true
-            oButtonIconAnim.running = true
-            wButtonIconAnim.running = true
-        }
-
-        //onPressed: {
-        //    previousX = mouseX
-        //   previousY = mouseY
-        //}
-
-        //onMouseXChanged: {
-        //    var dx = mouseX - previousX
-        //    mainWindow.setX(mainWindow.x + dx)
-        //}
-
-        //onMouseYChanged: {
-        //   var dy = mouseY - previousY
-        //    mainWindow.setY(mainWindow.y + dy)
-        //}
-    }
-
-    Rectangle {
-        id: buttonBackground
-        width: isMaximize() || isFullScreen() ? 78 : 54
-        height: isMaximize() || isFullScreen() ? 78 : 54
-        anchors.centerIn: parent
-        radius: width / 2
-        color: "#0d0d0d"
-        //opacity: 0.53
-        opacity: 0
-    }
-
-    Image {
-        id: buttonIcon
-        anchors.centerIn: buttonBackground
-        opacity: 0
-        source: {
-            if (player.playbackState === MediaPlayer.PlayingState) {
-                isMaximize() || isFullScreen() ? "images/baseline_play_arrow_white_24dp.png"
-                                               : "images/baseline_play_arrow_white_16dp.png"
-            } else {
-                isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png"
-                                               : "images/baseline_pause_white_16dp.png"
+        states: [
+            State {
+                name: "contains mouse"; when: ui.contains(mouse)
+                PropertyChanges { target: ui; opacity: 1 }
             }
-        }
-    }
-
-    Button {
-        y: -6
-        text: "Open"
-        flat: true
-        focus: false
-        onClicked: {
-            fileDialog.open()
-            videoArea.focus = true
-        }
-    }
-
-    //DEBUG
-    //Text {
-    //    id: metaDataOutput
-    //    anchors {
-    //        right: parent.right
-    //       top: parent.top
-    //        margins: isMaximize() || isFullScreen() ? 18 : 10
-    //    }
-    //
-    //    horizontalAlignment: Text.AlignRight
-    //    color: "#f2f2f2"
-    //    text: player.metaData.videoFrameRate + "\n"
-    //          + player.metaData.videoCodec + "\n"
-    //          + player.metaData.audioCodec
-    //
-    //    font {
-    //        family: robotoMediumFont.name
-    //        pixelSize: 20
-    //    }
-    //}
-
-    SeekBar {
-        id: seekBar
-        value: player.position / player.duration
-    }
-
-    VolumeSlider { id: volumeSlider; value: 1 }
-
-    Text {
-        anchors {
-            left: volumeSlider.right
-            bottom: parent.bottom
-            leftMargin: 2
-            bottomMargin: 11
-        }
-
-        color: "#eeeeee"
-        text: msToTime(player.position) + " / " + msToTime(player.duration)
-        font {
-            family: robotoRegularFont.name
-            pixelSize: 13
-        }
-    }
-
-    // play/pause button
-    Image {
-        id: playButton
-        anchors {
-            left: parent.left
-            bottom: parent.bottom
-            leftMargin: isMaximize() || isFullScreen() ? 49 :  29
-            bottomMargin: isMaximize() || isFullScreen() ? 15 : 10
-        }
-
-        source: {
-            if (player.playbackState === MediaPlayer.PlayingState) {
-                isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png"
-                                               : "images/baseline_pause_white_16dp.png"
-            } else {
-                isMaximize() || isFullScreen() ? "images/baseline_play_arrow_white_24dp.png"
-                                               : "images/baseline_play_arrow_white_16dp.png"
-            }
-        }
+        ]
 
         MouseArea {
+            id: videoArea
             anchors.fill: parent
-            cursorShape: Qt.PointingHandCursor
-            onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-        }
-    }
+            hoverEnabled: true
+            focus: true
+            //onEntered: ui.state = "contains mouse"
+            //onExited:  ui.state = ""
 
-    // fullscreen
-    Image {
-        id: fullscreenButton
-        anchors {
-            right: parent.right
-            bottom: parent.bottom
-            rightMargin: isMaximize() || isFullScreen() ? 39 : 22
-            bottomMargin: isMaximize() || isFullScreen() ? 15 : 10
+            Keys.onRightPressed: player.seek(player.position + 5000)
+            Keys.onLeftPressed: player.seek(player.position - 5000)
+            Keys.onSpacePressed: {
+                player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+                oButtonBackgroundAnim.running = true
+                wButtonBackgroundAnim.running = true
+                oButtonIconAnim.running = true
+                wButtonIconAnim.running = true
+            }
+
+            onDoubleClicked: {
+                isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
+                isMaximize() || isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+            }
+
+            onReleased: {
+                player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+                oButtonBackgroundAnim.running = true
+                wButtonBackgroundAnim.running = true
+                oButtonIconAnim.running = true
+                wButtonIconAnim.running = true
+            }
+
+            //onPressed: {
+            //    previousX = mouseX
+            //   previousY = mouseY
+            //}
+
+            //onMouseXChanged: {
+            //    var dx = mouseX - previousX
+            //    mainWindow.setX(mainWindow.x + dx)
+            //}
+
+            //onMouseYChanged: {
+            //   var dy = mouseY - previousY
+            //    mainWindow.setY(mainWindow.y + dy)
+            //}
         }
 
-        source: {
-            if (isFullScreen()) {
-                "images/baseline-fullscreen_exit-white-24dp.png"
-            } else if (isMaximize()) {
-                "images/baseline-fullscreen-white-24dp.png"
-            } else {
-                "images/baseline-fullscreen-white-16dp.png"
+        Rectangle {
+            id: buttonBackground
+            width: isMaximize() || isFullScreen() ? 78 : 54
+            height: isMaximize() || isFullScreen() ? 78 : 54
+            anchors.centerIn: parent
+            radius: width / 2
+            color: "#0d0d0d"
+            //opacity: 0.53
+            opacity: 0
+        }
+
+        Image {
+            id: buttonIcon
+            anchors.centerIn: buttonBackground
+            opacity: 0
+            source: {
+                if (player.playbackState === MediaPlayer.PlayingState) {
+                    isMaximize() || isFullScreen() ? "images/baseline_play_arrow_white_24dp.png"
+                                                   : "images/baseline_play_arrow_white_16dp.png"
+                } else {
+                    isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png"
+                                                   : "images/baseline_pause_white_16dp.png"
+                }
             }
         }
 
-        MouseArea {
-            anchors.fill: parent
-            cursorShape: Qt.PointingHandCursor
-            onClicked: isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+        Button {
+            y: -6
+            text: "Open"
+            flat: true
+            focus: false
+            onClicked: {
+                fileDialog.open()
+                videoArea.focus = true
+            }
+        }
+
+        //DEBUG
+        //Text {
+        //    id: metaDataOutput
+        //    anchors {
+        //        right: parent.right
+        //       top: parent.top
+        //        margins: isMaximize() || isFullScreen() ? 18 : 10
+        //    }
+        //
+        //    horizontalAlignment: Text.AlignRight
+        //    color: "#f2f2f2"
+        //    text: player.metaData.videoFrameRate + "\n"
+        //          + player.metaData.videoCodec + "\n"
+        //          + player.metaData.audioCodec
+        //
+        //    font {
+        //        family: robotoMediumFont.name
+        //        pixelSize: 20
+        //    }
+        //}
+
+        SeekBar {
+            id: seekBar
+            value: player.position / player.duration
+        }
+
+        VolumeSlider { id: volumeSlider; value: 1 }
+
+        Text {
+            anchors {
+                left: volumeSlider.right
+                bottom: parent.bottom
+                leftMargin: 2
+                bottomMargin: 11
+            }
+
+            color: "#eeeeee"
+            text: msToTime(player.position) + " / " + msToTime(player.duration)
+            font {
+                family: robotoRegularFont.name
+                pixelSize: 13
+            }
+        }
+
+        // play/pause button
+        Image {
+            id: playButton
+            anchors {
+                left: parent.left
+                bottom: parent.bottom
+                leftMargin: isMaximize() || isFullScreen() ? 49 :  29
+                bottomMargin: isMaximize() || isFullScreen() ? 15 : 10
+            }
+
+            source: {
+                if (player.playbackState === MediaPlayer.PlayingState) {
+                    isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png"
+                                                   : "images/baseline_pause_white_16dp.png"
+                } else {
+                    isMaximize() || isFullScreen() ? "images/baseline_play_arrow_white_24dp.png"
+                                                   : "images/baseline_play_arrow_white_16dp.png"
+                }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                onClicked: player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+            }
+        }
+
+        // fullscreen
+        Image {
+            id: fullscreenButton
+            anchors {
+                right: parent.right
+                bottom: parent.bottom
+                rightMargin: isMaximize() || isFullScreen() ? 39 : 22
+                bottomMargin: isMaximize() || isFullScreen() ? 15 : 10
+            }
+
+            source: {
+                if (isFullScreen()) {
+                    "images/baseline-fullscreen_exit-white-24dp.png"
+                } else if (isMaximize()) {
+                    "images/baseline-fullscreen-white-24dp.png"
+                } else {
+                    "images/baseline-fullscreen-white-16dp.png"
+                }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                onClicked: isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+            }
         }
     }
 

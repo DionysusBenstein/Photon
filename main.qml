@@ -143,6 +143,21 @@ ApplicationWindow {
             }
         }
 
+        Rectangle {
+            width: parent.width
+            height: 77
+            anchors {
+                bottom: parent.bottom
+            }
+
+            opacity: 0.66
+
+            gradient: Gradient {
+                GradientStop { position: 0.0; color: "transparent" }
+                GradientStop { position: 1.0; color: "#000000" }
+            }
+        }
+
         SeekBar {
             id: seekBar
             value: player.position / player.duration
@@ -224,12 +239,12 @@ ApplicationWindow {
         }
     }
 
-//    Settings {
-//        id: settings
-//        property alias position: player.position
-//        property alias duration: player.duration
-//        property alias source: player.source
-//    }
+    //    Settings {
+    //        id: settings
+    //        property alias position: player.position
+    //        property alias duration: player.duration
+    //        property alias source: player.source
+    //    }
 
     OpacityAnimator {
         id: oButtonBackgroundAnim

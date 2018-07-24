@@ -9,7 +9,7 @@ ApplicationWindow {
     id: mainWindow
     visible: true
     width: 854; height: 480
-    title: player.metaData.title + " - " + qsTr("Photon Player v" + appVersion)
+    title: qsTr("Photon Player v" + appVersion)
 
     property string appVersion: "0.1.0"
     property color primaryColor: "#ff0000"
@@ -157,15 +157,15 @@ ApplicationWindow {
             anchors {
                 left: volumeSlider.right
                 bottom: parent.bottom
-                leftMargin: 2
-                bottomMargin: 11
+                leftMargin: isMaximize() || isFullScreen() ? 2 : 8
+                bottomMargin: isMaximize() || isFullScreen() ? 16 : 11
             }
 
             color: "#eeeeee"
             text: msToTime(player.position) + " / " + msToTime(player.duration)
             font {
                 family: robotoRegularFont.name
-                pixelSize: 13
+                pixelSize: isMaximize() || isFullScreen() ? 18 : 13
             }
         }
 

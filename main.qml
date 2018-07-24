@@ -157,7 +157,7 @@ ApplicationWindow {
             anchors {
                 left: volumeSlider.right
                 bottom: parent.bottom
-                leftMargin: isMaximize() || isFullScreen() ? 2 : 8
+                leftMargin:   isMaximize() || isFullScreen() ? 4 : 2
                 bottomMargin: isMaximize() || isFullScreen() ? 16 : 11
             }
 
@@ -175,7 +175,7 @@ ApplicationWindow {
             anchors {
                 left: parent.left
                 bottom: parent.bottom
-                leftMargin: isMaximize() || isFullScreen() ? 49 :  29
+                leftMargin:  isMaximize() || isFullScreen() ? 49 :  29
                 bottomMargin: isMaximize() || isFullScreen() ? 15 : 10
             }
 

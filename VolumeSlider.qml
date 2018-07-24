@@ -15,6 +15,7 @@ Slider {
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
         enabled: false
+        onWheel: control.value = wheel.length
     }
 
     background: Rectangle {

@@ -3,20 +3,18 @@ import QtMultimedia 5.9
 import QtQuick.Dialogs 1.3
 import QtQuick.Controls 2.4
 import Qt.labs.settings 1.0
+import QtQuick.Controls.Material 2.3
 
 ApplicationWindow {
     id: mainWindow
     visible: true
     width: 854; height: 480
     title: player.metaData.title + " - " + qsTr("Photon Player v" + appVersion)
-    //flags: Qt.FramelessWindowHint | Qt.Window
 
+    property string appVersion: "0.1.0"
     property color primaryColor: "#ff0000"
     property color lightColor: "#ff5a36"
     property color darkColor: "#c20000"
-    property string appVersion: "0.1.0"
-    //property int previousX
-    //property int previousY
 
 
     function isMaximize() {
@@ -56,8 +54,8 @@ ApplicationWindow {
     MediaPlayer {
         id: player
         source: fileDialog.fileUrl
-        autoPlay: true
         volume: volumeSlider.value
+        autoPlay: true
     }
 
     VideoOutput {
@@ -85,13 +83,13 @@ ApplicationWindow {
             //onExited:  ui.state = ""
 
             Keys.onRightPressed: player.seek(player.position + 5000)
-            Keys.onLeftPressed: player.seek(player.position - 5000)
+            Keys.onLeftPressed:  player.seek(player.position - 5000)
             Keys.onSpacePressed: {
                 player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
                 oButtonBackgroundAnim.running = true
                 wButtonBackgroundAnim.running = true
-                oButtonIconAnim.running = true
-                wButtonIconAnim.running = true
+                oButtonIconAnim.running       = true
+                wButtonIconAnim.running       = true
             }
 
             onDoubleClicked: {
@@ -103,29 +101,14 @@ ApplicationWindow {
                 player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
                 oButtonBackgroundAnim.running = true
                 wButtonBackgroundAnim.running = true
-                oButtonIconAnim.running = true
-                wButtonIconAnim.running = true
+                oButtonIconAnim.running       = true
+                wButtonIconAnim.running       = true
             }
-
-            //onPressed: {
-            //    previousX = mouseX
-            //   previousY = mouseY
-            //}
-
-            //onMouseXChanged: {
-            //    var dx = mouseX - previousX
-            //    mainWindow.setX(mainWindow.x + dx)
-            //}
-
-            //onMouseYChanged: {
-            //   var dy = mouseY - previousY
-            //    mainWindow.setY(mainWindow.y + dy)
-            //}
         }
 
         Rectangle {
             id: buttonBackground
-            width: isMaximize() || isFullScreen() ? 78 : 54
+            width:  isMaximize() || isFullScreen() ? 78 : 54
             height: isMaximize() || isFullScreen() ? 78 : 54
             anchors.centerIn: parent
             radius: width / 2
@@ -152,7 +135,7 @@ ApplicationWindow {
         Button {
             y: -6
             text: "Open"
-            flat: true
+            flat:  true
             focus: false
             onClicked: {
                 fileDialog.open()
@@ -160,33 +143,15 @@ ApplicationWindow {
             }
         }
 
-        //DEBUG
-        //Text {
-        //    id: metaDataOutput
-        //    anchors {
-        //        right: parent.right
-        //       top: parent.top
-        //        margins: isMaximize() || isFullScreen() ? 18 : 10
-        //    }
-        //
-        //    horizontalAlignment: Text.AlignRight
-        //    color: "#f2f2f2"
-        //    text: player.metaData.videoFrameRate + "\n"
-        //          + player.metaData.videoCodec + "\n"
-        //          + player.metaData.audioCodec
-        //
-        //    font {
-        //        family: robotoMediumFont.name
-        //        pixelSize: 20
-        //    }
-        //}
-
         SeekBar {
             id: seekBar
             value: player.position / player.duration
         }
 
-        VolumeSlider { id: volumeSlider; value: 1 }
+        VolumeSlider {
+            id: volumeSlider
+            value: 1
+        }
 
         Text {
             anchors {
@@ -254,47 +219,47 @@ ApplicationWindow {
             MouseArea {
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
-                onClicked: isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+                onPressed: isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
             }
         }
     }
 
-    Settings {
-        id: settings
-        property alias position: player.position
-        property alias duration: player.duration
-        property alias source: player.source
-    }
+//    Settings {
+//        id: settings
+//        property alias position: player.position
+//        property alias duration: player.duration
+//        property alias source: player.source
+//    }
 
     OpacityAnimator {
         id: oButtonBackgroundAnim
         target: buttonBackground
         from: 0.53; to: 0
-        duration: 500
         running: false
+        duration: 500
     }
 
     OpacityAnimator {
         id: oButtonIconAnim
         target: buttonIcon
         from: 1; to: 0
-        duration: 500
         running: false
+        duration: 500
     }
 
     ScaleAnimator {
         id: wButtonBackgroundAnim
         target: buttonBackground
         from: 1; to: 2
-        duration: 500
         running: false
+        duration: 500
     }
 
     ScaleAnimator {
         id: wButtonIconAnim
         target: buttonIcon
         from: 1; to: 2
-        duration: 500
         running: false
+        duration: 500
     }
 }

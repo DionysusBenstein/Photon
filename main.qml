@@ -135,7 +135,7 @@ ApplicationWindow {
         Rectangle {
             id: topShadow
             width: parent.width
-            height: isMaximize() || isFullScreen() ? 109 :/* 77*/67
+            height: isMaximize() || isFullScreen() ? 109 : 77
             anchors.top: parent.top
             opacity: 0.66
             gradient: Gradient {
@@ -166,22 +166,38 @@ ApplicationWindow {
             flat:  true
             focus: false
             icon.source: "images/more_vert-24dp.png"
-            onClicked: {
-//                fileDialog.open()
-//                videoArea.focus = true
-                moreButtonMenu.open()
-            }
+            onClicked: moreButtonMenu.open()
 
             Menu {
                 id: moreButtonMenu
 
                 MenuItem {
                     text: qsTr("Открыть файл...")
-                    icon.source: "images/language-24dp.png"
-
                     onTriggered: {
                         fileDialog.open()
                         videoArea.focus = true
+                    }
+
+                    Shortcut {
+                        sequence: "Ctrl+O"
+                        onActivated: {
+                            fileDialog.open()
+                            videoArea.focus = true
+                        }
+                    }
+                }
+
+                MenuItem {
+                    text: qsTr("О программе")
+                }
+
+                MenuItem {
+                    text: qsTr("Выход")
+                    onTriggered: Qt.quit()
+
+                    Shortcut {
+                        sequence: "Ctrl+Q"
+                        onActivated: Qt.quit()
                     }
                 }
             }
@@ -218,16 +234,15 @@ ApplicationWindow {
             anchors {
                 left: parent.left
                 top: parent.top
-                leftMargin: 16
-                topMargin: 12
+                leftMargin: isMaximize() || isFullScreen() ? 19 : 16
+                topMargin: isMaximize() || isFullScreen() ? 21 : 12
             }
 
             color: "#eeeeee"
-            text: player.metaData.title ? player.metaData.title : "Video title unavailable"
-
+            text: player.metaData.title ? player.metaData.title : "Media file title unavailable"
             font {
                 family: robotoRegularFont.name
-                pixelSize: 18
+                pixelSize: isMaximize() || isFullScreen() ? 26 : 18
             }
         }
 

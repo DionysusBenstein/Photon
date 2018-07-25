@@ -156,19 +156,34 @@ ApplicationWindow {
             }
         }
 
-        Button {
+        ToolButton {
             anchors {
                 right: parent.right
                 top: parent.top
-                topMargin: -6
             }
 
-            text: "Open"
+            //text: "Open"
             flat:  true
             focus: false
+            icon.source: "images/more_vert-24dp.png"
             onClicked: {
-                fileDialog.open()
-                videoArea.focus = true
+//                fileDialog.open()
+//                videoArea.focus = true
+                moreButtonMenu.open()
+            }
+
+            Menu {
+                id: moreButtonMenu
+
+                MenuItem {
+                    text: qsTr("Открыть файл...")
+                    icon.source: "images/language-24dp.png"
+
+                    onTriggered: {
+                        fileDialog.open()
+                        videoArea.focus = true
+                    }
+                }
             }
         }
 
@@ -208,8 +223,7 @@ ApplicationWindow {
             }
 
             color: "#eeeeee"
-            text: "Introduction"
-            //text: player.metaData.albumTitle ? player.metaData.albumTitle : "Song title unavailable"
+            text: player.metaData.title ? player.metaData.title : "Video title unavailable"
 
             font {
                 family: robotoRegularFont.name

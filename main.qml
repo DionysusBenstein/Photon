@@ -140,7 +140,7 @@ ApplicationWindow {
             opacity: 0.66
             gradient: Gradient {
                 GradientStop { position: 1.0; color: "transparent" }
-                GradientStop { position: 0.0; color: "#000000" }
+                GradientStop { position: 0.0; color: "#000000"     }
             }
         }
 
@@ -152,7 +152,7 @@ ApplicationWindow {
             opacity: 0.66
             gradient: Gradient {
                 GradientStop { position: 0.0; color: "transparent" }
-                GradientStop { position: 1.0; color: "#000000" }
+                GradientStop { position: 1.0; color: "#000000"     }
             }
         }
 
@@ -188,7 +188,7 @@ ApplicationWindow {
                 }
 
                 MenuItem {
-                    text: qsTr("О программе")
+                    text: qsTr("О программе...")
                 }
 
                 MenuItem {
@@ -203,15 +203,8 @@ ApplicationWindow {
             }
         }
 
-        SeekBar {
-            id: seekBar
-            value: player.position / player.duration
-        }
-
-        VolumeSlider {
-            id: volumeSlider
-            value: 1
-        }
+        SeekBar { id: seekBar; value: player.position / player.duration }
+        VolumeSlider { id: volumeSlider; value: 1 }
 
         Text {
             anchors {
@@ -301,12 +294,12 @@ ApplicationWindow {
         }
     }
 
-    //    Settings {
-    //        id: settings
-    //        property alias position: player.position
-    //        property alias duration: player.duration
-    //        property alias source: player.source
-    //    }
+    //Settings {
+    //    id: settings
+    //    property alias position: player.position
+    //    property alias duration: player.duration
+    //    property alias source: player.source
+    //}
 
     OpacityAnimator {
         id: oButtonBackgroundAnim

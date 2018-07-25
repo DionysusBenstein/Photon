@@ -132,29 +132,43 @@ ApplicationWindow {
             }
         }
 
+        Rectangle {
+            id: topShadow
+            width: parent.width
+            height: isMaximize() || isFullScreen() ? 109 :/* 77*/67
+            anchors.top: parent.top
+            opacity: 0.66
+            gradient: Gradient {
+                GradientStop { position: 1.0; color: "transparent" }
+                GradientStop { position: 0.0; color: "#000000" }
+            }
+        }
+
+        Rectangle {
+            id: bottomShadow
+            width: parent.width
+            height: isMaximize() || isFullScreen() ? 109 : 77
+            anchors.bottom: parent.bottom
+            opacity: 0.66
+            gradient: Gradient {
+                GradientStop { position: 0.0; color: "transparent" }
+                GradientStop { position: 1.0; color: "#000000" }
+            }
+        }
+
         Button {
-            y: -6
+            anchors {
+                right: parent.right
+                top: parent.top
+                topMargin: -6
+            }
+
             text: "Open"
             flat:  true
             focus: false
             onClicked: {
                 fileDialog.open()
                 videoArea.focus = true
-            }
-        }
-
-        Rectangle {
-            width: parent.width
-            height: 77
-            anchors {
-                bottom: parent.bottom
-            }
-
-            opacity: 0.66
-
-            gradient: Gradient {
-                GradientStop { position: 0.0; color: "transparent" }
-                GradientStop { position: 1.0; color: "#000000" }
             }
         }
 
@@ -181,6 +195,25 @@ ApplicationWindow {
             font {
                 family: robotoRegularFont.name
                 pixelSize: isMaximize() || isFullScreen() ? 18 : 13
+            }
+        }
+
+        Text {
+            id: title
+            anchors {
+                left: parent.left
+                top: parent.top
+                leftMargin: 16
+                topMargin: 12
+            }
+
+            color: "#eeeeee"
+            text: "Introduction"
+            //text: player.metaData.albumTitle ? player.metaData.albumTitle : "Song title unavailable"
+
+            font {
+                family: robotoRegularFont.name
+                pixelSize: 18
             }
         }
 

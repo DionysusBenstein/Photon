@@ -4,5 +4,6 @@
         <file>qtquickcontrols2.conf</file>
         <file>SeekBar.qml</file>
         <file>VolumeSlider.qml</file>
+        <file>About.qml</file>
     </qresource>
 </RCC>

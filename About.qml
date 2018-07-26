@@ -203,7 +203,6 @@ Popup {
 
         flat: true
         text: qsTr("OK")
-        Material.theme: Material.Dark
         Material.foreground: "white"
         onClicked: popup.close()
     }

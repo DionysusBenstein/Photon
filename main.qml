@@ -59,23 +59,6 @@ ApplicationWindow {
         autoPlay: true
     }
 
-    Rectangle {
-        anchors.fill: parent
-        scale: mainWindow.width / 449
-        rotation: 147
-        radius: 2
-        gradient: Gradient {
-            GradientStop { position: 1.0; color: "#FFE53B" }
-            GradientStop { position: 0.0; color: "#FF2525" }
-        }
-
-        Rectangle {
-            anchors.fill: parent
-            color: "#0d0d0d"
-            opacity: player.hasVideo ? 0.53 : 0
-        }
-    }
-
     VideoOutput {
         id: videoOutput
         anchors.fill: parent
@@ -180,7 +163,6 @@ ApplicationWindow {
                 top: parent.top
             }
 
-            Material.theme: Material.Dark
             flat:  true
             focus: false
             icon.source: "images/more_vert-24dp.png"
@@ -237,7 +219,7 @@ ApplicationWindow {
             }
 
             color: "#eeeeee"
-            text: msToTime(player.position) + " / " + msToTime(player.duration)
+            text: "<b>" + msToTime(player.position) + "</b>" + " / " + msToTime(player.duration)
             font {
                 family: robotoRegularFont.name
                 pixelSize: isMaximize() || isFullScreen() ? 18 : 13

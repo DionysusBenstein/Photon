@@ -11,10 +11,12 @@ ApplicationWindow {
     width: 854; height: 480
     title: qsTr("Photon Player v" + appVersion)
 
+    readonly property color lightFontColor: "#9a9a9a"
+    readonly property color darkFontColor: "#404040"
+    readonly property color primaryColor: "#ff0000"
+    readonly property color lightColor: "#ff5a36"
+    readonly property color darkColor: "#c20000"
     property string appVersion: "0.1.0"
-    property color primaryColor: "#ff0000"
-    property color lightColor: "#ff5a36"
-    property color darkColor: "#c20000"
 
     function isMaximize() {
         return mainWindow.visibility === ApplicationWindow.Maximized;
@@ -59,7 +61,7 @@ ApplicationWindow {
 
     Rectangle {
         anchors.fill: parent
-        scale: 1.9
+        scale: mainWindow.width / 449
         rotation: 147
         radius: 2
         gradient: Gradient {
@@ -186,6 +188,7 @@ ApplicationWindow {
 
             Menu {
                 id: moreButtonMenu
+                Material.theme: Material.Dark
 
                 MenuItem {
                     text: qsTr("Открыть файл...")

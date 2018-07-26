@@ -17,19 +17,166 @@ Popup {
         anchors.fill: parent
         scale: 1.6
         rotation: 147
-        radius: 2
         gradient: Gradient {
             GradientStop { position: 1.0; color: "#FFE53B" }
             GradientStop { position: 0.0; color: "#FF2525" }
         }
     }
 
+    Rectangle {
+        id: aboutWndRect
+        width: aboutWndTitle.width + 50
+        anchors {
+            left: parent.left
+            top: parent.top
+            bottom: parent.bottom
+        }
+
+        color: "#0d0d0d"
+        opacity: 0.53
+        clip: true
+
+        //for material design press animation
+        Button {
+            anchors.fill: parent
+            scale: 1.1
+            flat: true
+        }
+    }
+
+    Text {
+        id: aboutWndTitle
+        anchors {
+            left: parent.left
+            top: parent.top
+            margins: 25
+        }
+
+        color: "white"
+        text: qsTr("О программе"/*"About"*/)
+        font {
+            pixelSize: 20
+            family: robotoMediumFont.name
+        }
+    }
+
+    Text {
+        id: appName
+        anchors {
+            left: parent.left
+            top: appLogo.bottom
+            leftMargin: 25
+            topMargin: 25
+        }
+
+        color: "white"
+        text: "<b>Counter</b>"
+        wrapMode: Text.WordWrap
+        font {
+            pixelSize: 18
+            family: robotoMediumFont.name
+        }
+    }
+
+    Text {
+        id: version
+        anchors {
+            left: parent.left
+            top: appName.bottom
+            leftMargin: 25
+            topMargin: 5
+        }
+
+        color: "white"
+        text: qsTr("Версия: " + appVersion)
+        wrapMode: Text.WordWrap
+        font {
+            pixelSize: 16
+            family: robotoMediumFont.name
+        }
+    }
+
+    Text {
+        id: author
+        anchors {
+            left: parent.left
+            top: version.bottom
+            leftMargin: 25
+            topMargin: 5
+        }
+
+        color: "white"
+        text: "Автор: \nDionysus Benstein"
+        wrapMode: Text.WordWrap
+        font {
+            pixelSize: 16
+            family: robotoMediumFont.name
+        }
+    }
+
+    Text {
+        id: about
+        anchors {
+            left: aboutWndRect.right
+            right: parent.right
+            top: parent.top
+            leftMargin: 19
+            rightMargin: 19
+            topMargin: 25
+        }
+
+        color: "white"
+        wrapMode: Text.WordWrap
+        text: qsTr("<b>Counter</b> — бесплатное настольное кроссплатформенное приложение,
+                        которое подсчитывает количество символов и слов в тексте.")
+
+        font {
+            pixelSize: 16
+            family: robotoMediumFont.name
+        }
+    }
+
+    MouseArea {
+        anchors.fill: copyright
+        cursorShape: Qt.PointingHandCursor
+    }
+
+    Text {
+        id: copyright
+        anchors {
+            left: aboutWndRect.right
+            right: parent.right
+            top: about.bottom
+            leftMargin: 19
+            rightMargin: 19
+            topMargin: 25
+        }
+
+        text: qsTr("<a href=\"https://github.com/DionysusBenstein\">Copyright © 2018 Dionysus Benstein. Все права защищены.</a>")
+        linkColor: "#FF0000"
+        onLinkActivated: {
+            Qt.openUrlExternally("https://github.com/DionysusBenstein")
+            popup.close()
+        }
+
+        wrapMode: Text.WordWrap
+        font {
+            pixelSize: 15
+            family: robotoMediumFont.name
+        }
+    }
+
     Image {
         id: appLogo
-        anchors.centerIn: parent
+        anchors {
+            top: aboutWndTitle.bottom
+            topMargin: 25
+            horizontalCenter: aboutWndRect.horizontalCenter
+        }
+
         source: "images/icons/youtube.svg"
-        sourceSize.width:  120
-        sourceSize.height: 120
+        sourceSize.width:  110
+        sourceSize.height: 110
     }
 
     Button {

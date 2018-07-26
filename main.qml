@@ -157,8 +157,8 @@ ApplicationWindow {
             anchors.top: parent.top
             opacity: 0.66
             gradient: Gradient {
-                GradientStop { position: 1.0; color: "transparent" }
                 GradientStop { position: 0.0; color: "#000000"     }
+                GradientStop { position: 1.0; color: "transparent" }
             }
         }
 

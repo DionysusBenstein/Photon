@@ -1,5 +1,6 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.4
+import QtGraphicalEffects 1.0
 import QtQuick.Controls.Material 2.3
 
 Popup {
@@ -152,8 +153,9 @@ Popup {
             topMargin: 25
         }
 
+        //opacity: 0.53
         text: qsTr("<a href=\"https://github.com/DionysusBenstein\">Copyright © 2018 Dionysus Benstein. Все права защищены.</a>")
-        linkColor: "#FF0000"
+        linkColor: "#D22215"
         onLinkActivated: {
             Qt.openUrlExternally("https://github.com/DionysusBenstein")
             popup.close()
@@ -165,6 +167,17 @@ Popup {
             family: robotoMediumFont.name
         }
     }
+
+//    LinearGradient  {
+//        anchors.fill: copyright
+//        source: copyright
+//        start: Qt.point(0, 0)
+//        end: Qt.point(200, 200)
+//        gradient: Gradient {
+//            GradientStop { position: 1.0; color: "#21D4FD" }
+//            GradientStop { position: 0.0; color: "#B721FF" }
+//        }
+//    }
 
     Image {
         id: appLogo

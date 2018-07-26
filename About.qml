@@ -71,7 +71,7 @@ Popup {
         }
 
         color: "white"
-        text: "<b>Counter</b>"
+        text: "<b>Photon</b>"
         wrapMode: Text.WordWrap
         font {
             pixelSize: 18
@@ -128,8 +128,9 @@ Popup {
 
         color: "white"
         wrapMode: Text.WordWrap
-        text: qsTr("<b>Counter</b> — бесплатное настольное кроссплатформенное приложение,
-                        которое подсчитывает количество символов и слов в тексте.")
+        text: qsTr("<b>Photon</b> — бесплатный настольный кроссплатформенный медиаплеер
+                     и медиа-платформа с открытым исходным кодом, выполненная в стиле YouTube.
+                     Photon воспроизводит множество мультимедийных файлов.")
 
         font {
             pixelSize: 16
@@ -153,7 +154,6 @@ Popup {
             topMargin: 25
         }
 
-        //opacity: 0.53
         text: qsTr("<a href=\"https://github.com/DionysusBenstein\">Copyright © 2018 Dionysus Benstein. Все права защищены.</a>")
         linkColor: "#D22215"
         onLinkActivated: {

@@ -16,27 +16,26 @@ ApplicationWindow {
     property color lightColor: "#ff5a36"
     property color darkColor: "#c20000"
 
-
     function isMaximize() {
-        return mainWindow.visibility === ApplicationWindow.Maximized
+        return mainWindow.visibility === ApplicationWindow.Maximized;
     }
 
     function isFullScreen() {
-        return mainWindow.visibility === ApplicationWindow.FullScreen
+        return mainWindow.visibility === ApplicationWindow.FullScreen;
     }
 
     function msToTime(duration) {
-        var seconds = parseInt((duration / 1000) % 60)
-        var minutes = parseInt((duration / (1000 * 60)) % 60)
-        var hours   = parseInt((duration / (1000 * 60 * 60)) % 60)
+        var seconds = parseInt((duration / 1000) % 60);
+        var minutes = parseInt((duration / (1000 * 60)) % 60);
+        var hours   = parseInt((duration / (1000 * 60 * 60)) % 60);
 
-        seconds = (seconds < 10) ? "0" + seconds : seconds
+        seconds = (seconds < 10) ? "0" + seconds : seconds;
 
         if (hours !==  0) {
-            minutes = (minutes < 10) ? "0" + minutes : minutes
-            return hours + ":" + minutes + ":" + seconds
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            return hours + ":" + minutes + ":" + seconds;
         } else {
-            return minutes + ":" + seconds
+            return minutes + ":" + seconds;
         }
     }
 
@@ -162,7 +161,6 @@ ApplicationWindow {
                 top: parent.top
             }
 
-            //text: "Open"
             flat:  true
             focus: false
             icon.source: "images/more_vert-24dp.png"

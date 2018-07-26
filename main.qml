@@ -57,6 +57,23 @@ ApplicationWindow {
         autoPlay: true
     }
 
+    Rectangle {
+        anchors.fill: parent
+        scale: 1.9
+        rotation: 147
+        radius: 2
+        gradient: Gradient {
+            GradientStop { position: 1.0; color: "#FFE53B" }
+            GradientStop { position: 0.0; color: "#FF2525" }
+        }
+
+        Rectangle {
+            anchors.fill: parent
+            color: "#0d0d0d"
+            opacity: player.hasVideo ? 0.53 : 0
+        }
+    }
+
     VideoOutput {
         id: videoOutput
         anchors.fill: parent
@@ -86,9 +103,9 @@ ApplicationWindow {
             Keys.onSpacePressed: {
                 player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
                 oButtonBackgroundAnim.running = true
-                wButtonBackgroundAnim.running = true
+                sButtonBackgroundAnim.running = true
                 oButtonIconAnim.running       = true
-                wButtonIconAnim.running       = true
+                sButtonIconAnim.running       = true
             }
 
             onDoubleClicked: {
@@ -99,9 +116,9 @@ ApplicationWindow {
             onReleased: {
                 player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
                 oButtonBackgroundAnim.running = true
-                wButtonBackgroundAnim.running = true
+                sButtonBackgroundAnim.running = true
                 oButtonIconAnim.running       = true
-                wButtonIconAnim.running       = true
+                sButtonIconAnim.running       = true
             }
         }
 
@@ -134,7 +151,7 @@ ApplicationWindow {
         Rectangle {
             id: topShadow
             width: parent.width
-            height: isMaximize() || isFullScreen() ? 109 : 77
+            height: isMaximize() || isFullScreen() ? 109 : 76
             anchors.top: parent.top
             opacity: 0.66
             gradient: Gradient {
@@ -146,7 +163,7 @@ ApplicationWindow {
         Rectangle {
             id: bottomShadow
             width: parent.width
-            height: isMaximize() || isFullScreen() ? 109 : 77
+            height: isMaximize() || isFullScreen() ? 109 : 76
             anchors.bottom: parent.bottom
             opacity: 0.66
             gradient: Gradient {
@@ -161,6 +178,7 @@ ApplicationWindow {
                 top: parent.top
             }
 
+            Material.theme: Material.Dark
             flat:  true
             focus: false
             icon.source: "images/more_vert-24dp.png"
@@ -187,6 +205,9 @@ ApplicationWindow {
 
                 MenuItem {
                     text: qsTr("О программе...")
+                    onTriggered: {
+                        aboutWnd.open()
+                    }
                 }
 
                 MenuItem {
@@ -292,6 +313,8 @@ ApplicationWindow {
         }
     }
 
+    About { id: aboutWnd }
+
     //Settings {
     //    id: settings
     //    property alias position: player.position
@@ -316,7 +339,7 @@ ApplicationWindow {
     }
 
     ScaleAnimator {
-        id: wButtonBackgroundAnim
+        id: sButtonBackgroundAnim
         target: buttonBackground
         from: 1; to: 2
         running: false
@@ -324,7 +347,7 @@ ApplicationWindow {
     }
 
     ScaleAnimator {
-        id: wButtonIconAnim
+        id: sButtonIconAnim
         target: buttonIcon
         from: 1; to: 2
         running: false

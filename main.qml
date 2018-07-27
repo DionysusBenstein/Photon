@@ -236,7 +236,7 @@ ApplicationWindow {
             }
 
             color: "#eeeeee"
-            text: player.metaData.title ? player.metaData.title : "Media file title unavailable"
+            //text: player.metaData.title ? player.metaData.title : "Media file title unavailable"
             font {
                 family: robotoRegularFont.name
                 pixelSize: isMaximize() || isFullScreen() ? 26 : 18

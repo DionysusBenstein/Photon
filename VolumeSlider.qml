@@ -7,7 +7,7 @@ Slider {
     anchors {
         left: playButton.right
         bottom: parent.bottom
-        leftMargin: isMaximize() || isFullScreen() ? 30 : 10
+        leftMargin:   isMaximize() || isFullScreen() ? 30 : 10
         bottomMargin: isMaximize() || isFullScreen() ? 12 : 6
     }
 
@@ -15,7 +15,6 @@ Slider {
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
         enabled: false
-        onWheel: control.value = wheel.length
     }
 
     background: Rectangle {
@@ -42,7 +41,7 @@ Slider {
         id: handle
         x: control.leftPadding + control.visualPosition * (control.availableWidth - width)
         y: control.topPadding + control.availableHeight / 2 - height / 2
-        implicitWidth: isMaximize() || isFullScreen() ? 18 : 13
+        implicitWidth:  isMaximize() || isFullScreen() ? 18 : 13
         implicitHeight: isMaximize() || isFullScreen() ? 18 : 13
         radius: implicitWidth / 2
         color: "#f2f2f2"

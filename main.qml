@@ -56,6 +56,7 @@ ApplicationWindow {
         id: player
         source: fileDialog.fileUrl
         volume: volumeSlider.value
+        audioRole: MediaPlayer.VideoRole
         autoPlay: true
     }
 
@@ -68,6 +69,7 @@ ApplicationWindow {
     Item {
         id: ui
         anchors.fill: parent
+        opacity: 0
         states: [
             State {
                 name: "contains mouse"
@@ -75,13 +77,28 @@ ApplicationWindow {
             }
         ]
 
+        transitions: [
+            Transition {
+                from: ""; to: "contains mouse"
+
+                OpacityAnimator { duration: 100 }
+            },
+
+            Transition {
+                from: "contains mouse"; to: ""
+
+                OpacityAnimator { duration: 100 }
+            }
+        ]
+
+
         MouseArea {
             id: videoArea
             anchors.fill: parent
             hoverEnabled: true
             focus: true
-            //onEntered: ui.state = "contains mouse"
-            //onExited:  ui.state = ""
+            onEntered: ui.state = "contains mouse"
+            onExited:  ui.state = ""
 
             Keys.onRightPressed: player.seek(player.position + 5000)
             Keys.onLeftPressed:  player.seek(player.position - 5000)
@@ -236,7 +253,7 @@ ApplicationWindow {
             }
 
             color: "#eeeeee"
-            //text: player.metaData.title ? player.metaData.title : "Media file title unavailable"
+            text: player.metaData.title ? player.metaData.title : "Media file title unavailable"
             font {
                 family: robotoRegularFont.name
                 pixelSize: isMaximize() || isFullScreen() ? 26 : 18

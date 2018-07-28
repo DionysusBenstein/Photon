@@ -74,18 +74,24 @@ ApplicationWindow {
             State {
                 name: "contains mouse"
                 PropertyChanges { target: ui; opacity: 1 }
+            },
+
+            State {
+                name: "not contains mouse"
+                PropertyChanges { target: ui; opacity: 0 }
             }
+
         ]
 
         transitions: [
             Transition {
-                from: ""; to: "contains mouse"
+                from: "not contains mouse"; to: "contains mouse"
 
                 OpacityAnimator { duration: 100 }
             },
 
             Transition {
-                from: "contains mouse"; to: ""
+                from: "contains mouse"; to: "not contains mouse"
 
                 OpacityAnimator { duration: 100 }
             }
@@ -98,7 +104,7 @@ ApplicationWindow {
             hoverEnabled: true
             focus: true
             onEntered: ui.state = "contains mouse"
-            onExited:  ui.state = ""
+            onExited:  ui.state = "not contains mouse"
 
             Keys.onRightPressed: player.seek(player.position + 5000)
             Keys.onLeftPressed:  player.seek(player.position - 5000)
@@ -224,7 +230,18 @@ ApplicationWindow {
             }
         }
 
-        SeekBar { id: seekBar; value: player.position / player.duration }
+        SeekBar {
+            id: seekBar; value: player.position / player.duration
+
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                onEntered: ui.state = "contains mouse"
+                onExited:  ui.state = "not contains mouse"
+                enabled: false
+            }
+
+        }
         VolumeSlider { id: volumeSlider; value: 1 }
 
         Text {

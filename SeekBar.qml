@@ -13,11 +13,11 @@ Slider {
                                                      : (control.pressed || control.hovered ? 25 : 32)
     }
 
-    MouseArea {
-        anchors.fill: parent
-        cursorShape: Qt.PointingHandCursor
-        enabled: false
-    }
+//    MouseArea {
+//        anchors.fill: parent
+//        cursorShape: Qt.PointingHandCursor
+//        enabled: false
+//    }
 
     background: Rectangle {
         id: background

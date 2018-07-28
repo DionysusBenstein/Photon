@@ -1,3 +1,17 @@
+/*******************************************************************/
+
+/* Original File Name: main.qml                                    */
+
+/* Date: 18-07-2018                                                */
+
+/* Developer: Dionysus Benstein                                    */
+
+/* Copyright © 2018 Dionysus Benstein. All rights reserved.        */
+
+/* Description: Основное окно программы.                           */
+
+/*******************************************************************/
+
 import QtQuick 2.11
 import QtMultimedia 5.9
 import QtQuick.Dialogs 1.3
@@ -70,6 +84,7 @@ ApplicationWindow {
         id: ui
         anchors.fill: parent
         opacity: 0
+        state: player.playbackState === MediaPlayer.PausedState ? "contains mouse" : "not contains mouse"
         states: [
             State {
                 name: "contains mouse"
@@ -86,13 +101,11 @@ ApplicationWindow {
         transitions: [
             Transition {
                 from: "not contains mouse"; to: "contains mouse"
-
                 OpacityAnimator { duration: 100 }
             },
 
             Transition {
                 from: "contains mouse"; to: "not contains mouse"
-
                 OpacityAnimator { duration: 100 }
             }
         ]
@@ -230,18 +243,7 @@ ApplicationWindow {
             }
         }
 
-        SeekBar {
-            id: seekBar; value: player.position / player.duration
-
-            MouseArea {
-                anchors.fill: parent
-                cursorShape: Qt.PointingHandCursor
-                onEntered: ui.state = "contains mouse"
-                onExited:  ui.state = "not contains mouse"
-                enabled: false
-            }
-
-        }
+        SeekBar { id: seekBar; value: player.position / player.duration }
         VolumeSlider { id: volumeSlider; value: 1 }
 
         Text {

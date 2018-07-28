@@ -1,3 +1,17 @@
+/*******************************************************************/
+
+/* Original File Name: SeekBar.qml                                 */
+
+/* Date: 18-07-2018                                                */
+
+/* Developer: Dionysus Benstein                                    */
+
+/* Copyright © 2018 Dionysus Benstein. All rights reserved.        */
+
+/* Description: Слайдер, регулирующий текущее время медиафайла.    */
+
+/*******************************************************************/
+
 import QtQuick 2.11
 import QtQuick.Controls 2.4
 
@@ -13,11 +27,11 @@ Slider {
                                                      : (control.pressed || control.hovered ? 25 : 32)
     }
 
-//    MouseArea {
-//        anchors.fill: parent
-//        cursorShape: Qt.PointingHandCursor
-//        enabled: false
-//    }
+    MouseArea {
+        anchors.fill: parent
+        cursorShape: Qt.PointingHandCursor
+        enabled: false
+    }
 
     background: Rectangle {
         id: background

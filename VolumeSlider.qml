@@ -1,3 +1,17 @@
+/*******************************************************************/
+
+/* Original File Name: SeekBar.qml                                 */
+
+/* Date: 18-07-2018                                                */
+
+/* Developer: Dionysus Benstein                                    */
+
+/* Copyright © 2018 Dionysus Benstein. All rights reserved.        */
+
+/* Description: Слайдер, регулирующий громкость медиафайла.        */
+
+/*******************************************************************/
+
 import QtQuick 2.11
 import QtQuick.Controls 2.4
 

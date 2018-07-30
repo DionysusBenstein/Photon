@@ -80,22 +80,25 @@ ApplicationWindow {
         source: player
     }
 
-    Item {
-        id: ui
+    MouseArea {
+        id: videoArea
         anchors.fill: parent
+        hoverEnabled: true
+        onEntered: videoArea.state = "contains mouse"
+        onExited:  videoArea.state = "not contains mouse"
+        focus: true
         opacity: 0
         state: player.playbackState === MediaPlayer.PausedState ? "contains mouse" : "not contains mouse"
         states: [
             State {
                 name: "contains mouse"
-                PropertyChanges { target: ui; opacity: 1 }
+                PropertyChanges { target: videoArea; opacity: 1 }
             },
 
             State {
                 name: "not contains mouse"
-                PropertyChanges { target: ui; opacity: 0 }
+                PropertyChanges { target: videoArea; opacity: 0 }
             }
-
         ]
 
         transitions: [
@@ -110,38 +113,29 @@ ApplicationWindow {
             }
         ]
 
-
-        MouseArea {
-            id: videoArea
-            anchors.fill: parent
-            hoverEnabled: true
-            focus: true
-            onEntered: ui.state = "contains mouse"
-            onExited:  ui.state = "not contains mouse"
-
-            Keys.onRightPressed: player.seek(player.position + 5000)
-            Keys.onLeftPressed:  player.seek(player.position - 5000)
-            Keys.onSpacePressed: {
-                player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-                oButtonBackgroundAnim.running = true
-                sButtonBackgroundAnim.running = true
-                oButtonIconAnim.running       = true
-                sButtonIconAnim.running       = true
-            }
-
-            onDoubleClicked: {
-                isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
-                isMaximize() || isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
-            }
-
-            onReleased: {
-                player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-                oButtonBackgroundAnim.running = true
-                sButtonBackgroundAnim.running = true
-                oButtonIconAnim.running       = true
-                sButtonIconAnim.running       = true
-            }
+        Keys.onRightPressed: player.seek(player.position + 5000)
+        Keys.onLeftPressed:  player.seek(player.position - 5000)
+        Keys.onSpacePressed: {
+            player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+            oButtonBackgroundAnim.running = true
+            sButtonBackgroundAnim.running = true
+            oButtonIconAnim.running       = true
+            sButtonIconAnim.running       = true
         }
+
+        onDoubleClicked: {
+            isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
+            isMaximize() || isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+        }
+
+        onReleased: {
+            player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+            oButtonBackgroundAnim.running = true
+            sButtonBackgroundAnim.running = true
+            oButtonIconAnim.running       = true
+            sButtonIconAnim.running       = true
+        }
+
 
         Rectangle {
             id: buttonBackground
@@ -242,6 +236,7 @@ ApplicationWindow {
                 }
             }
         }
+
 
         SeekBar { id: seekBar; value: player.position / player.duration }
         VolumeSlider { id: volumeSlider; value: 1 }

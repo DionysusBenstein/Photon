@@ -84,31 +84,31 @@ ApplicationWindow {
         id: videoArea
         anchors.fill: parent
         hoverEnabled: true
-        onEntered: videoArea.state = "contains mouse"
-        onExited:  videoArea.state = "not contains mouse"
+        onEntered: videoArea.state = "active ui"
+        onExited:  videoArea.state = "inactive ui"
         focus: true
         opacity: 0
-        state: player.playbackState === MediaPlayer.PausedState ? "contains mouse" : "not contains mouse"
+        state: player.playbackState === MediaPlayer.PausedState ? "active ui" : "inactive ui"
         states: [
             State {
-                name: "contains mouse"
+                name: "active ui"
                 PropertyChanges { target: videoArea; opacity: 1 }
             },
 
             State {
-                name: "not contains mouse"
+                name: "inactive ui"
                 PropertyChanges { target: videoArea; opacity: 0 }
             }
         ]
 
         transitions: [
             Transition {
-                from: "not contains mouse"; to: "contains mouse"
+                from: "inactive ui"; to: "active ui"
                 OpacityAnimator { duration: 100 }
             },
 
             Transition {
-                from: "contains mouse"; to: "not contains mouse"
+                from: "active ui"; to: "inactive ui"
                 OpacityAnimator { duration: 100 }
             }
         ]
@@ -135,7 +135,6 @@ ApplicationWindow {
             oButtonIconAnim.running       = true
             sButtonIconAnim.running       = true
         }
-
 
         Rectangle {
             id: buttonBackground
@@ -236,7 +235,6 @@ ApplicationWindow {
                 }
             }
         }
-
 
         SeekBar { id: seekBar; value: player.position / player.duration }
         VolumeSlider { id: volumeSlider; value: 1 }
@@ -368,5 +366,20 @@ ApplicationWindow {
         from: 1; to: 2
         running: false
         duration: 500
+    }
+
+    Item {
+        anchors.fill: parent
+
+        Timer {
+            id: timer
+            interval: 1000; running: true; repeat: true
+            onTriggered: time.text
+        }
+
+        Text {
+            id: time
+            anchors.centerIn: parent
+        }
     }
 }

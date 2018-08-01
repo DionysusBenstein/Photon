@@ -27,10 +27,18 @@ Slider {
                                                      : (control.pressed || control.hovered ? 25 : 32)
     }
 
+    property int previousX
+    property int previousY
+
     MouseArea {
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
-        enabled: false
+        //enabled: false
+
+        onEntered: {
+            previousX = mouseX
+            previousY = mouseY
+        }
     }
 
     background: Rectangle {

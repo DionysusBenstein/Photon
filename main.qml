@@ -85,7 +85,7 @@ ApplicationWindow {
         anchors.fill: parent
         hoverEnabled: true
         onEntered: videoArea.state = "active ui"
-        onExited:  videoArea.state = "inactive ui"
+        onExited: videoArea.state = "inactive ui"
         focus: true
         opacity: 0
         state: player.playbackState === MediaPlayer.PausedState ? "active ui" : "inactive ui"

@@ -367,19 +367,4 @@ ApplicationWindow {
         running: false
         duration: 500
     }
-
-    Item {
-        anchors.fill: parent
-
-        Timer {
-            id: timer
-            interval: 1000; running: true; repeat: true
-            onTriggered: time.text
-        }
-
-        Text {
-            id: time
-            anchors.centerIn: parent
-        }
-    }
 }

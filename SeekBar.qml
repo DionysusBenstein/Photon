@@ -27,18 +27,10 @@ Slider {
                                                      : (control.pressed || control.hovered ? 25 : 32)
     }
 
-    property int previousX
-    property int previousY
-
     MouseArea {
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
-        //enabled: false
-
-        onEntered: {
-            previousX = mouseX
-            previousY = mouseY
-        }
+        enabled: false
     }
 
     background: Rectangle {
@@ -77,8 +69,8 @@ Slider {
         id: handle
         x: control.leftPadding + control.visualPosition * (control.availableWidth - width)
         y: control.topPadding + control.availableHeight / 2 - height / 2
-        implicitWidth: isMaximize() || isFullScreen() ? (control.pressed || control.hovered ? 20 : 0)
-                                                      : (control.pressed || control.hovered ? 13 : 0)
+        implicitWidth:  isMaximize() || isFullScreen() ? (control.pressed || control.hovered ? 20 : 0)
+                                                       : (control.pressed || control.hovered ? 13 : 0)
         implicitHeight: isMaximize() || isFullScreen() ? (control.pressed || control.hovered ? 20 : 0)
                                                        : (control.pressed || control.hovered ? 13 : 0)
         radius: implicitWidth / 2

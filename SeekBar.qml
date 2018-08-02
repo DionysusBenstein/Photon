@@ -27,10 +27,17 @@ Slider {
                                                      : (control.pressed || control.hovered ? 25 : 32)
     }
 
+    property int previousX
+
     MouseArea {
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
-        enabled: false
+        //enabled: false
+        onPressed: previousX = mouseX
+        onMouseXChanged: {
+            var dx = mouseX - previousX
+            hoverRect.width = hoverRect.width + dx
+        }
     }
 
     background: Rectangle {
@@ -54,17 +61,6 @@ Slider {
         color: primaryColor
     }
 
-    //Rectangle {
-    //    anchors {
-    //        left: background.left
-    //        top: background.top
-    //        bottom: background.bottom
-    //    }
-    //
-    //    color: "#f2f2f2"
-    //    opacity: 0.63=
-    //}
-
     handle: Rectangle {
         id: handle
         x: control.leftPadding + control.visualPosition * (control.availableWidth - width)
@@ -80,5 +76,18 @@ Slider {
     onValueChanged: {
         player.seek(player.duration * control.value)
         videoArea.focus = true
+    }
+
+    Rectangle {
+        id: hoverRect
+        anchors {
+            left: background.left
+            top: background.top
+            bottom: background.bottom
+        }
+        width: 200
+
+        color: "#f2f2f2"
+        opacity: 0.63
     }
 }

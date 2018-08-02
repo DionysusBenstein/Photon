@@ -80,6 +80,12 @@ ApplicationWindow {
         source: player
     }
 
+    Image {
+        id: openFileIcon
+        anchors.centerIn: parent
+        source: "images/baseline-movie-24px-white.svg"
+    }
+
     MouseArea {
         id: videoArea
         anchors.fill: parent

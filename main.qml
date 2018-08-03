@@ -142,6 +142,16 @@ ApplicationWindow {
             sButtonIconAnim.running       = true
         }
 
+        Shortcut {
+            sequence: "F"
+            onActivated: isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+        }
+
+        Shortcut {
+            sequence: "M"
+            onActivated: volumeSlider.value === 0 ? volumeSlider.value = 1 : volumeSlider.value = 0
+        }
+
         Rectangle {
             id: buttonBackground
             width:  isMaximize() || isFullScreen() ? 78 : 54

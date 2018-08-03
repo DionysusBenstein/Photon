@@ -74,12 +74,6 @@ ApplicationWindow {
         autoPlay: true
     }
 
-    VideoOutput {
-        id: videoOutput
-        anchors.fill: parent
-        source: player
-    }
-
     //Hint
     Image {
         id: openIcon
@@ -92,12 +86,12 @@ ApplicationWindow {
 
         source: "images/open-file.png"
         fillMode: Image.PreserveAspectFit
-    }
 
-    MouseArea {
-        anchors.fill: openIcon
-        cursorShape: Qt.PointingHandCursor
-        onPressed: fileDialog.open()
+        MouseArea {
+            anchors.fill: parent
+            cursorShape: Qt.PointingHandCursor
+            onPressed: fileDialog.open()
+        }
     }
 
     Rectangle {
@@ -248,6 +242,12 @@ ApplicationWindow {
     }
     //Hint end
 
+    VideoOutput {
+        id: videoOutput
+        anchors.fill: parent
+        source: player
+    }
+
     MouseArea {
         id: videoArea
         anchors.fill: parent
@@ -333,6 +333,11 @@ ApplicationWindow {
         Shortcut {
             sequence: "Ctrl+A"
             onActivated: aboutWnd.open()
+        }
+
+        Shortcut {
+            sequence: "?"
+            onActivated: referenceWnd.open()
         }
 
         Shortcut {
@@ -434,6 +439,13 @@ ApplicationWindow {
                     text: qsTr("О программе...")
                     onTriggered: {
                         aboutWnd.open()
+                    }
+                }
+
+                MenuItem {
+                    text: qsTr("Справка")
+                    onTriggered: {
+                        referenceWnd.open()
                     }
                 }
 
@@ -541,6 +553,7 @@ ApplicationWindow {
     }
 
     About { id: aboutWnd }
+    Reference { id: referenceWnd }
 
     //Settings {
     //    id: settings

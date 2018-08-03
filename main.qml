@@ -80,6 +80,7 @@ ApplicationWindow {
         source: player
     }
 
+    //Hint
     Image {
         id: openIcon
         anchors {
@@ -205,6 +206,7 @@ ApplicationWindow {
             pixelSize: 20
         }
     }
+    //Hint end
 
     MouseArea {
         id: videoArea

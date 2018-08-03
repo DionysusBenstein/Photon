@@ -152,6 +152,17 @@ ApplicationWindow {
             onActivated: volumeSlider.value === 0 ? volumeSlider.value = 1 : volumeSlider.value = 0
         }
 
+        Shortcut {
+            sequence: "K"
+            onActivated: {
+                player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+                oButtonBackgroundAnim.running = true
+                sButtonBackgroundAnim.running = true
+                oButtonIconAnim.running       = true
+                sButtonIconAnim.running       = true
+            }
+        }
+
         Rectangle {
             id: buttonBackground
             width:  isMaximize() || isFullScreen() ? 78 : 54

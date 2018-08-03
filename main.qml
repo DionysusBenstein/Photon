@@ -92,6 +92,12 @@ ApplicationWindow {
 
         source: "images/open-file.png"
         fillMode: Image.PreserveAspectFit
+
+        MouseArea {
+            anchors.fill: parent
+            cursorShape: Qt.PointingHandCursor
+            onPressed: fileDialog.open()
+        }
     }
 
     Rectangle {
@@ -142,10 +148,44 @@ ApplicationWindow {
     ////////////////////////////////////////////
 
     Text {
-        id: referenceText
+        id: aboutText
         anchors {
             left: divider.left
             top: openFileText.bottom
+            topMargin: 5
+        }
+
+        text: "• О программе"
+        color: "#f1f1f1"
+        font {
+            family: robotoMediumFont.name
+            pixelSize: 20
+        }
+    }
+
+    Text {
+        id: aboutShortcut
+        anchors {
+            right: divider.right
+            top: openFileShortcut.bottom
+            topMargin: 5
+        }
+
+        text: "Ctrl + A  "
+        color: "#f1f1f1"
+        font {
+            family: robotoMediumFont.name
+            pixelSize: 20
+        }
+    }
+
+    ////////////////////////////////////////////
+
+    Text {
+        id: referenceText
+        anchors {
+            left: divider.left
+            top: aboutText.bottom
             topMargin: 5
         }
 
@@ -161,7 +201,7 @@ ApplicationWindow {
         id: referenceShortcut
         anchors {
             right: divider.right
-            top: openFileShortcut.bottom
+            top: aboutShortcut.bottom
             topMargin: 5
         }
 
@@ -245,10 +285,13 @@ ApplicationWindow {
         Keys.onLeftPressed:  player.seek(player.position - 5000)
         Keys.onSpacePressed: {
             player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-            oButtonBackgroundAnim.running = true
-            sButtonBackgroundAnim.running = true
-            oButtonIconAnim.running       = true
-            sButtonIconAnim.running       = true
+
+            if (player.hasVideo) {
+                oButtonBackgroundAnim.running = true
+                sButtonBackgroundAnim.running = true
+                oButtonIconAnim.running       = true
+                sButtonIconAnim.running       = true
+            }
         }
 
         onDoubleClicked: {
@@ -258,10 +301,13 @@ ApplicationWindow {
 
         onReleased: {
             player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-            oButtonBackgroundAnim.running = true
-            sButtonBackgroundAnim.running = true
-            oButtonIconAnim.running       = true
-            sButtonIconAnim.running       = true
+
+            if (player.hasVideo) {
+                oButtonBackgroundAnim.running = true
+                sButtonBackgroundAnim.running = true
+                oButtonIconAnim.running       = true
+                sButtonIconAnim.running       = true
+            }
         }
 
         Shortcut {
@@ -285,13 +331,21 @@ ApplicationWindow {
         }
 
         Shortcut {
+            sequence: "Ctrl+A"
+            onActivated: aboutWnd.open()
+        }
+
+        Shortcut {
             sequence: "K"
             onActivated: {
                 player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-                oButtonBackgroundAnim.running = true
-                sButtonBackgroundAnim.running = true
-                oButtonIconAnim.running       = true
-                sButtonIconAnim.running       = true
+
+                if (player.hasVideo) {
+                    oButtonBackgroundAnim.running = true
+                    sButtonBackgroundAnim.running = true
+                    oButtonIconAnim.running       = true
+                    sButtonIconAnim.running       = true
+                }
             }
         }
 

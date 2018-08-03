@@ -81,9 +81,9 @@ ApplicationWindow {
     }
 
     Image {
-        id: openFileIcon
+        id: openIcon
         anchors.centerIn: parent
-        source: "images/baseline-movie-24px-white.svg"
+        source: "images/open-file.svg"
     }
 
     MouseArea {

@@ -13,6 +13,6 @@
         <file>images/icons/youtube-64.ico</file>
         <file>images/icons/youtube-64.png</file>
         <file>images/icons/youtube.svg</file>
-        <file>images/open-file.svg</file>
+        <file>images/open-file.png</file>
     </qresource>
 </RCC>

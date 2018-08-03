@@ -190,7 +190,7 @@ Popup {
         }
 
         source: "images/icons/youtube.svg"
-        sourceSize.width:  110
+        sourceSize.width: 110
         sourceSize.height: 110
     }
 

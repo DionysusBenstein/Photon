@@ -27,6 +27,7 @@ Popup {
     clip:  true
     padding: 0
     Material.theme: Material.Light
+    Material.accent: "#4285f4"
 
     ToolBar {
         id: appBar
@@ -70,7 +71,16 @@ Popup {
         }
 
         placeholderText: "Опишите проблему или поделитель \nмнением"
-        Material.accent: "#4285f4"
+    }
+
+    CheckBox {
+        anchors {
+            left: parent.left
+            top: feedbackMessage.bottom
+            leftMargin: 8
+        }
+
+        text: "Прикрепить скриншот"
     }
 
     Button {

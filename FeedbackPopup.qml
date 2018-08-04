@@ -20,7 +20,7 @@ Popup {
     id: popup
     x: Math.round((parent.width - width) / 2)
     y: Math.round((parent.height - height) / 2)
-    width: 360; height: 400
+    width: 360; height: 480
     parent: Overlay.overlay
     modal: true
     focus: true
@@ -62,7 +62,7 @@ Popup {
 
     TextArea {
         id: feedbackMessage
-        height: 128
+        height: 100
         anchors {
             left: parent.left
             right: parent.right
@@ -74,6 +74,7 @@ Popup {
     }
 
     CheckBox {
+        id: cbScreenshot
         anchors {
             left: parent.left
             top: feedbackMessage.bottom
@@ -81,6 +82,19 @@ Popup {
         }
 
         text: "Прикрепить скриншот"
+    }
+
+    Rectangle {
+        height: 165
+        anchors {
+            left: parent.left
+            right: parent.right
+            //top: cbScreenshot.bottom
+            bottom: parent.bottom
+            bottomMargin: 52
+        }
+
+        color: "#eeeeee"
     }
 
     Button {

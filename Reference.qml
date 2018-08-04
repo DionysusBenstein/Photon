@@ -6,7 +6,7 @@ Popup {
     id: popup
     x: Math.round((parent.width - width) / 2)
     y: Math.round((parent.height - height) / 2)
-    width: 426; height: 320
+    width: 500; height: 320
     parent: Overlay.overlay
     modal: true
     focus: true
@@ -21,11 +21,11 @@ Popup {
     ListModel {
         id: referenceModel
 
-        ListElement { description: qsTr("Перемотать ролик на 10 секунд назад"); shortcut: "j"              }
-        ListElement { description: qsTr("Перемотать ролик на 10 секунд вперед"); shortcut: "l"             }
-        ListElement { description: qsTr("Включить или отключить звук"); shortcut: "m"                      }
-        ListElement { description: qsTr("Приостановить или продолжить воспроизведение"); shortcut: "k"     }
-        ListElement { description: qsTr("Включить или выключить полноэкранный режим"); shortcut: "f"       }
+        ListElement { description: qsTr("Перемотать ролик на 10 секунд назад"); shortcut: "J"              }
+        ListElement { description: qsTr("Перемотать ролик на 10 секунд вперед"); shortcut: "L"             }
+        ListElement { description: qsTr("Включить или отключить звук"); shortcut: "M"                      }
+        ListElement { description: qsTr("Приостановить или продолжить воспроизведение"); shortcut: "K"     }
+        ListElement { description: qsTr("Включить или выключить полноэкранный режим"); shortcut: "F"       }
         ListElement { description: qsTr("Перемотать ролик на 5 секунд назад"); shortcut: "Стрелка влево"   }
         ListElement { description: qsTr("Перемотать ролик на 5 секунд вперед"); shortcut: "Стрелка вправо" }
         ListElement { description: qsTr("Увеличить громкость на 5%"); shortcut: "Стрелка вверх"            }

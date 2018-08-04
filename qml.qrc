@@ -5,8 +5,9 @@
         <file>SeekBar.qml</file>
         <file>VolumeSlider.qml</file>
         <file>About.qml</file>
-        <file>Reference.qml</file>
         <file>Shortcuts.qml</file>
         <file>ContextMenu.qml</file>
+        <file>ReferencePopup.qml</file>
+        <file>FeedbackPopup.qml</file>
     </qresource>
 </RCC>

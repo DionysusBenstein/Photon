@@ -514,10 +514,10 @@ ApplicationWindow {
         }
     }
 
-    About { id: aboutWnd }
-    Reference { id: referenceWnd }
-    ContextMenu { id: contextMenu }
-    Shortcuts { }
+    ReferencePopup { id: referenceWnd }
+    ContextMenu    { id: contextMenu  }
+    Shortcuts      {                  }
+    About          { id: aboutWnd     }
 
     OpacityAnimator {
         id: oButtonBackgroundAnim

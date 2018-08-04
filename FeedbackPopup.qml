@@ -20,7 +20,15 @@ Popup {
     id: popup
     x: Math.round((parent.width - width) / 2)
     y: Math.round((parent.height - height) / 2)
-    width: 360; height: 480
+    width: 360
+    height: {
+        if (cbScreenshot.checked) {
+            480
+        } else {
+            300
+        }
+    }
+
     parent: Overlay.overlay
     modal: true
     focus: true
@@ -62,7 +70,7 @@ Popup {
 
     TextArea {
         id: feedbackMessage
-        height: 100
+        height: 128
         anchors {
             left: parent.left
             right: parent.right
@@ -81,15 +89,17 @@ Popup {
             leftMargin: 8
         }
 
-        text: "Прикрепить скриншот"
+        text: " Прикрепить скриншот"
+        checked: true
     }
 
     Rectangle {
+        id: screenshotRect
         height: 165
         anchors {
             left: parent.left
             right: parent.right
-            //top: cbScreenshot.bottom
+            top: cbScreenshot.bottom
             bottom: parent.bottom
             bottomMargin: 52
         }
@@ -125,6 +135,15 @@ Popup {
         Material.foreground: "#757575"
         flat: true
         onClicked: popup.close()
+    }
+
+
+    NumberAnimation {
+        id: anim
+        target: popup
+        property: "height"
+        duration: 200
+        easing.type: Easing.InOutQuad
     }
 }
 

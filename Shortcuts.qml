@@ -3,26 +3,6 @@ import QtMultimedia 5.9
 
 Item {
     Shortcut {
-        sequence: "Home"
-        onActivated: seekBar.value = 0
-    }
-
-    Shortcut {
-        sequence: "End"
-        onActivated: seekBar.value = 1
-    }
-
-    Shortcut {
-        sequence: "F"
-        onActivated: isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
-    }
-
-    Shortcut {
-        sequence: "M"
-        onActivated: volumeSlider.value === 0 ? volumeSlider.value = 1 : volumeSlider.value = 0
-    }
-
-    Shortcut {
         sequence: "J"
         onActivated: player.seek(player.position - 10000)
     }
@@ -33,6 +13,21 @@ Item {
     }
 
     Shortcut {
+        sequence: "F"
+        onActivated: isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+    }
+
+    Shortcut {
+        sequence: "Home"
+        onActivated: seekBar.value = 0
+    }
+
+    Shortcut {
+        sequence: "End"
+        onActivated: seekBar.value = 1
+    }
+
+    Shortcut {
         sequence: "Ctrl+A"
         onActivated: aboutWnd.open()
     }
@@ -40,6 +35,11 @@ Item {
     Shortcut {
         sequence: "?"
         onActivated: referenceWnd.open()
+    }
+
+    Shortcut {
+        sequence: "M"
+        onActivated: volumeSlider.value === 0 ? volumeSlider.value = 1 : volumeSlider.value = 0
     }
 
     Shortcut {

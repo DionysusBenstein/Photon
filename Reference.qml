@@ -21,15 +21,18 @@ Popup {
     ListModel {
         id: referenceModel
 
-        ListElement { description: qsTr("Шифр Цезаря"); shortcut: "#4285f4"      }
-        ListElement { description: qsTr("Шифр Вернама"); shortcut: "#e91e63"     }
-        ListElement { description: qsTr("Шифр Виженера"); shortcut: "#f44336"    }
-        ListElement { description: qsTr("Шифр Гронсфельда"); shortcut: "#673ab7" }
-        ListElement { description: qsTr("Азбука Морзе"); shortcut: "#3f51b5"     }
-        ListElement { description: qsTr("Алгоритм Энигмы"); shortcut: "#9c27b0"  }
-        ListElement { description: qsTr("Настройки"); shortcut: "#424242"        }
-        ListElement { description: qsTr("О программе"); shortcut: "#ff9269"      }
-        ListElement { description: qsTr("Выход"); shortcut: "#e81123"            }
+        ListElement { description: qsTr("Перемотать ролик на 10 секунд назад"); shortcut: "j" }
+        ListElement { description: qsTr("Перемотать ролик на 10 секунд вперед"); shortcut: "l" }
+        ListElement { description: qsTr("Включить или отключить звук"); shortcut: "m" }
+        ListElement { description: qsTr("Приостановить или продолжить воспроизведение"); shortcut: "k" }
+        ListElement { description: qsTr("Включить или выключить полноэкранный режим"); shortcut: "f" }
+        ListElement { description: qsTr("Перемотать ролик на 5 секунд назад"); shortcut: "Стрелка влево" }
+        ListElement { description: qsTr("Перемотать ролик на 5 секунд вперед"); shortcut: "Стрелка вправо" }
+        ListElement { description: qsTr("Увеличить громкость на 5%"); shortcut: "Стрелка вверх" }
+        ListElement { description: qsTr("Уменьшить громкость на 5%"); shortcut: "Стрелка вниз"  }
+        ListElement { description: qsTr("Закрыть диалоговое оконо"); shortcut: "Esc" }
+        ListElement { description: qsTr("Перейти к началу ролика"); shortcut: "Home" }
+        ListElement { description: qsTr("Перейти к концу видео"); shortcut: "End" }
     }
 
     ListView {

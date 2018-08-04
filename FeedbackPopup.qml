@@ -57,6 +57,41 @@ Popup {
             }
         }
     }
+
+    Button {
+        id: doneButton
+        anchors {
+            right: parent.right
+            bottom: parent.bottom
+            bottomMargin: 2
+            rightMargin: 8
+        }
+
+        text: qsTr("Отправить")
+        Material.foreground: primaryColor
+        flat: true
+        onClicked: popup.close()
+    }
+
+    Button {
+        id: cancelButton
+        anchors {
+            right: doneButton.left
+            bottom: parent.bottom
+            rightMargin: 8
+            bottomMargin: 2
+        }
+
+        text: qsTr("Отмена")
+        Material.foreground: primaryColor
+        flat: true
+        onClicked: {
+            primaryColor =
+            lightColor = currentLightColor
+            darkColor = currentDarkColor
+            popup.close()
+        }
+    }
 }
 
 

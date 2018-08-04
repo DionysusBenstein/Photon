@@ -1,6 +1,6 @@
 /*******************************************************************/
 
-/* Original File Name: Reference.qml                               */
+/* Original File Name: FeedbackPopup.qml                           */
 
 /* Date: 04-08-2018                                                */
 
@@ -8,7 +8,7 @@
 
 /* Copyright © 2018 Dionysus Benstein. All rights reserved.        */
 
-/* Description: Всплывающее меню с информацие о хоткеях.           */
+/* Description: Всплывающее окно для отправки отзывов.             */
 
 /*******************************************************************/
 
@@ -100,7 +100,7 @@ Popup {
             leftMargin: 8
         }
 
-        text: " Прикрепить скриншот"
+        text: qsTr(" Прикрепить скриншот")
         checked: true
     }
 

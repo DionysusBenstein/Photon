@@ -21,16 +21,7 @@ Popup {
     x: Math.round((parent.width - width) / 2)
     y: Math.round((parent.height - height) / 2)
     width: 360
-    height: {
-        if (cbScreenshot.checked) {
-            //480
-            anim2.running = true
-        } else {
-            //300
-            anim1.running = true
-        }
-    }
-
+    height: cbScreenshot.checked ? minToMax.running = true : maxToMin.running = true
     parent: Overlay.overlay
     modal: true
     focus: true
@@ -140,7 +131,7 @@ Popup {
     }
 
     NumberAnimation {
-        id: anim1
+        id: maxToMin
         target: popup
         property: "height"
         from: 480; to: 300
@@ -150,7 +141,7 @@ Popup {
     }
 
     NumberAnimation {
-        id: anim2
+        id: minToMax
         target: popup
         property: "height"
         from: 300; to: 480

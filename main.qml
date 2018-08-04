@@ -564,7 +564,7 @@ ApplicationWindow {
 
     About { id: aboutWnd }
     Reference { id: referenceWnd }
-    Shortcuts {}
+    Shortcuts { }
 
     //Settings {
     //    id: settings

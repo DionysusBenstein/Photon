@@ -46,7 +46,7 @@ Popup {
                 anchors {
                     verticalCenter: parent.verticalCenter
                     left: parent.left
-                    margins: 19
+                    margins: 16
                 }
 
                 text: "Отправить отзыв"
@@ -57,6 +57,20 @@ Popup {
                 }
             }
         }
+    }
+
+    TextArea {
+        id: feedbackMessage
+        height: 128
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: appBar.bottom
+            margins: 16
+        }
+
+        placeholderText: "Опишите проблему или поделитель \nмнением"
+        Material.accent: "#4285f4"
     }
 
     Button {

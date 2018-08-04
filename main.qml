@@ -292,13 +292,11 @@ ApplicationWindow {
         Keys.onUpPressed: volumeSlider.value += 0.05
         Keys.onDownPressed: volumeSlider.value -= 0.05
         Keys.onSpacePressed: {
-            if (player.hasVideo && mouse.button === Qt.LeftButton) {
-                player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-                oButtonBackgroundAnim.running = true
-                sButtonBackgroundAnim.running = true
-                oButtonIconAnim.running       = true
-                sButtonIconAnim.running       = true
-            }
+            player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+            oButtonBackgroundAnim.running = true
+            sButtonBackgroundAnim.running = true
+            oButtonIconAnim.running       = true
+            sButtonIconAnim.running       = true
         }
 
         onDoubleClicked: {

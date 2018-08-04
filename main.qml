@@ -286,7 +286,7 @@ ApplicationWindow {
         ]
 
         acceptedButtons: Qt.LeftButton | Qt.RightButton
-        onClicked: if (mouse.button === Qt.RightButton && player.hasVideo) contextMenu.popup()
+        onClicked: if (mouse.button === Qt.RightButton) contextMenu.popup()
         Keys.onRightPressed: player.seek(player.position + 5000)
         Keys.onLeftPressed:  player.seek(player.position - 5000)
         Keys.onUpPressed: volumeSlider.value += 0.05

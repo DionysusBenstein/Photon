@@ -14,16 +14,26 @@
 
 import QtQuick 2.11
 import QtQuick.Controls 2.4
+import QtQuick.Controls.Material 2.3
 
 Menu {
     id: contextMenu
     width: 325
 
     property alias isLoops: repeatSwitch.checked
+    property alias repeatSwitchCheckable: repeatSwitch.checkable
 
     MenuItem {
         text: qsTr("Повтор")
-        Switch { id: repeatSwitch; anchors.right: parent.right }
+
+        Switch {
+            id: repeatSwitch
+            anchors {
+                right: parent.right
+                rightMargin: 2
+            }
+        }
+
         onTriggered: repeatSwitch.toggle()
     }
 

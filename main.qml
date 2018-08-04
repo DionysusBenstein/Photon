@@ -407,7 +407,7 @@ ApplicationWindow {
                 MenuItem {
                     text: qsTr("Справка")
                     onTriggered: {
-                        referenceWnd.open()
+                        referencePopup.open()
                     }
                 }
 
@@ -514,10 +514,11 @@ ApplicationWindow {
         }
     }
 
-    ReferencePopup { id: referenceWnd }
-    ContextMenu    { id: contextMenu  }
-    Shortcuts      {                  }
-    About          { id: aboutWnd     }
+    ReferencePopup { id: referencePopup }
+    FeedbackPopup  { id: feedbackPopup  }
+    ContextMenu    { id: contextMenu    }
+    Shortcuts      {                    }
+    About          { id: aboutWnd       }
 
     OpacityAnimator {
         id: oButtonBackgroundAnim

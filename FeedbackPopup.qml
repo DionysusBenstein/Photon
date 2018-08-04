@@ -20,7 +20,7 @@ Popup {
     id: popup
     x: Math.round((parent.width - width) / 2)
     y: Math.round((parent.height - height) / 2)
-    width: 500; height: 320
+    width: 360; height: 400
     parent: Overlay.overlay
     modal: true
     focus: true

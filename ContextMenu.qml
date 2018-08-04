@@ -37,9 +37,10 @@ Menu {
         onTriggered: repeatSwitch.toggle()
     }
 
-//    MenuItem {
-//        text: qsTr("Решить проблему с воспроизведением")
-//    }
+    MenuItem {
+        text: qsTr("Решить проблему с воспроизведением")
+        onTriggered: feedbackPopup.open()
+    }
 
     MenuItem {
         text: qsTr("Статистика для разработчиков")

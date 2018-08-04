@@ -48,7 +48,7 @@ Item {
 
     Shortcut {
         sequence: "?"
-        onActivated: referenceWnd.open()
+        onActivated: referencePopup.open()
     }
 
     Shortcut {

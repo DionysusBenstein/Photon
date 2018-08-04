@@ -16,7 +16,6 @@ import QtQuick 2.11
 import QtMultimedia 5.9
 import QtQuick.Dialogs 1.3
 import QtQuick.Controls 2.4
-import Qt.labs.settings 1.0
 import QtQuick.Controls.Material 2.3
 
 ApplicationWindow {
@@ -277,8 +276,18 @@ ApplicationWindow {
 
         Keys.onRightPressed: player.seek(player.position + 5000)
         Keys.onLeftPressed:  player.seek(player.position - 5000)
-        Keys.onUpPressed: player.volume + 0.05
-        Keys.onDownPressed: player.volume - 0.05
+        Keys.onUpPressed: {
+            var a = volumeSlider.value
+            a + 0.05
+            console.log("up key pressed")
+        }
+
+        Keys.onDownPressed: {
+            var a = volumeSlider.value
+            a - 0.05
+            console.log("down key pressed")
+        }
+
         Keys.onSpacePressed: {
             player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
 
@@ -507,13 +516,6 @@ ApplicationWindow {
     About { id: aboutWnd }
     Reference { id: referenceWnd }
     Shortcuts { }
-
-    //Settings {
-    //    id: settings
-    //    property alias position: player.position
-    //    property alias duration: player.duration
-    //    property alias source: player.source
-    //}
 
     OpacityAnimator {
         id: oButtonBackgroundAnim

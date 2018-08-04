@@ -71,6 +71,7 @@ ApplicationWindow {
         volume: volumeSlider.value
         audioRole: MediaPlayer.VideoRole
         autoPlay: true
+        loops: contextMenu.isLoops ? MediaPlayer.Infinite : 0
     }
 
     //Hint
@@ -284,20 +285,22 @@ ApplicationWindow {
             }
         ]
 
-        acceptedButtons: Qt.RightButton
-        onClicked: contextMenu.popup()
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        onClicked: if (mouse.button === Qt.RightButton) contextMenu.popup()
         Keys.onRightPressed: player.seek(player.position + 5000)
         Keys.onLeftPressed:  player.seek(player.position - 5000)
         Keys.onUpPressed: volumeSlider.value += 0.05
         Keys.onDownPressed: volumeSlider.value -= 0.05
         Keys.onSpacePressed: {
-            player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+            if (mouse.button === Qt.LeftButton) {
+                player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
 
-            if (player.hasVideo) {
-                oButtonBackgroundAnim.running = true
-                sButtonBackgroundAnim.running = true
-                oButtonIconAnim.running       = true
-                sButtonIconAnim.running       = true
+                if (player.hasVideo) {
+                    oButtonBackgroundAnim.running = true
+                    sButtonBackgroundAnim.running = true
+                    oButtonIconAnim.running       = true
+                    sButtonIconAnim.running       = true
+                }
             }
         }
 
@@ -307,13 +310,15 @@ ApplicationWindow {
         }
 
         onReleased: {
-            player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+            if (mouse.button === Qt.LeftButton) {
+                player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
 
-            if (player.hasVideo) {
-                oButtonBackgroundAnim.running = true
-                sButtonBackgroundAnim.running = true
-                oButtonIconAnim.running       = true
-                sButtonIconAnim.running       = true
+                if (player.hasVideo) {
+                    oButtonBackgroundAnim.running = true
+                    sButtonBackgroundAnim.running = true
+                    oButtonIconAnim.running       = true
+                    sButtonIconAnim.running       = true
+                }
             }
         }
 

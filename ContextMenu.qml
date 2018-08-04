@@ -19,13 +19,20 @@ Menu {
     id: contextMenu
     width: 325
 
+    property alias isLoops: repeatSwitch.checked
+
     MenuItem {
-        text: qsTr("Повтор");
+        text: qsTr("Повтор")
         Switch { id: repeatSwitch; anchors.right: parent.right }
         onTriggered: repeatSwitch.toggle()
     }
 
-    MenuItem { text: qsTr("Решить проблему с воспроизведением"); }
-    MenuItem { text: qsTr("Статистика для разработчиков"); }
+//    MenuItem {
+//        text: qsTr("Решить проблему с воспроизведением")
+//    }
+
+    MenuItem {
+        text: qsTr("Статистика для разработчиков")
+    }
 }
 

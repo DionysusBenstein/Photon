@@ -26,6 +26,37 @@ Popup {
     focus: true
     clip:  true
     padding: 0
+
+    ToolBar {
+        id: appBar
+        height: 56
+        anchors {
+            left: parent.left
+            right: parent.right
+        }
+
+        Rectangle {
+            id: appBarRect
+            anchors.fill: parent
+            color: "#4285f4"
+
+            Text {
+                id: headerText
+                anchors {
+                    verticalCenter: parent.verticalCenter
+                    left: parent.left
+                    margins: 19
+                }
+
+                text: "Отправить отзыв"
+                color: "white"
+                font {
+                    family: robotoMediumFont.name
+                    pointSize: 15
+                }
+            }
+        }
+    }
 }
 
 

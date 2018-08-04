@@ -23,9 +23,11 @@ Popup {
     width: 360
     height: {
         if (cbScreenshot.checked) {
-            480
+            //480
+            anim2.running = true
         } else {
-            300
+            //300
+            anim1.running = true
         }
     }
 
@@ -137,14 +139,23 @@ Popup {
         onClicked: popup.close()
     }
 
-
     NumberAnimation {
-        id: anim
+        id: anim1
         target: popup
         property: "height"
+        from: 480; to: 300
         duration: 200
+        running: false
+        easing.type: Easing.InOutQuad
+    }
+
+    NumberAnimation {
+        id: anim2
+        target: popup
+        property: "height"
+        from: 300; to: 480
+        duration: 200
+        running: false
         easing.type: Easing.InOutQuad
     }
 }
-
-

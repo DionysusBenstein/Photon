@@ -7,5 +7,6 @@
         <file>About.qml</file>
         <file>Reference.qml</file>
         <file>Shortcuts.qml</file>
+        <file>ContextMenu.qml</file>
     </qresource>
 </RCC>

@@ -83,6 +83,7 @@ ApplicationWindow {
             topMargin: 100
         }
 
+        visible: player.hasVideo ? false : true
         source: "images/open-file.png"
         fillMode: Image.PreserveAspectFit
     }
@@ -97,6 +98,7 @@ ApplicationWindow {
             topMargin: 5
         }
 
+        visible: player.hasVideo ? false : true
         color: "#f1f1f1"
     }
 
@@ -108,6 +110,7 @@ ApplicationWindow {
             topMargin: 10
         }
 
+        visible: player.hasVideo ? false : true
         text: "• Открыть файл"
         color: "#f1f1f1"
         font {
@@ -124,6 +127,7 @@ ApplicationWindow {
             topMargin: 10
         }
 
+        visible: player.hasVideo ? false : true
         text: "Ctrl + O  "
         color: "#f1f1f1"
         font {
@@ -142,6 +146,7 @@ ApplicationWindow {
             topMargin: 5
         }
 
+        visible: player.hasVideo ? false : true
         text: "• О программе"
         color: "#f1f1f1"
         font {
@@ -158,6 +163,7 @@ ApplicationWindow {
             topMargin: 5
         }
 
+        visible: player.hasVideo ? false : true
         text: "Ctrl + A  "
         color: "#f1f1f1"
         font {
@@ -176,6 +182,7 @@ ApplicationWindow {
             topMargin: 5
         }
 
+        visible: player.hasVideo ? false : true
         text: "• Справка"
         color: "#f1f1f1"
         font {
@@ -192,6 +199,7 @@ ApplicationWindow {
             topMargin: 5
         }
 
+        visible: player.hasVideo ? false : true
         text: "?  "
         color: "#f1f1f1"
         font {
@@ -210,6 +218,7 @@ ApplicationWindow {
             topMargin: 5
         }
 
+        visible: player.hasVideo ? false : true
         text: "• Выйти"
         color: "#f1f1f1"
         font {
@@ -226,6 +235,7 @@ ApplicationWindow {
             topMargin: 5
         }
 
+        visible: player.hasVideo ? false : true
         text: "Ctrl + Q  "
         color: "#f1f1f1"
         font {
@@ -274,6 +284,8 @@ ApplicationWindow {
             }
         ]
 
+        acceptedButtons: Qt.RightButton
+        onClicked: contextMenu.popup()
         Keys.onRightPressed: player.seek(player.position + 5000)
         Keys.onLeftPressed:  player.seek(player.position - 5000)
         Keys.onUpPressed: volumeSlider.value += 0.05
@@ -505,6 +517,7 @@ ApplicationWindow {
 
     About { id: aboutWnd }
     Reference { id: referenceWnd }
+    ContextMenu { id: contextMenu }
     Shortcuts { }
 
     OpacityAnimator {

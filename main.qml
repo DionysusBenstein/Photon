@@ -283,8 +283,8 @@ ApplicationWindow {
 
         Keys.onRightPressed: player.seek(player.position + 5000)
         Keys.onLeftPressed:  player.seek(player.position - 5000)
-        Keys.onUpPressed: volumeSlider.value + 0.05
-        Keys.onDownPressed: volumeSlider.value - 0.05
+        Keys.onUpPressed: player.volume + 0.05
+        Keys.onDownPressed: player.volume - 0.05
         Keys.onSpacePressed: {
             player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
 

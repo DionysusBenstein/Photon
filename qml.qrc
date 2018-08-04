@@ -4,10 +4,10 @@
         <file>qtquickcontrols2.conf</file>
         <file>SeekBar.qml</file>
         <file>VolumeSlider.qml</file>
-        <file>About.qml</file>
         <file>Shortcuts.qml</file>
         <file>ContextMenu.qml</file>
         <file>ReferencePopup.qml</file>
         <file>FeedbackPopup.qml</file>
+        <file>AboutPopup.qml</file>
     </qresource>
 </RCC>

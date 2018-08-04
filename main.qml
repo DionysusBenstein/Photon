@@ -517,8 +517,8 @@ ApplicationWindow {
     ReferencePopup { id: referencePopup }
     FeedbackPopup  { id: feedbackPopup  }
     ContextMenu    { id: contextMenu    }
+    AboutPopup     { id: aboutWnd       }
     Shortcuts      {                    }
-    About          { id: aboutWnd       }
 
     OpacityAnimator {
         id: oButtonBackgroundAnim

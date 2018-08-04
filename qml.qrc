@@ -6,5 +6,6 @@
         <file>VolumeSlider.qml</file>
         <file>About.qml</file>
         <file>Reference.qml</file>
+        <file>Shortcuts.qml</file>
     </qresource>
 </RCC>

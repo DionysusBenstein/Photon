@@ -86,12 +86,6 @@ ApplicationWindow {
 
         source: "images/open-file.png"
         fillMode: Image.PreserveAspectFit
-
-        MouseArea {
-            anchors.fill: parent
-            cursorShape: Qt.PointingHandCursor
-            onPressed: fileDialog.open()
-        }
     }
 
     Rectangle {

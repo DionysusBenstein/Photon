@@ -26,6 +26,7 @@ Popup {
     focus: true
     clip:  true
     padding: 0
+    Material.theme: Material.Light
     background: Rectangle {
         color: "#0d0d0d"
         opacity: 0.85

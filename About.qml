@@ -26,6 +26,7 @@ Popup {
     focus: true
     clip:  true
     padding: 0
+    Material.theme: Material.Light
 
     Rectangle {
         anchors.fill: parent

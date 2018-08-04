@@ -26,6 +26,7 @@ Popup {
     focus: true
     clip:  true
     padding: 0
+    Material.theme: Material.Light
 
     ToolBar {
         id: appBar
@@ -68,7 +69,7 @@ Popup {
         }
 
         text: qsTr("Отправить")
-        Material.foreground: primaryColor
+        Material.foreground: "#4285f4"
         flat: true
         onClicked: popup.close()
     }
@@ -83,14 +84,9 @@ Popup {
         }
 
         text: qsTr("Отмена")
-        Material.foreground: primaryColor
+        Material.foreground: "#757575"
         flat: true
-        onClicked: {
-            primaryColor =
-            lightColor = currentLightColor
-            darkColor = currentDarkColor
-            popup.close()
-        }
+        onClicked: popup.close()
     }
 }
 

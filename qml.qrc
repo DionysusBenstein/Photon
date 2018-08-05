@@ -11,5 +11,6 @@
         <file>Hint.qml</file>
         <file>StatisticsPopup.qml</file>
         <file>Timeline.qml</file>
+        <file>Splashscreen.qml</file>
     </qresource>
 </RCC>

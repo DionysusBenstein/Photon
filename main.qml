@@ -74,6 +74,12 @@ ApplicationWindow {
         loops: contextMenu.isLoops ? MediaPlayer.Infinite : 0
     }
 
+    VideoOutput {
+        id: videoOutput
+        anchors.fill: parent
+        source: player
+    }
+
     //Hint
     Image {
         id: openIcon
@@ -245,12 +251,6 @@ ApplicationWindow {
         }
     }
     //Hint end
-
-    VideoOutput {
-        id: videoOutput
-        anchors.fill: parent
-        source: player
-    }
 
     MouseArea {
         id: videoArea

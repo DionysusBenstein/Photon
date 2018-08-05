@@ -340,12 +340,13 @@ ApplicationWindow {
         }
     }
 
-    ReferencePopup { id: referencePopup }
-    FeedbackPopup  { id: feedbackPopup  }
-    ContextMenu    { id: contextMenu    }
-    AboutPopup     { id: aboutWnd       }
-    Shortcuts      {                    }
-    Hint           {                    }
+    StatisticsPopup {                    }
+    ReferencePopup  { id: referencePopup }
+    FeedbackPopup   { id: feedbackPopup  }
+    ContextMenu     { id: contextMenu    }
+    AboutPopup      { id: aboutWnd       }
+    Shortcuts       {                    }
+    Hint            {                    }
 
     OpacityAnimator {
         id: oButtonBackgroundAnim

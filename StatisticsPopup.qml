@@ -33,76 +33,7 @@ Popup {
         radius: 2
     }
 
-    ListModel {
-        id: referenceModel
 
-        ListElement { description: qsTr("Перемотать ролик на 10 секунд назад"); shortcut: "J"              }
-        ListElement { description: qsTr("Перемотать ролик на 10 секунд вперед"); shortcut: "L"             }
-        ListElement { description: qsTr("Включить или отключить звук"); shortcut: "M"                      }
-        ListElement { description: qsTr("Приостановить или продолжить воспроизведение"); shortcut: "K"     }
-        ListElement { description: qsTr("Включить или выключить полноэкранный режим"); shortcut: "F"       }
-        ListElement { description: qsTr("Показать справку о горячих клавишах"); shortcut: "?"              }
-        ListElement { description: qsTr("Открыть файл"); shortcut: "Ctrl + O"                              }
-        ListElement { description: qsTr("Показать информацию о программе"); shortcut: "Ctrl + A"           }
-        ListElement { description: qsTr("Перемотать ролик на 5 секунд назад"); shortcut: "Стрелка влево"   }
-        ListElement { description: qsTr("Перемотать ролик на 5 секунд вперед"); shortcut: "Стрелка вправо" }
-        ListElement { description: qsTr("Увеличить громкость на 5%"); shortcut: "Стрелка вверх"            }
-        ListElement { description: qsTr("Уменьшить громкость на 5%"); shortcut: "Стрелка вниз"             }
-        ListElement { description: qsTr("Закрыть диалоговое оконо"); shortcut: "Esc"                       }
-        ListElement { description: qsTr("Перейти к началу ролика"); shortcut: "Home"                       }
-        ListElement { description: qsTr("Перейти к концу видео"); shortcut: "End"                          }
-    }
-
-    ListView {
-        anchors.fill: parent
-        delegate: ItemDelegate {
-            id: itemDelegate
-            height: 48
-            anchors {
-                left: parent.left
-                right: parent.right
-            }
-
-            Text {
-                text: description
-                anchors {
-                    verticalCenter: parent.verticalCenter
-                    left: parent.left
-                    leftMargin: 16
-                }
-
-                font {
-                    pixelSize: 14
-                    family: robotoMediumFont.name
-                }
-
-                color: "#f1f1f1"
-                renderType: Text.NativeRendering
-                horizontalAlignment: Text.AlignLeft
-                verticalAlignment: Text.AlignVCenter
-            }
-
-            Text {
-                text: shortcut
-                anchors {
-                    verticalCenter: parent.verticalCenter
-                    right: parent.right
-                    rightMargin: 16
-                }
-
-                font {
-                    pixelSize: 14
-                    family: robotoMediumFont.name
-                }
-
-                color: "#f1f1f1"
-                renderType: Text.NativeRendering
-                horizontalAlignment: Text.AlignLeft
-                verticalAlignment: Text.AlignVCenter
-            }
-        }
-        model: referenceModel
-    }
 }
 
 

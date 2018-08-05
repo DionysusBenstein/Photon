@@ -22,6 +22,7 @@ Menu {
 
     property alias isLoops: repeatSwitch.checked
     property alias repeatSwitchCheckable: repeatSwitch.checkable
+    property alias repeatSwitchChecked: repeatSwitch.checked
 
     MenuItem {
         text: qsTr("Повтор")

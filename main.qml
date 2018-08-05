@@ -16,6 +16,7 @@ import QtQuick 2.11
 import QtMultimedia 5.9
 import QtQuick.Dialogs 1.3
 import QtQuick.Controls 2.4
+import Qt.labs.settings 1.0
 import QtQuick.Controls.Material 2.3
 
 ApplicationWindow {
@@ -347,6 +348,11 @@ ApplicationWindow {
       AboutPopup      { id: aboutWnd       }
       Shortcuts       {                    }
       Hint            {                    }
+
+    Settings {
+        id: settings
+        property alias repeatSwitchChecked: contextMenu.repeatSwitchChecked
+    }
 
     OpacityAnimator {
         id: oButtonBackgroundAnim

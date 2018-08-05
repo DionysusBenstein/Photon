@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>qtquickcontrols2.conf</file>
-        <file>SeekBar.qml</file>
         <file>VolumeSlider.qml</file>
         <file>Shortcuts.qml</file>
         <file>ContextMenu.qml</file>
@@ -11,5 +10,6 @@
         <file>AboutPopup.qml</file>
         <file>Hint.qml</file>
         <file>StatisticsPopup.qml</file>
+        <file>Timeline.qml</file>
     </qresource>
 </RCC>

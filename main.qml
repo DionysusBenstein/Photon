@@ -14,6 +14,7 @@
 
 import QtQuick 2.11
 import QtMultimedia 5.9
+import "utils.js" as Utils
 import QtQuick.Dialogs 1.3
 import QtQuick.Controls 2.4
 import Qt.labs.settings 1.0
@@ -30,30 +31,30 @@ ApplicationWindow {
     readonly property color primaryColor: "#ff0000"
     readonly property color lightColor: "#ff5a36"
     readonly property color darkColor: "#c20000"
-    property string appVersion: "0.1.0"
+    readonly property string appVersion: "0.1.0"
 
-    function isMaximize() {
-        return mainWindow.visibility === ApplicationWindow.Maximized;
-    }
+//    function isMaximize() {
+//        return mainWindow.visibility === ApplicationWindow.Maximized;
+//    }
 
-    function isFullScreen() {
-        return mainWindow.visibility === ApplicationWindow.FullScreen;
-    }
+//    function isFullScreen() {
+//        return mainWindow.visibility === ApplicationWindow.FullScreen;
+//    }
 
-    function msToTime(duration) {
-        var seconds = parseInt((duration / 1000) % 60);
-        var minutes = parseInt((duration / (1000 * 60)) % 60);
-        var hours   = parseInt((duration / (1000 * 60 * 60)) % 60);
+//    function msToTime(duration) {
+//        var seconds = parseInt((duration / 1000) % 60);
+//        var minutes = parseInt((duration / (1000 * 60)) % 60);
+//        var hours   = parseInt((duration / (1000 * 60 * 60)) % 60);
 
-        seconds = (seconds < 10) ? "0" + seconds : seconds;
+//        seconds = (seconds < 10) ? "0" + seconds : seconds;
 
-        if (hours !==  0) {
-            minutes = (minutes < 10) ? "0" + minutes : minutes;
-            return hours + ":" + minutes + ":" + seconds;
-        } else {
-            return minutes + ":" + seconds;
-        }
-    }
+//        if (hours !==  0) {
+//            minutes = (minutes < 10) ? "0" + minutes : minutes;
+//            return hours + ":" + minutes + ":" + seconds;
+//        } else {
+//            return minutes + ":" + seconds;
+//        }
+//    }
 
     FontLoader { id: robotoThinFont; source: "fonts/Roboto-Thin_0.ttf"       }
     FontLoader { id: robotoLightFont; source: "fonts/Roboto-Light.ttf"       }
@@ -129,8 +130,8 @@ ApplicationWindow {
         }
 
         onDoubleClicked: {
-            isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
-            isMaximize() || isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+            Utils.isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
+            Utils.isMaximize() || Utils.isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
         }
 
         onReleased: {
@@ -145,8 +146,8 @@ ApplicationWindow {
 
         Rectangle {
             id: buttonBackground
-            width:  isMaximize() || isFullScreen() ? 78 : 54
-            height: isMaximize() || isFullScreen() ? 78 : 54
+            width:  Utils.isMaximize() || Utils.isFullScreen() ? 78 : 54
+            height: Utils.isMaximize() || Utils.isFullScreen() ? 78 : 54
             anchors.centerIn: parent
             radius: width / 2
             color: "#0d0d0d"
@@ -160,10 +161,10 @@ ApplicationWindow {
             opacity: 0
             source: {
                 if (player.playbackState === MediaPlayer.PlayingState) {
-                    isMaximize() || isFullScreen() ? "images/baseline_play_arrow_white_24dp.png"
+                    Utils.isMaximize() || Utils.isFullScreen() ? "images/baseline_play_arrow_white_24dp.png"
                                                    : "images/baseline_play_arrow_white_16dp.png"
                 } else {
-                    isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png"
+                    Utils.isMaximize() || Utils.isFullScreen() ? "images/baseline_pause_white_24dp.png"
                                                    : "images/baseline_pause_white_16dp.png"
                 }
             }
@@ -172,7 +173,7 @@ ApplicationWindow {
         Rectangle {
             id: topShadow
             width: parent.width
-            height: isMaximize() || isFullScreen() ? 109 : 76
+            height: Utils.isMaximize() || Utils.isFullScreen() ? 109 : 76
             anchors.top: parent.top
             opacity: 0.66
             gradient: Gradient {
@@ -184,7 +185,7 @@ ApplicationWindow {
         Rectangle {
             id: bottomShadow
             width: parent.width
-            height: isMaximize() || isFullScreen() ? 109 : 76
+            height: Utils.isMaximize() || Utils.isFullScreen() ? 109 : 76
             anchors.bottom: parent.bottom
             opacity: 0.66
             gradient: Gradient {
@@ -250,22 +251,22 @@ ApplicationWindow {
             }
         }
 
-        SeekBar { id: seekBar; value: player.position / player.duration }
+        Timeline { id: seekBar; value: player.position / player.duration }
         VolumeSlider { id: volumeSlider; value: 1 }
 
         Text {
             anchors {
                 left: volumeSlider.right
                 bottom: parent.bottom
-                leftMargin:   isMaximize() || isFullScreen() ? 4 : 2
-                bottomMargin: isMaximize() || isFullScreen() ? 16 : 11
+                leftMargin:   Utils.isMaximize() || Utils.isFullScreen() ? 4 : 2
+                bottomMargin: Utils.isMaximize() || Utils.isFullScreen() ? 16 : 11
             }
 
             color: "#eeeeee"
-            text: "<b>" + msToTime(player.position) + "</b>" + " / " + msToTime(player.duration)
+            text: "<b>" + Utils.msToTime(player.position) + "</b>" + " / " + Utils.msToTime(player.duration)
             font {
                 family: robotoRegularFont.name
-                pixelSize: isMaximize() || isFullScreen() ? 18 : 13
+                pixelSize: Utils.isMaximize() || Utils.isFullScreen() ? 18 : 13
             }
         }
 
@@ -274,15 +275,15 @@ ApplicationWindow {
             anchors {
                 left: parent.left
                 top: parent.top
-                leftMargin: isMaximize() || isFullScreen() ? 19 : 16
-                topMargin: isMaximize() || isFullScreen() ? 21 : 12
+                leftMargin: Utils.isMaximize() || Utils.isFullScreen() ? 19 : 16
+                topMargin: Utils.isMaximize() || Utils.isFullScreen() ? 21 : 12
             }
 
             color: "#eeeeee"
             text: player.metaData.title ? player.metaData.title : ""
             font {
                 family: robotoRegularFont.name
-                pixelSize: isMaximize() || isFullScreen() ? 26 : 18
+                pixelSize: Utils.isMaximize() || Utils.isFullScreen() ? 26 : 18
             }
         }
 
@@ -292,16 +293,16 @@ ApplicationWindow {
             anchors {
                 left: parent.left
                 bottom: parent.bottom
-                leftMargin:  isMaximize() || isFullScreen() ? 49 :  29
-                bottomMargin: isMaximize() || isFullScreen() ? 15 : 10
+                leftMargin:  Utils.isMaximize() || Utils.isFullScreen() ? 49 :  29
+                bottomMargin: Utils.isMaximize() || Utils.isFullScreen() ? 15 : 10
             }
 
             source: {
                 if (player.playbackState === MediaPlayer.PlayingState) {
-                    isMaximize() || isFullScreen() ? "images/baseline_pause_white_24dp.png"
+                    Utils.isMaximize() || Utils.isFullScreen() ? "images/baseline_pause_white_24dp.png"
                                                    : "images/baseline_pause_white_16dp.png"
                 } else {
-                    isMaximize() || isFullScreen() ? "images/baseline_play_arrow_white_24dp.png"
+                    Utils.isMaximize() || Utils.isFullScreen() ? "images/baseline_play_arrow_white_24dp.png"
                                                    : "images/baseline_play_arrow_white_16dp.png"
                 }
             }
@@ -319,14 +320,14 @@ ApplicationWindow {
             anchors {
                 right: parent.right
                 bottom: parent.bottom
-                rightMargin: isMaximize() || isFullScreen() ? 39 : 22
-                bottomMargin: isMaximize() || isFullScreen() ? 15 : 10
+                rightMargin: Utils.isMaximize() || Utils.isFullScreen() ? 39 : 22
+                bottomMargin: Utils.isMaximize() || Utils.isFullScreen() ? 15 : 10
             }
 
             source: {
-                if (isFullScreen()) {
+                if (Utils.isFullScreen()) {
                     "images/baseline-fullscreen_exit-white-24dp.png"
-                } else if (isMaximize()) {
+                } else if (Utils.isMaximize()) {
                     "images/baseline-fullscreen-white-24dp.png"
                 } else {
                     "images/baseline-fullscreen-white-16dp.png"
@@ -336,7 +337,7 @@ ApplicationWindow {
             MouseArea {
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
-                onPressed: isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+                onPressed: Utils.isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
             }
         }
     }

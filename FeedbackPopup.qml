@@ -124,7 +124,6 @@ Popup {
         Image {
             id: screenshot
             anchors.fill: parent
-            source: "file:///C:/Users/Денис/Desktop/Безымянный.png"
             fillMode: Image.PreserveAspectFit
         }
     }

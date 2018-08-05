@@ -44,6 +44,7 @@ Popup {
         ListElement { description: qsTr("Показать справку о горячих клавишах"); shortcut: "?"              }
         ListElement { description: qsTr("Открыть файл"); shortcut: "Ctrl + O"                              }
         ListElement { description: qsTr("Показать информацию о программе"); shortcut: "Ctrl + A"           }
+        ListElement { description: qsTr("Отправить отзыв"); shortcut: "Ctrl + F"                           }
         ListElement { description: qsTr("Перемотать ролик на 5 секунд назад"); shortcut: "Стрелка влево"   }
         ListElement { description: qsTr("Перемотать ролик на 5 секунд вперед"); shortcut: "Стрелка вправо" }
         ListElement { description: qsTr("Увеличить громкость на 5%"); shortcut: "Стрелка вверх"            }

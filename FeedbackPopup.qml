@@ -116,6 +116,12 @@ Popup {
         }
 
         color: "#eeeeee"
+
+        Image {
+            id: screenshot
+            anchors.fill: parent
+
+        }
     }
 
     Button {

@@ -47,6 +47,11 @@ Item {
     }
 
     Shortcut {
+        sequence: "Ctrl+F"
+        onActivated: feedbackPopup.open()
+    }
+
+    Shortcut {
         sequence: "?"
         onActivated: referencePopup.open()
     }

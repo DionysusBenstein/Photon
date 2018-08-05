@@ -8,7 +8,7 @@
 
 /* Copyright © 2018 Dionysus Benstein. All rights reserved.        */
 
-/* Description: Заставка перед запуском програмы.                  */
+/* Description: Заставка во время инициализации програмы.          */
 
 /*******************************************************************/
 
@@ -26,11 +26,10 @@ Item {
 
     signal readyToGo()
 
-    Image {
-        anchors.centerIn: parent
-        width: Math.min(parent.height, parent.width)*0.6
-        height: GameSettings.heightForWidth(width, sourceSize)
-        source: "images/logo.png"
+    Rectangle {
+        width: 200
+        height: 100
+        color: "red"
     }
 
     Timer {

@@ -323,12 +323,13 @@ ApplicationWindow {
     }
 
     //StatisticsPopup { id: satisticsPopup }
-    ReferencePopup  { id: referencePopup }
-    FeedbackPopup   { id: feedbackPopup  }
-    ContextMenu     { id: contextMenu    }
-    AboutPopup      { id: aboutWnd       }
-    Shortcuts       {                    }
-    Hint            {                    }
+      ReferencePopup  { id: referencePopup }
+      FeedbackPopup   { id: feedbackPopup  }
+    //Splashscreen    {                    }
+      ContextMenu     { id: contextMenu    }
+      AboutPopup      { id: aboutWnd       }
+      Shortcuts       {                    }
+      Hint            {                    }
 
     Settings {
         id: settings

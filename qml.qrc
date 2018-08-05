@@ -9,5 +9,6 @@
         <file>ReferencePopup.qml</file>
         <file>FeedbackPopup.qml</file>
         <file>AboutPopup.qml</file>
+        <file>Hint.qml</file>
     </qresource>
 </RCC>

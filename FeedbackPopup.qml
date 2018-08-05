@@ -75,7 +75,7 @@ Popup {
             id: feedbackMessage
             anchors.fill: feedbackMessage
             placeholderText: "Опишите проблему или поделитель \nмнением"
-            wrapMode: Text.WordWrap
+            wrapMode: Text.Wrap
             selectByMouse: true
             persistentSelection: true
 

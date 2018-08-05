@@ -18,6 +18,7 @@ Item {
     width: 320
     height: 265
     anchors.centerIn: parent
+    visible: player.hasVideo ? false : true
 
     Image {
         id: openIcon
@@ -42,7 +43,6 @@ Item {
             topMargin: 5
         }
 
-        visible: player.hasVideo ? false : true
         color: "#f1f1f1"
     }
 
@@ -54,7 +54,6 @@ Item {
             topMargin: 10
         }
 
-        visible: player.hasVideo ? false : true
         text: "• Открыть файл"
         color: "#f1f1f1"
         font {
@@ -71,7 +70,6 @@ Item {
             topMargin: 10
         }
 
-        visible: player.hasVideo ? false : true
         text: "Ctrl + O  "
         color: "#f1f1f1"
         font {
@@ -90,7 +88,6 @@ Item {
             topMargin: 5
         }
 
-        visible: player.hasVideo ? false : true
         text: "• О программе"
         color: "#f1f1f1"
         font {
@@ -107,7 +104,6 @@ Item {
             topMargin: 5
         }
 
-        visible: player.hasVideo ? false : true
         text: "Ctrl + A  "
         color: "#f1f1f1"
         font {
@@ -126,7 +122,6 @@ Item {
             topMargin: 5
         }
 
-        visible: player.hasVideo ? false : true
         text: "• Справка"
         color: "#f1f1f1"
         font {
@@ -143,7 +138,6 @@ Item {
             topMargin: 5
         }
 
-        visible: player.hasVideo ? false : true
         text: "?  "
         color: "#f1f1f1"
         font {
@@ -162,7 +156,6 @@ Item {
             topMargin: 5
         }
 
-        visible: player.hasVideo ? false : true
         text: "• Выйти"
         color: "#f1f1f1"
         font {
@@ -179,7 +172,6 @@ Item {
             topMargin: 5
         }
 
-        visible: player.hasVideo ? false : true
         text: "Ctrl + Q  "
         color: "#f1f1f1"
         font {

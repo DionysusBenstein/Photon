@@ -13,7 +13,6 @@
 /*******************************************************************/
 
 import QtQuick 2.11
-import "utils.js" as Utils
 import QtMultimedia 5.9
 
 Item {

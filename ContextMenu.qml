@@ -44,6 +44,7 @@ Menu {
 
     MenuItem {
         text: qsTr("Статистика для разработчиков")
+        onTriggered: satisticsPopup.open()
     }
 }
 

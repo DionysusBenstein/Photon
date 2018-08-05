@@ -278,7 +278,7 @@ ApplicationWindow {
             }
 
             color: "#eeeeee"
-            text: player.metaData.title ? player.metaData.title : "Media file title unavailable"
+            text: player.metaData.title ? player.metaData.title : ""
             font {
                 family: robotoRegularFont.name
                 pixelSize: isMaximize() || isFullScreen() ? 26 : 18
@@ -340,7 +340,7 @@ ApplicationWindow {
         }
     }
 
-    StatisticsPopup {                    }
+    StatisticsPopup { id: satisticsPopup }
     ReferencePopup  { id: referencePopup }
     FeedbackPopup   { id: feedbackPopup  }
     ContextMenu     { id: contextMenu    }

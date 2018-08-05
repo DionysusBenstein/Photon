@@ -33,7 +33,63 @@ Popup {
         radius: 2
     }
 
+    ListModel {
+        id: referenceModel
 
+        ListElement { description: qsTr("Viewport"); shortcut: "854x480"              }
+        //ListElement { description: qsTr("Volume"); shortcut: volumeSlider.value   }
+    }
+
+    ListView {
+        anchors.fill: parent
+        delegate: ItemDelegate {
+            id: itemDelegate
+            height: 48
+            anchors {
+                left: parent.left
+                right: parent.right
+            }
+
+            Text {
+                text: description
+                anchors {
+                    verticalCenter: parent.verticalCenter
+                    left: parent.left
+                    leftMargin: 16
+                }
+
+                font {
+                    pixelSize: 14
+                    family: robotoMediumFont.name
+                }
+
+                color: "#f1f1f1"
+                renderType: Text.NativeRendering
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignVCenter
+            }
+
+            Text {
+                text: shortcut
+                anchors {
+                    verticalCenter: parent.verticalCenter
+                    right: parent.right
+                    rightMargin: 16
+                }
+
+                font {
+                    pixelSize: 14
+                    family: robotoMediumFont.name
+                }
+
+                color: "#f1f1f1"
+                renderType: Text.NativeRendering
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
+        model: referenceModel
+    }
 }
 
 

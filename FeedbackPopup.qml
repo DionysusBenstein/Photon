@@ -61,8 +61,8 @@ Popup {
         }
     }
 
-    TextArea {
-        id: feedbackMessage
+    ScrollView {
+        id: scrollView
         height: 128
         anchors {
             left: parent.left
@@ -71,24 +71,28 @@ Popup {
             margins: 16
         }
 
-        placeholderText: "Опишите проблему или поделитель \nмнением"
-        wrapMode: Text.WordWrap
-        selectByMouse: true
-        persistentSelection: true
+        TextArea {
+            id: feedbackMessage
+            anchors.fill: feedbackMessage
+            placeholderText: "Опишите проблему или поделитель \nмнением"
+            wrapMode: Text.WordWrap
+            selectByMouse: true
+            persistentSelection: true
 
-        MouseArea {
-            id: inputMouseArea
-            anchors.fill: parent
-            acceptedButtons: Qt.RightButton
-            cursorShape: Qt.IBeamCursor
-            onClicked: contextMenu.popup()
-        }
+            MouseArea {
+                id: inputMouseArea
+                anchors.fill: parent
+                acceptedButtons: Qt.RightButton
+                cursorShape: Qt.IBeamCursor
+                onClicked: contextMenu.popup()
+            }
 
-        Menu {
-            id: contextMenu
-            MenuItem { text: qsTr("Вырезать"/*"Cut"*/); enabled: feedbackMessage.selectedText; onTriggered: feedbackMessage.cut()     }
-            MenuItem { text: qsTr("Копировать"/*"Copy"*/); enabled: feedbackMessage.selectedText; onTriggered: feedbackMessage.copy() }
-            MenuItem { text: qsTr("Вставить"/*"Paste"*/); enabled: feedbackMessage.canPaste; onTriggered: feedbackMessage.paste()     }
+            Menu {
+                id: contextMenu
+                MenuItem { text: qsTr("Вырезать"/*"Cut"*/); enabled: feedbackMessage.selectedText; onTriggered: feedbackMessage.cut()     }
+                MenuItem { text: qsTr("Копировать"/*"Copy"*/); enabled: feedbackMessage.selectedText; onTriggered: feedbackMessage.copy() }
+                MenuItem { text: qsTr("Вставить"/*"Paste"*/); enabled: feedbackMessage.canPaste; onTriggered: feedbackMessage.paste()     }
+            }
         }
     }
 
@@ -96,7 +100,7 @@ Popup {
         id: cbScreenshot
         anchors {
             left: parent.left
-            top: feedbackMessage.bottom
+            top: scrollView.bottom
             leftMargin: 8
         }
 

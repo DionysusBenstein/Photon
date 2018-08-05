@@ -27,11 +27,6 @@ function msToTime(duration) {
     }
 }
 
-function appReady()
-{
-    appIsReady = true
-}
-
 function errorInLoadingApp()
 {
     Qt.quit()

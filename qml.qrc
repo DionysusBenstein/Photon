@@ -10,5 +10,6 @@
         <file>FeedbackPopup.qml</file>
         <file>AboutPopup.qml</file>
         <file>Hint.qml</file>
+        <file>StatisticsPopup.qml</file>
     </qresource>
 </RCC>

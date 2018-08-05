@@ -1,3 +1,18 @@
+/*******************************************************************/
+
+/* Original File Name: AboutPopup.qml                              */
+
+/* Date: 04-08-2018                                                */
+
+/* Developer: Dionysus Benstein                                    */
+
+/* Copyright © 2018 Dionysus Benstein. All rights reserved.        */
+
+/* Description: Информация о программе и разработчике.             */
+
+/*******************************************************************/
+
+
 import QtQuick 2.11
 import QtQuick.Controls 2.4
 import QtGraphicalEffects 1.0

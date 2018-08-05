@@ -1,6 +1,6 @@
 /*******************************************************************/
 
-/* Original File Name: ReferencePopup.qml                          */
+/* Original File Name: Reference.qml                               */
 
 /* Date: 04-08-2018                                                */
 
@@ -104,3 +104,5 @@ Popup {
         model: referenceModel
     }
 }
+
+

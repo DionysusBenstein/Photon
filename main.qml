@@ -142,10 +142,10 @@ ApplicationWindow {
             source: {
                 if (player.playbackState === MediaPlayer.PlayingState) {
                     isMaximize || isFullScreen ? "images/baseline_play_arrow_white_24dp.png"
-                                                               : "images/baseline_play_arrow_white_16dp.png"
+                                               : "images/baseline_play_arrow_white_16dp.png"
                 } else {
                     isMaximize || isFullScreen ? "images/baseline_pause_white_24dp.png"
-                                                               : "images/baseline_pause_white_16dp.png"
+                                               : "images/baseline_pause_white_16dp.png"
                 }
             }
         }
@@ -277,10 +277,10 @@ ApplicationWindow {
             source: {
                 if (player.playbackState === MediaPlayer.PlayingState) {
                     isMaximize || isFullScreen ? "images/baseline_pause_white_24dp.png"
-                                                               : "images/baseline_pause_white_16dp.png"
+                                               : "images/baseline_pause_white_16dp.png"
                 } else {
                     isMaximize || isFullScreen ? "images/baseline_play_arrow_white_24dp.png"
-                                                               : "images/baseline_play_arrow_white_16dp.png"
+                                               : "images/baseline_play_arrow_white_16dp.png"
                 }
             }
 
@@ -319,16 +319,16 @@ ApplicationWindow {
         }
     }
 
-   //StatisticsPopup { id: satisticsPopup }
-     ReferencePopup  { id: referencePopup }
-     FeedbackPopup   { id: feedbackPopup }
-     VolumeSlider    { id: volumeSlider; value: 1 }
-   //Splashscreen    { }
-     ContextMenu     { id: contextMenu }
-     AboutPopup      { id: aboutWnd }
-     Shortcuts       { }
-     Timeline        { id: seekBar; value: player.position / player.duration }
-     Hint            { }
+    //StatisticsPopup { id: satisticsPopup }
+    ReferencePopup { id: referencePopup }
+    FeedbackPopup { id: feedbackPopup }
+    VolumeSlider { id: volumeSlider; value: 1 }
+    //Splashscreen { }
+    ContextMenu { id: contextMenu }
+    AboutPopup { id: aboutWnd }
+    Shortcuts { }
+    Timeline { id: seekBar; value: player.position / player.duration }
+    Hint { }
 
     Settings {
         id: settings

@@ -1,6 +1,6 @@
 /*******************************************************************/
 
-/* Original File Name: SeekBar.qml                                 */
+/* Original File Name: VolumeSlider.qml                            */
 
 /* Date: 18-07-2018                                                */
 

@@ -42,9 +42,9 @@ Menu {
         onTriggered: feedbackPopup.open()
     }
 
-    MenuItem {
-        text: qsTr("Статистика для разработчиков")
-        onTriggered: satisticsPopup.open()
-    }
+    //MenuItem {
+    //    text: qsTr("Статистика для разработчиков")
+    //    onTriggered: satisticsPopup.open()
+    //}
 }
 

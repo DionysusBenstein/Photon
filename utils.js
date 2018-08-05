@@ -26,3 +26,13 @@ function msToTime(duration) {
         return minutes + ":" + seconds;
     }
 }
+
+function appReady()
+{
+    appIsReady = true
+}
+
+function errorInLoadingApp()
+{
+    Qt.quit()
+}

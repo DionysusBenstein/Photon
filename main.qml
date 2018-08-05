@@ -81,176 +81,182 @@ ApplicationWindow {
     }
 
     //Hint
-    Image {
-        id: openIcon
-        anchors {
-            left: parent.left
-            right: parent.right
-            top: parent.top
-            topMargin: 100
+    Item {
+        width: 320
+        height: 265
+        anchors.centerIn: parent
+
+        Image {
+            id: openIcon
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.top
+            }
+
+            fillMode: Image.PreserveAspectFit
+            visible: player.hasVideo ? false : true
+            source: "images/open-file.png"
         }
 
-        visible: player.hasVideo ? false : true
-        source: "images/open-file.png"
-        fillMode: Image.PreserveAspectFit
-    }
+        Rectangle {
+            id: divider
+            height: 1
+            width: 300
+            anchors {
+                top: openIcon.bottom
+                horizontalCenter: openIcon.horizontalCenter
+                topMargin: 5
+            }
 
-    Rectangle {
-        id: divider
-        height: 1
-        width: 300
-        anchors {
-            top: openIcon.bottom
-            horizontalCenter: openIcon.horizontalCenter
-            topMargin: 5
+            visible: player.hasVideo ? false : true
+            color: "#f1f1f1"
         }
 
-        visible: player.hasVideo ? false : true
-        color: "#f1f1f1"
-    }
+        Text {
+            id: openFileText
+            anchors {
+                left: divider.left
+                top: divider.bottom
+                topMargin: 10
+            }
 
-    Text {
-        id: openFileText
-        anchors {
-            left: divider.left
-            top: divider.bottom
-            topMargin: 10
+            visible: player.hasVideo ? false : true
+            text: "• Открыть файл"
+            color: "#f1f1f1"
+            font {
+                family: robotoMediumFont.name
+                pixelSize: 20
+            }
         }
 
-        visible: player.hasVideo ? false : true
-        text: "• Открыть файл"
-        color: "#f1f1f1"
-        font {
-            family: robotoMediumFont.name
-            pixelSize: 20
-        }
-    }
+        Text {
+            id: openFileShortcut
+            anchors {
+                right: divider.right
+                top: divider.bottom
+                topMargin: 10
+            }
 
-    Text {
-        id: openFileShortcut
-        anchors {
-            right: divider.right
-            top: divider.bottom
-            topMargin: 10
-        }
-
-        visible: player.hasVideo ? false : true
-        text: "Ctrl + O  "
-        color: "#f1f1f1"
-        font {
-            family: robotoMediumFont.name
-            pixelSize: 20
-        }
-    }
-
-    ////////////////////////////////////////////
-
-    Text {
-        id: aboutText
-        anchors {
-            left: divider.left
-            top: openFileText.bottom
-            topMargin: 5
+            visible: player.hasVideo ? false : true
+            text: "Ctrl + O  "
+            color: "#f1f1f1"
+            font {
+                family: robotoMediumFont.name
+                pixelSize: 20
+            }
         }
 
-        visible: player.hasVideo ? false : true
-        text: "• О программе"
-        color: "#f1f1f1"
-        font {
-            family: robotoMediumFont.name
-            pixelSize: 20
-        }
-    }
+        ////////////////////////////////////////////
 
-    Text {
-        id: aboutShortcut
-        anchors {
-            right: divider.right
-            top: openFileShortcut.bottom
-            topMargin: 5
-        }
+        Text {
+            id: aboutText
+            anchors {
+                left: divider.left
+                top: openFileText.bottom
+                topMargin: 5
+            }
 
-        visible: player.hasVideo ? false : true
-        text: "Ctrl + A  "
-        color: "#f1f1f1"
-        font {
-            family: robotoMediumFont.name
-            pixelSize: 20
-        }
-    }
-
-    ////////////////////////////////////////////
-
-    Text {
-        id: referenceText
-        anchors {
-            left: divider.left
-            top: aboutText.bottom
-            topMargin: 5
+            visible: player.hasVideo ? false : true
+            text: "• О программе"
+            color: "#f1f1f1"
+            font {
+                family: robotoMediumFont.name
+                pixelSize: 20
+            }
         }
 
-        visible: player.hasVideo ? false : true
-        text: "• Справка"
-        color: "#f1f1f1"
-        font {
-            family: robotoMediumFont.name
-            pixelSize: 20
-        }
-    }
+        Text {
+            id: aboutShortcut
+            anchors {
+                right: divider.right
+                top: openFileShortcut.bottom
+                topMargin: 5
+            }
 
-    Text {
-        id: referenceShortcut
-        anchors {
-            right: divider.right
-            top: aboutShortcut.bottom
-            topMargin: 5
-        }
-
-        visible: player.hasVideo ? false : true
-        text: "?  "
-        color: "#f1f1f1"
-        font {
-            family: robotoMediumFont.name
-            pixelSize: 20
-        }
-    }
-
-    ////////////////////////////////////////////
-
-    Text {
-        id: quitText
-        anchors {
-            left: divider.left
-            top: referenceText.bottom
-            topMargin: 5
+            visible: player.hasVideo ? false : true
+            text: "Ctrl + A  "
+            color: "#f1f1f1"
+            font {
+                family: robotoMediumFont.name
+                pixelSize: 20
+            }
         }
 
-        visible: player.hasVideo ? false : true
-        text: "• Выйти"
-        color: "#f1f1f1"
-        font {
-            family: robotoMediumFont.name
-            pixelSize: 20
-        }
-    }
+        ////////////////////////////////////////////
 
-    Text {
-        id: quitShortcut
-        anchors {
-            right: divider.right
-            top: referenceShortcut.bottom
-            topMargin: 5
+        Text {
+            id: referenceText
+            anchors {
+                left: divider.left
+                top: aboutText.bottom
+                topMargin: 5
+            }
+
+            visible: player.hasVideo ? false : true
+            text: "• Справка"
+            color: "#f1f1f1"
+            font {
+                family: robotoMediumFont.name
+                pixelSize: 20
+            }
         }
 
-        visible: player.hasVideo ? false : true
-        text: "Ctrl + Q  "
-        color: "#f1f1f1"
-        font {
-            family: robotoMediumFont.name
-            pixelSize: 20
+        Text {
+            id: referenceShortcut
+            anchors {
+                right: divider.right
+                top: aboutShortcut.bottom
+                topMargin: 5
+            }
+
+            visible: player.hasVideo ? false : true
+            text: "?  "
+            color: "#f1f1f1"
+            font {
+                family: robotoMediumFont.name
+                pixelSize: 20
+            }
+        }
+
+        ////////////////////////////////////////////
+
+        Text {
+            id: quitText
+            anchors {
+                left: divider.left
+                top: referenceText.bottom
+                topMargin: 5
+            }
+
+            visible: player.hasVideo ? false : true
+            text: "• Выйти"
+            color: "#f1f1f1"
+            font {
+                family: robotoMediumFont.name
+                pixelSize: 20
+            }
+        }
+
+        Text {
+            id: quitShortcut
+            anchors {
+                right: divider.right
+                top: referenceShortcut.bottom
+                topMargin: 5
+            }
+
+            visible: player.hasVideo ? false : true
+            text: "Ctrl + Q  "
+            color: "#f1f1f1"
+            font {
+                family: robotoMediumFont.name
+                pixelSize: 20
+            }
         }
     }
     //Hint end
+
 
     MouseArea {
         id: videoArea

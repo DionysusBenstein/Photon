@@ -33,29 +33,6 @@ ApplicationWindow {
     readonly property color darkColor: "#c20000"
     readonly property string appVersion: "0.1.0"
 
-//    function isMaximize() {
-//        return mainWindow.visibility === ApplicationWindow.Maximized;
-//    }
-
-//    function isFullScreen() {
-//        return mainWindow.visibility === ApplicationWindow.FullScreen;
-//    }
-
-//    function msToTime(duration) {
-//        var seconds = parseInt((duration / 1000) % 60);
-//        var minutes = parseInt((duration / (1000 * 60)) % 60);
-//        var hours   = parseInt((duration / (1000 * 60 * 60)) % 60);
-
-//        seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-//        if (hours !==  0) {
-//            minutes = (minutes < 10) ? "0" + minutes : minutes;
-//            return hours + ":" + minutes + ":" + seconds;
-//        } else {
-//            return minutes + ":" + seconds;
-//        }
-//    }
-
     FontLoader { id: robotoThinFont; source: "fonts/Roboto-Thin_0.ttf"       }
     FontLoader { id: robotoLightFont; source: "fonts/Roboto-Light.ttf"       }
     FontLoader { id: robotoMediumFont; source: "fonts/Roboto-Medium.ttf"     }
@@ -162,10 +139,10 @@ ApplicationWindow {
             source: {
                 if (player.playbackState === MediaPlayer.PlayingState) {
                     Utils.isMaximize() || Utils.isFullScreen() ? "images/baseline_play_arrow_white_24dp.png"
-                                                   : "images/baseline_play_arrow_white_16dp.png"
+                                                               : "images/baseline_play_arrow_white_16dp.png"
                 } else {
                     Utils.isMaximize() || Utils.isFullScreen() ? "images/baseline_pause_white_24dp.png"
-                                                   : "images/baseline_pause_white_16dp.png"
+                                                               : "images/baseline_pause_white_16dp.png"
                 }
             }
         }
@@ -300,10 +277,10 @@ ApplicationWindow {
             source: {
                 if (player.playbackState === MediaPlayer.PlayingState) {
                     Utils.isMaximize() || Utils.isFullScreen() ? "images/baseline_pause_white_24dp.png"
-                                                   : "images/baseline_pause_white_16dp.png"
+                                                               : "images/baseline_pause_white_16dp.png"
                 } else {
                     Utils.isMaximize() || Utils.isFullScreen() ? "images/baseline_play_arrow_white_24dp.png"
-                                                   : "images/baseline_play_arrow_white_16dp.png"
+                                                               : "images/baseline_play_arrow_white_16dp.png"
                 }
             }
 
@@ -343,12 +320,12 @@ ApplicationWindow {
     }
 
     //StatisticsPopup { id: satisticsPopup }
-      ReferencePopup  { id: referencePopup }
-      FeedbackPopup   { id: feedbackPopup  }
-      ContextMenu     { id: contextMenu    }
-      AboutPopup      { id: aboutWnd       }
-      Shortcuts       {                    }
-      Hint            {                    }
+    ReferencePopup  { id: referencePopup }
+    FeedbackPopup   { id: feedbackPopup  }
+    ContextMenu     { id: contextMenu    }
+    AboutPopup      { id: aboutWnd       }
+    Shortcuts       {                    }
+    Hint            {                    }
 
     Settings {
         id: settings

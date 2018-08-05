@@ -13,6 +13,7 @@
 /*******************************************************************/
 
 import QtQuick 2.11
+import "utils.js" as Utils
 import QtMultimedia 5.9
 
 Item {
@@ -28,7 +29,7 @@ Item {
 
     Shortcut {
         sequence: "F"
-        onActivated: isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+        onActivated: Utils.isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
     }
 
     Shortcut {

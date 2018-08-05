@@ -12,14 +12,6 @@
 
 /*******************************************************************/
 
-function isMaximize() {
-    return mainWindow.visibility === ApplicationWindow.Maximized;
-}
-
-function isFullScreen() {
-    return mainWindow.visibility === ApplicationWindow.FullScreen;
-}
-
 function msToTime(duration) {
     var seconds = parseInt((duration / 1000) % 60);
     var minutes = parseInt((duration / (1000 * 60)) % 60);

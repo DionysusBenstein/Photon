@@ -79,9 +79,9 @@ Slider {
         x: control.leftPadding + control.visualPosition * (control.availableWidth - width)
         y: control.topPadding + control.availableHeight / 2 - height / 2
         implicitWidth:  isMaximize || isFullScreen ? (control.pressed || control.hovered ? 20 : 0)
-                                                       : (control.pressed || control.hovered ? 13 : 0)
+                                                   : (control.pressed || control.hovered ? 13 : 0)
         implicitHeight: isMaximize || isFullScreen ? (control.pressed || control.hovered ? 20 : 0)
-                                                       : (control.pressed || control.hovered ? 13 : 0)
+                                                   : (control.pressed || control.hovered ? 13 : 0)
         radius: implicitWidth / 2
         color: primaryColor
     }

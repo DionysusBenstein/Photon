@@ -27,8 +27,9 @@ Item {
     signal readyToGo()
 
     Rectangle {
-        width: 200
-        height: 100
+        width: 426
+        height: 320
+        anchors.centerIn: parent
         color: "red"
     }
 

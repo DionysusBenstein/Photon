@@ -29,7 +29,7 @@ Item {
 
     Shortcut {
         sequence: "F"
-        onActivated: Utils.isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+        onActivated: isFullScreen ? mainWindow.showMaximized() : mainWindow.showFullScreen()
     }
 
     Shortcut {

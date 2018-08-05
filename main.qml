@@ -110,8 +110,8 @@ ApplicationWindow {
         }
 
         onDoubleClicked: {
-            Utils.isMaximize() ? mainWindow.showNormal() : mainWindow.showMaximized()
-            Utils.isMaximize() || Utils.isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+            isMaximize ? mainWindow.showNormal() : mainWindow.showMaximized()
+            isMaximize || isFullScreen ? mainWindow.showMaximized() : mainWindow.showFullScreen()
         }
 
         onReleased: {
@@ -126,8 +126,8 @@ ApplicationWindow {
 
         Rectangle {
             id: buttonBackground
-            width:  Utils.isMaximize() || Utils.isFullScreen() ? 78 : 54
-            height: Utils.isMaximize() || Utils.isFullScreen() ? 78 : 54
+            width:  isMaximize || isFullScreen ? 78 : 54
+            height: isMaximize || isFullScreen ? 78 : 54
             anchors.centerIn: parent
             radius: width / 2
             color: "#0d0d0d"
@@ -141,10 +141,10 @@ ApplicationWindow {
             opacity: 0
             source: {
                 if (player.playbackState === MediaPlayer.PlayingState) {
-                    Utils.isMaximize() || Utils.isFullScreen() ? "images/baseline_play_arrow_white_24dp.png"
+                    isMaximize || isFullScreen ? "images/baseline_play_arrow_white_24dp.png"
                                                                : "images/baseline_play_arrow_white_16dp.png"
                 } else {
-                    Utils.isMaximize() || Utils.isFullScreen() ? "images/baseline_pause_white_24dp.png"
+                    isMaximize || isFullScreen ? "images/baseline_pause_white_24dp.png"
                                                                : "images/baseline_pause_white_16dp.png"
                 }
             }
@@ -153,7 +153,7 @@ ApplicationWindow {
         Rectangle {
             id: topShadow
             width: parent.width
-            height: Utils.isMaximize() || Utils.isFullScreen() ? 109 : 76
+            height: isMaximize || isFullScreen ? 109 : 76
             anchors.top: parent.top
             opacity: 0.66
             gradient: Gradient {
@@ -165,7 +165,7 @@ ApplicationWindow {
         Rectangle {
             id: bottomShadow
             width: parent.width
-            height: Utils.isMaximize() || Utils.isFullScreen() ? 109 : 76
+            height: isMaximize || isFullScreen ? 109 : 76
             anchors.bottom: parent.bottom
             opacity: 0.66
             gradient: Gradient {
@@ -238,15 +238,15 @@ ApplicationWindow {
             anchors {
                 left: volumeSlider.right
                 bottom: parent.bottom
-                leftMargin:   Utils.isMaximize() || Utils.isFullScreen() ? 4 : 2
-                bottomMargin: Utils.isMaximize() || Utils.isFullScreen() ? 16 : 11
+                leftMargin:   isMaximize || isFullScreen ? 4 : 2
+                bottomMargin: isMaximize || isFullScreen ? 16 : 11
             }
 
             color: "#eeeeee"
             text: "<b>" + Utils.msToTime(player.position) + "</b>" + " / " + Utils.msToTime(player.duration)
             font {
                 family: robotoRegularFont.name
-                pixelSize: Utils.isMaximize() || Utils.isFullScreen() ? 18 : 13
+                pixelSize: isMaximize || isFullScreen ? 18 : 13
             }
         }
 
@@ -255,15 +255,15 @@ ApplicationWindow {
             anchors {
                 left: parent.left
                 top: parent.top
-                leftMargin: Utils.isMaximize() || Utils.isFullScreen() ? 19 : 16
-                topMargin: Utils.isMaximize() || Utils.isFullScreen() ? 21 : 12
+                leftMargin: isMaximize || isFullScreen ? 19 : 16
+                topMargin: isMaximize || isFullScreen ? 21 : 12
             }
 
             color: "#eeeeee"
             text: player.metaData.title ? player.metaData.title : ""
             font {
                 family: robotoRegularFont.name
-                pixelSize: Utils.isMaximize() || Utils.isFullScreen() ? 26 : 18
+                pixelSize: isMaximize ||isFullScreen ? 26 : 18
             }
         }
 
@@ -273,16 +273,16 @@ ApplicationWindow {
             anchors {
                 left: parent.left
                 bottom: parent.bottom
-                leftMargin:  Utils.isMaximize() || Utils.isFullScreen() ? 49 :  29
-                bottomMargin: Utils.isMaximize() || Utils.isFullScreen() ? 15 : 10
+                leftMargin:  isMaximize || isFullScreen ? 49 :  29
+                bottomMargin: isMaximize || isFullScreen ? 15 : 10
             }
 
             source: {
                 if (player.playbackState === MediaPlayer.PlayingState) {
-                    Utils.isMaximize() || Utils.isFullScreen() ? "images/baseline_pause_white_24dp.png"
+                    isMaximize || isFullScreen ? "images/baseline_pause_white_24dp.png"
                                                                : "images/baseline_pause_white_16dp.png"
                 } else {
-                    Utils.isMaximize() || Utils.isFullScreen() ? "images/baseline_play_arrow_white_24dp.png"
+                    isMaximize || isFullScreen ? "images/baseline_play_arrow_white_24dp.png"
                                                                : "images/baseline_play_arrow_white_16dp.png"
                 }
             }
@@ -300,14 +300,14 @@ ApplicationWindow {
             anchors {
                 right: parent.right
                 bottom: parent.bottom
-                rightMargin: Utils.isMaximize() || Utils.isFullScreen() ? 39 : 22
-                bottomMargin: Utils.isMaximize() || Utils.isFullScreen() ? 15 : 10
+                rightMargin: isMaximize || isFullScreen ? 39 : 22
+                bottomMargin: isMaximize || isFullScreen ? 15 : 10
             }
 
             source: {
-                if (Utils.isFullScreen()) {
+                if (isFullScreen) {
                     "images/baseline-fullscreen_exit-white-24dp.png"
-                } else if (Utils.isMaximize()) {
+                } else if (isMaximize) {
                     "images/baseline-fullscreen-white-24dp.png"
                 } else {
                     "images/baseline-fullscreen-white-16dp.png"
@@ -317,7 +317,7 @@ ApplicationWindow {
             MouseArea {
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
-                onPressed: Utils.isFullScreen() ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+                onPressed: isFullScreen ? mainWindow.showMaximized() : mainWindow.showFullScreen()
             }
         }
     }

@@ -18,12 +18,12 @@ import QtQuick.Controls 2.4
 
 Slider {
     id: control
-    width: Utils.isMaximize() || Utils.isFullScreen() ? 90 : 64
+    width: isMaximize || isFullScreen ? 90 : 64
     anchors {
         left: playButton.right
         bottom: parent.bottom
-        leftMargin:   Utils.isMaximize() || Utils.isFullScreen() ? 30 : 10
-        bottomMargin: Utils.isMaximize() || Utils.isFullScreen() ? 12 : 6
+        leftMargin:   isMaximize || isFullScreen ? 30 : 10
+        bottomMargin: isMaximize || isFullScreen ? 12 : 6
     }
 
     MouseArea {
@@ -37,7 +37,7 @@ Slider {
         x: control.leftPadding
         y: control.topPadding + control.availableHeight / 2 - height / 2
         width: control.availableWidth
-        height: Utils.isMaximize() || Utils.isFullScreen() ? 4 : 3
+        height: isMaximize || isFullScreen ? 4 : 3
         color: "#f2f2f2"
         opacity: 0.21
     }
@@ -56,8 +56,8 @@ Slider {
         id: handle
         x: control.leftPadding + control.visualPosition * (control.availableWidth - width)
         y: control.topPadding + control.availableHeight / 2 - height / 2
-        implicitWidth:  Utils.isMaximize() || Utils.isFullScreen() ? 18 : 13
-        implicitHeight: Utils.isMaximize() || Utils.isFullScreen() ? 18 : 13
+        implicitWidth:  isMaximize || isFullScreen ? 18 : 13
+        implicitHeight: isMaximize || isFullScreen ? 18 : 13
         radius: implicitWidth / 2
         color: "#f2f2f2"
     }

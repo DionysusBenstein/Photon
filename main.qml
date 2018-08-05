@@ -319,16 +319,16 @@ ApplicationWindow {
         }
     }
 
-   //StatisticsPopup { id: satisticsPopup                                    }
-     ReferencePopup  { id: referencePopup                                    }
-     FeedbackPopup   { id: feedbackPopup                                     }
-     VolumeSlider    { id: volumeSlider; value: 1                            }
-   //Splashscreen    {                                                       }
-     ContextMenu     { id: contextMenu                                       }
-     AboutPopup      { id: aboutWnd                                          }
-     Shortcuts       {                                                       }
+   //StatisticsPopup { id: satisticsPopup }
+     ReferencePopup  { id: referencePopup }
+     FeedbackPopup   { id: feedbackPopup }
+     VolumeSlider    { id: volumeSlider; value: 1 }
+   //Splashscreen    { }
+     ContextMenu     { id: contextMenu }
+     AboutPopup      { id: aboutWnd }
+     Shortcuts       { }
      Timeline        { id: seekBar; value: player.position / player.duration }
-     Hint            {                                                       }
+     Hint            { }
 
     Settings {
         id: settings

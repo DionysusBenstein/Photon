@@ -39,6 +39,11 @@ Menu {
     }
 
     MenuItem {
+        text: qsTr("Перейти...")
+        onTriggered: feedbackPopup.open()
+    }
+
+    MenuItem {
         text: qsTr("Решить проблему с воспроизведением")
         onTriggered: feedbackPopup.open()
     }

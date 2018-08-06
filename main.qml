@@ -240,6 +240,7 @@ ApplicationWindow {
         ContextMenu { id: contextMenu }
         AboutPopup { id: aboutWnd }
         Shortcuts { id: totalShortcuts }
+        GoToPopup { id: goToPopup }
         Timeline { id: seekBar; value: player.position / player.duration }
         Hint { id: hint }
 

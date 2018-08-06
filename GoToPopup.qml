@@ -76,4 +76,15 @@ Popup {
 
         color: "#d9d9d9"
     }
+
+    TextField {
+        anchors {
+            left: parent.left
+            right: divider.left
+            margins: 16
+            verticalCenter: parent.verticalCenter
+        }
+
+        placeholderText: "Введите тайминг"
+    }
 }

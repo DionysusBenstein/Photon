@@ -235,12 +235,12 @@ ApplicationWindow {
         ReferencePopup { id: referencePopup }
         FeedbackPopup { id: feedbackPopup }
         VolumeSlider { id: volumeSlider; value: 1 }
-        //Splashscreen { }
+        //Splashscreen { id: splashscreen }
         ContextMenu { id: contextMenu }
         AboutPopup { id: aboutWnd }
-        Shortcuts { }
+        Shortcuts { id: totalShortcuts }
         Timeline { id: seekBar; value: player.position / player.duration }
-        Hint { }
+        Hint { id: hint }
 
         Text {
             anchors {

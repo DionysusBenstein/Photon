@@ -12,5 +12,6 @@
         <file>StatisticsPopup.qml</file>
         <file>Timeline.qml</file>
         <file>Splashscreen.qml</file>
+        <file>GoToPopup.qml</file>
     </qresource>
 </RCC>

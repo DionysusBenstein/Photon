@@ -231,6 +231,17 @@ ApplicationWindow {
             }
         }
 
+        //StatisticsPopup { id: satisticsPopup }
+        ReferencePopup { id: referencePopup }
+        FeedbackPopup { id: feedbackPopup }
+        VolumeSlider { id: volumeSlider; value: 1 }
+        //Splashscreen { }
+        ContextMenu { id: contextMenu }
+        AboutPopup { id: aboutWnd }
+        Shortcuts { }
+        Timeline { id: seekBar; value: player.position / player.duration }
+        Hint { }
+
         Text {
             anchors {
                 left: volumeSlider.right
@@ -318,17 +329,6 @@ ApplicationWindow {
             }
         }
     }
-
-    //StatisticsPopup { id: satisticsPopup }
-    ReferencePopup { id: referencePopup }
-    FeedbackPopup { id: feedbackPopup }
-    VolumeSlider { id: volumeSlider; value: 1 }
-    //Splashscreen { }
-    ContextMenu { id: contextMenu }
-    AboutPopup { id: aboutWnd }
-    Shortcuts { }
-    Timeline { id: seekBar; value: player.position / player.duration }
-    Hint { }
 
     Settings {
         id: settings

@@ -40,7 +40,7 @@ Menu {
 
     MenuItem {
         text: qsTr("Перейти...")
-        onTriggered: feedbackPopup.open()
+        onTriggered: goToPopup.open()
     }
 
     MenuItem {

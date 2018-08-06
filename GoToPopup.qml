@@ -30,5 +30,15 @@ Popup {
     Material.theme: Material.Light
     Material.accent: "#4285f4"
 
+    Rectangle {
+        width: 1
+        height: 28
+        anchors {
+            right: parent.right
+            rightMargin: 48
+            verticalCenter: parent.verticalCenter
+        }
 
+        color: "#d9d9d9"
+    }
 }

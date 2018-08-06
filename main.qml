@@ -97,6 +97,7 @@ ApplicationWindow {
 
         acceptedButtons: Qt.LeftButton | Qt.RightButton
         onClicked: if (mouse.button === Qt.RightButton) contextMenu.popup()
+        Keys.onEscapePressed: if (isFullScreen) mainWindow.showNormal()
         Keys.onRightPressed: player.seek(player.position + 5000)
         Keys.onLeftPressed:  player.seek(player.position - 5000)
         Keys.onUpPressed: volumeSlider.value += 0.05

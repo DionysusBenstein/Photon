@@ -30,7 +30,42 @@ Popup {
     Material.theme: Material.Light
     Material.accent: "#4285f4"
 
+    Item {
+        id: closeButton
+        width: 24; height: 24
+        anchors {
+            left: divider.right
+            right: parent.right
+            verticalCenter: parent.verticalCenter
+        }
+
+        Rectangle {
+            width: 2; height: 12
+            anchors.centerIn: parent
+            antialiasing: true
+            color: "#4c4c4c"
+            rotation: 45
+            radius: 2
+        }
+
+        Rectangle {
+            width: 2; height: 12
+            anchors.centerIn: parent
+            antialiasing: true
+            color: "#4c4c4c"
+            rotation: 135
+            radius: 2
+        }
+
+        MouseArea {
+            id: closeButtonMoseArea
+            anchors.fill: parent
+            onClicked: close()
+        }
+    }
+
     Rectangle {
+        id: divider
         width: 1
         height: 28
         anchors {

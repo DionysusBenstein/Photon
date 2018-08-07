@@ -73,6 +73,7 @@ Popup {
         }
 
         onClicked: {
+            player.seek(player.position + parseInt(input.text))
             close()
         }
     }

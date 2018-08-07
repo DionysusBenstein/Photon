@@ -71,7 +71,7 @@ Popup {
             left: divider.right
             verticalCenter: parent.verticalCenter
         }
-        onClicked: close()
+        //onClicked:
     }
 
     Image {
@@ -107,6 +107,5 @@ Popup {
         background: Rectangle {
             color: "white"
         }
-
     }
 }

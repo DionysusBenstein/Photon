@@ -71,7 +71,10 @@ Popup {
             left: divider.right
             verticalCenter: parent.verticalCenter
         }
-        //onClicked:
+
+        onClicked: {
+            close()
+        }
     }
 
     Image {
@@ -89,11 +92,11 @@ Popup {
             rightMargin: 48 + 32
             verticalCenter: parent.verticalCenter
         }
-
         color: "#d9d9d9"
     }
 
     TextField {
+        id: input
         anchors {
             left: parent.left
             right: divider.left
@@ -103,9 +106,30 @@ Popup {
             topMargin: 5
         }
 
+        focus: true
+        selectByMouse: true
         placeholderText: "Введите тайминг"
         background: Rectangle {
             color: "white"
+        }
+
+        Keys.onEnterPressed: {
+            close()
+        }
+
+        MouseArea {
+            id: inputMouseArea
+            anchors.fill: parent
+            acceptedButtons: Qt.RightButton
+            cursorShape: Qt.IBeamCursor
+            onClicked: contextMenu.popup()
+        }
+
+        Menu {
+            id: contextMenu
+            MenuItem { text: qsTr("Вырезать"/*"Cut"*/); enabled: input.selectedText; onTriggered: input.cut()     }
+            MenuItem { text: qsTr("Копировать"/*"Copy"*/); enabled: input.selectedText; onTriggered: input.copy() }
+            MenuItem { text: qsTr("Вставить"/*"Paste"*/); enabled: input.canPaste; onTriggered: input.paste()     }
         }
     }
 }

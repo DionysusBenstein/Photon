@@ -43,7 +43,7 @@ Popup {
     ToolButton {
         id: doneButton
         anchors {
-            right: closeButton.left
+            left: divider.right
             verticalCenter: parent.verticalCenter
         }
         onClicked: close()
@@ -84,7 +84,7 @@ Popup {
         height: 28
         anchors {
             right: parent.right
-            rightMargin: 48 + 48
+            rightMargin: 48 + 32
             verticalCenter: parent.verticalCenter
         }
 

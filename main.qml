@@ -223,6 +223,7 @@ ApplicationWindow {
         VolumeSlider { id: volumeSlider; value: 1 }
 
         Text {
+            id: time
             anchors {
                 left: volumeSlider.right
                 bottom: parent.bottom

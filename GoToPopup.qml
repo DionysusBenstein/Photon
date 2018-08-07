@@ -39,7 +39,7 @@ Popup {
         }
 
         Rectangle {
-            width: 2; height: 14
+            width: 2; height: 13
             anchors.centerIn: parent
             antialiasing: true
             color: "#4c4c4c"
@@ -48,7 +48,7 @@ Popup {
         }
 
         Rectangle {
-            width: 2; height: 14
+            width: 2; height: 13
             anchors.centerIn: parent
             antialiasing: true
             color: "#4c4c4c"

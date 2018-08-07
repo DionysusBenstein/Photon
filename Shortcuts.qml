@@ -52,6 +52,11 @@ Item {
     }
 
     Shortcut {
+        sequence: "Ctrl+G"
+        onActivated: goToPopup.open()
+    }
+
+    Shortcut {
         sequence: "?"
         onActivated: referencePopup.open()
     }

@@ -257,7 +257,7 @@ ApplicationWindow {
             }
         }
 
-        // play/pause button
+        //Play/Pause button
         Image {
             id: playButton
             anchors {
@@ -284,7 +284,7 @@ ApplicationWindow {
             }
         }
 
-        // fullscreen
+        //Fullscreen
         Image {
             id: fullscreenButton
             anchors {

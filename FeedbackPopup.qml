@@ -51,7 +51,7 @@ Popup {
                     margins: 16
                 }
 
-                text: qsTr("Отправить отзыв")
+                text: qsTr("Отправить отзыв"/*"Post a review"*/)
                 color: "white"
                 font {
                     family: robotoMediumFont.name
@@ -74,7 +74,7 @@ Popup {
         TextArea {
             id: feedbackMessage
             anchors.fill: feedbackMessage
-            placeholderText: qsTr("Опишите проблему или поделитель \nмнением")
+            placeholderText: qsTr("Опишите проблему или поделитесь \nмнением"/*"Describe the issue or share your opinion"*/)
             wrapMode: Text.Wrap
             selectByMouse: true
             persistentSelection: true
@@ -104,7 +104,7 @@ Popup {
             leftMargin: 8
         }
 
-        text: qsTr(" Прикрепить скриншот")
+        text: qsTr(" Прикрепить скриншот"/*" Attach screenshot"*/)
         checked: true
     }
 

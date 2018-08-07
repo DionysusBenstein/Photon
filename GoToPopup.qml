@@ -109,11 +109,8 @@ Popup {
         focus: true
         selectByMouse: true
         persistentSelection: true
-        placeholderText: qsTr("Введите тайминг")
-        background: Rectangle {
-            color: "white"
-        }
-
+        placeholderText: qsTr("Введите тайминг"/*"Enter timing"*/)
+        background: Rectangle { color: "white" }
         Keys.onEnterPressed: {
             close()
         }

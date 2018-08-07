@@ -36,24 +36,24 @@ Popup {
     ListModel {
         id: referenceModel
 
-        ListElement { description: qsTr("Перемотать ролик на 10 секунд назад"); shortcut: "J"              }
-        ListElement { description: qsTr("Перемотать ролик на 10 секунд вперед"); shortcut: "L"             }
-        ListElement { description: qsTr("Включить или отключить звук"); shortcut: "M"                      }
-        ListElement { description: qsTr("Приостановить или продолжить воспроизведение"); shortcut: "K"     }
-        ListElement { description: qsTr("Включить или выключить полноэкранный режим"); shortcut: "F"       }
-        ListElement { description: qsTr("Показать справку о горячих клавишах"); shortcut: "?"              }
-        ListElement { description: qsTr("Открыть файл"); shortcut: "Ctrl + O"                              }
-        ListElement { description: qsTr("Выход"); shortcut: "Ctrl + Q"                                     }
-        ListElement { description: qsTr("Показать информацию о программе"); shortcut: "Ctrl + A"           }
-        ListElement { description: qsTr("Отправить отзыв"); shortcut: "Ctrl + F"                           }
-        ListElement { description: qsTr("Перейти к моменту ролика по таймкоду"); shortcut: "Ctrl + G"      }
-        ListElement { description: qsTr("Перемотать ролик на 5 секунд назад"); shortcut: "Стрелка влево"   }
-        ListElement { description: qsTr("Перемотать ролик на 5 секунд вперед"); shortcut: "Стрелка вправо" }
-        ListElement { description: qsTr("Увеличить громкость на 5%"); shortcut: "Стрелка вверх"            }
-        ListElement { description: qsTr("Уменьшить громкость на 5%"); shortcut: "Стрелка вниз"             }
-        ListElement { description: qsTr("Закрыть диалоговое оконо"); shortcut: "Esc"                       }
-        ListElement { description: qsTr("Перейти к началу ролика"); shortcut: "Home"                       }
-        ListElement { description: qsTr("Перейти к концу видео"); shortcut: "End"                          }
+        ListElement { description: qsTr("Перемотать ролик на 10 секунд назад"); shortcut: "J"                    }
+        ListElement { description: qsTr("Перемотать ролик на 10 секунд вперед"); shortcut: "L"                   }
+        ListElement { description: qsTr("Включить или отключить звук"); shortcut: "M"                            }
+        ListElement { description: qsTr("Приостановить или продолжить воспроизведение"); shortcut: "K"           }
+        ListElement { description: qsTr("Включить или выключить полноэкранный режим"); shortcut: "F"             }
+        ListElement { description: qsTr("Показать справку о горячих клавишах"); shortcut: "?"                    }
+        ListElement { description: qsTr("Открыть файл"); shortcut: "Ctrl + O"                                    }
+        ListElement { description: qsTr("Выход"); shortcut: "Ctrl + Q"                                           }
+        ListElement { description: qsTr("Показать информацию о программе"); shortcut: "Ctrl + A"                 }
+        ListElement { description: qsTr("Отправить отзыв"); shortcut: "Ctrl + F"                                 }
+        ListElement { description: qsTr("Перейти к моменту ролика по таймкоду"); shortcut: "Ctrl + G"            }
+        ListElement { description: qsTr("Перемотать ролик на 5 секунд назад"); shortcut: qsTr("Стрелка влево")   }
+        ListElement { description: qsTr("Перемотать ролик на 5 секунд вперед"); shortcut: qsTr("Стрелка вправо") }
+        ListElement { description: qsTr("Увеличить громкость на 5%"); shortcut: qsTr("Стрелка вверх")            }
+        ListElement { description: qsTr("Уменьшить громкость на 5%"); shortcut: qsTr("Стрелка вниз")             }
+        ListElement { description: qsTr("Закрыть диалоговое оконо"); shortcut: "Esc"                             }
+        ListElement { description: qsTr("Перейти к началу ролика"); shortcut: "Home"                             }
+        ListElement { description: qsTr("Перейти к концу видео"); shortcut: "End"                                }
     }
 
     ListView {

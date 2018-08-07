@@ -44,7 +44,7 @@ ApplicationWindow {
     FileDialog {
         id: fileDialog
         folder: shortcuts.desktop
-        nameFilters: [ "Медиафайлы ( *.ogg *.mpg *.wav *.mp3 *.mp4 *.avi *.mkv *.mov )", "Все файлы (*)" ]
+        nameFilters: [ qsTr("Медиафайлы") + " ( *.ogg *.mpg *.wav *.mp3 *.mp4 *.avi *.mkv *.mov )", qsTr("Все файлы") + " (*)" ]
     }
 
     MediaPlayer {

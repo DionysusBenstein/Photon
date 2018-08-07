@@ -122,7 +122,7 @@ Popup {
         }
 
         color: "white"
-        text: "Автор: \nDionysus Benstein"
+        text: qsTr("Автор:") + " \nDionysus Benstein"
         wrapMode: Text.WordWrap
         font {
             pixelSize: 16

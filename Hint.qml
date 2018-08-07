@@ -54,7 +54,7 @@ Item {
             topMargin: 10
         }
 
-        text: "• Открыть файл"
+        text: qsTr("• Открыть файл")
         color: "#f1f1f1"
         font {
             family: robotoMediumFont.name
@@ -88,7 +88,7 @@ Item {
             topMargin: 5
         }
 
-        text: "• О программе"
+        text: qsTr("• О программе")
         color: "#f1f1f1"
         font {
             family: robotoMediumFont.name
@@ -122,7 +122,7 @@ Item {
             topMargin: 5
         }
 
-        text: "• Справка"
+        text: qsTr("• Справка")
         color: "#f1f1f1"
         font {
             family: robotoMediumFont.name
@@ -156,7 +156,7 @@ Item {
             topMargin: 5
         }
 
-        text: "• Выйти"
+        text: qsTr("• Выйти")
         color: "#f1f1f1"
         font {
             family: robotoMediumFont.name

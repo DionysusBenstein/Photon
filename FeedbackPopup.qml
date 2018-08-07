@@ -51,7 +51,7 @@ Popup {
                     margins: 16
                 }
 
-                text: "Отправить отзыв"
+                text: qsTr("Отправить отзыв")
                 color: "white"
                 font {
                     family: robotoMediumFont.name
@@ -74,7 +74,7 @@ Popup {
         TextArea {
             id: feedbackMessage
             anchors.fill: feedbackMessage
-            placeholderText: "Опишите проблему или поделитель \nмнением"
+            placeholderText: qsTr("Опишите проблему или поделитель \nмнением")
             wrapMode: Text.Wrap
             selectByMouse: true
             persistentSelection: true

@@ -109,7 +109,7 @@ Popup {
         focus: true
         selectByMouse: true
         persistentSelection: true
-        placeholderText: "Введите тайминг"
+        placeholderText: qsTr("Введите тайминг")
         background: Rectangle {
             color: "white"
         }

@@ -80,7 +80,7 @@ Popup {
             persistentSelection: true
 
             MouseArea {
-                id: inputMouseArea
+                id: feedbackMessageMouseArea
                 anchors.fill: parent
                 acceptedButtons: Qt.RightButton
                 cursorShape: Qt.IBeamCursor

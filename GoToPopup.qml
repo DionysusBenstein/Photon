@@ -46,7 +46,7 @@ Popup {
         width: 24; height: 24
 
         Rectangle {
-            width: 2; height: 13
+            width: 1.5; height: 13
             anchors.centerIn: parent
             antialiasing: true
             color: "#4c4c4c"
@@ -55,7 +55,7 @@ Popup {
         }
 
         Rectangle {
-            width: 2; height: 13
+            width: 1.5; height: 13
             anchors.centerIn: parent
             antialiasing: true
             color: "#4c4c4c"
@@ -108,6 +108,7 @@ Popup {
 
         focus: true
         selectByMouse: true
+        persistentSelection: true
         placeholderText: "Введите тайминг"
         background: Rectangle {
             color: "white"

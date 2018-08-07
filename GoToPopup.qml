@@ -18,8 +18,10 @@ import QtQuick.Controls.Material 2.3
 
 Popup {
     id: popup
-    x: Math.round((parent.width - width) / 2)
-    y: Math.round((parent.height - height) / 2)
+    //x: Math.round((parent.width - width) / 2)
+    //y: Math.round((parent.height - height) / 2)
+    x: isMaximize || isFullScreen ? 19 : 16
+    y: isMaximize || isFullScreen ? 21 : 12
     width: 341; height: 45
     parent: Overlay.overlay
     modal: true
@@ -28,6 +30,14 @@ Popup {
     padding: 0
     Material.theme: Material.Light
     Material.accent: "#4285f4"
+
+    ToolButton {
+        anchors {
+            left: divider.right
+            right: parent.right
+            verticalCenter: parent.verticalCenter
+        }
+    }
 
     Item {
         id: closeButton

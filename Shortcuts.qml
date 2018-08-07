@@ -42,14 +42,6 @@ Item {
     }
 
     Shortcut {
-        sequence: "Ctrl+O"
-        onActivated: {
-            fileDialog.open()
-            videoArea.focus = true
-        }
-    }
-
-    Shortcut {
         sequence: "Ctrl+Q"
         onActivated: Qt.quit()
     }
@@ -77,6 +69,14 @@ Item {
     Shortcut {
         sequence: "M"
         onActivated: volumeSlider.value === 0 ? volumeSlider.value = 1 : volumeSlider.value = 0
+    }
+
+    Shortcut {
+        sequence: "Ctrl+O"
+        onActivated: {
+            fileDialog.open()
+            videoArea.focus = true
+        }
     }
 
     Shortcut {

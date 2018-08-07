@@ -42,6 +42,19 @@ Item {
     }
 
     Shortcut {
+        sequence: "Ctrl+O"
+        onActivated: {
+            fileDialog.open()
+            videoArea.focus = true
+        }
+    }
+
+    Shortcut {
+        sequence: "Ctrl+Q"
+        onActivated: Qt.quit()
+    }
+
+    Shortcut {
         sequence: "Ctrl+A"
         onActivated: aboutWnd.open()
     }

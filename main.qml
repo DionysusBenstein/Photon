@@ -196,14 +196,6 @@ ApplicationWindow {
                         fileDialog.open()
                         videoArea.focus = true
                     }
-
-                    Shortcut {
-                        sequence: "Ctrl+O"
-                        onActivated: {
-                            fileDialog.open()
-                            videoArea.focus = true
-                        }
-                    }
                 }
 
                 MenuItem {
@@ -223,11 +215,6 @@ ApplicationWindow {
                 MenuItem {
                     text: qsTr("Выход")
                     onTriggered: Qt.quit()
-
-                    Shortcut {
-                        sequence: "Ctrl+Q"
-                        onActivated: Qt.quit()
-                    }
                 }
             }
         }

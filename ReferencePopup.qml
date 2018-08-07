@@ -43,6 +43,7 @@ Popup {
         ListElement { description: qsTr("Включить или выключить полноэкранный режим"); shortcut: "F"       }
         ListElement { description: qsTr("Показать справку о горячих клавишах"); shortcut: "?"              }
         ListElement { description: qsTr("Открыть файл"); shortcut: "Ctrl + O"                              }
+        ListElement { description: qsTr("Выход"); shortcut: "Ctrl + Q"                                     }
         ListElement { description: qsTr("Показать информацию о программе"); shortcut: "Ctrl + A"           }
         ListElement { description: qsTr("Отправить отзыв"); shortcut: "Ctrl + F"                           }
         ListElement { description: qsTr("Перейти к моменту ролика по таймкоду"); shortcut: "Ctrl + G"      }

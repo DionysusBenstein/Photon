@@ -31,19 +31,11 @@ Popup {
     Material.theme: Material.Light
     Material.accent: "#4285f4"
 
+    //Close
     ToolButton {
         id: closeButton
         anchors {
             right: parent.right
-            verticalCenter: parent.verticalCenter
-        }
-        onClicked: close()
-    }
-
-    ToolButton {
-        id: doneButton
-        anchors {
-            left: divider.right
             verticalCenter: parent.verticalCenter
         }
         onClicked: close()
@@ -70,6 +62,16 @@ Popup {
             rotation: 135
             radius: 2
         }
+    }
+
+    //Done
+    ToolButton {
+        id: doneButton
+        anchors {
+            left: divider.right
+            verticalCenter: parent.verticalCenter
+        }
+        onClicked: close()
     }
 
     Image {

@@ -45,7 +45,9 @@ Slider {
     MouseArea {
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
-        enabled: false
+
+        onPressed: mouse.accepted = false
+        onReleased: mouse.accepted = false
 //        onPressed: previousX = mouseX
 //        onMouseXChanged: {
 //            var dx = mouseX - previousX

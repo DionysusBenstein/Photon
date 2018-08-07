@@ -28,7 +28,15 @@ Slider {
     MouseArea {
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
-        enabled: false
+        //enabled: false
+
+        onWheel: {
+            control.value += 0.1 * wheel.angleDelta.y / 120;
+
+            if (control.value < 0) {
+                control.value = 0;
+            }
+        }
     }
 
     background: Rectangle {

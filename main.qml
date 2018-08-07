@@ -232,17 +232,8 @@ ApplicationWindow {
             }
         }
 
-        //StatisticsPopup { id: satisticsPopup }
-        ReferencePopup { id: referencePopup }
-        FeedbackPopup { id: feedbackPopup }
-        VolumeSlider { id: volumeSlider; value: 1 }
-        //Splashscreen { id: splashscreen }
-        ContextMenu { id: contextMenu }
-        AboutPopup { id: aboutWnd }
-        Shortcuts { id: totalShortcuts }
-        GoToPopup { id: goToPopup }
         Timeline { id: seekBar; value: player.position / player.duration }
-        Hint { id: hint }
+        VolumeSlider { id: volumeSlider; value: 1 }
 
         Text {
             anchors {
@@ -253,6 +244,7 @@ ApplicationWindow {
             }
 
             color: "#eeeeee"
+
             text: "<b>" + Utils.msToTime(player.position) + "</b>" + " / " + Utils.msToTime(player.duration)
             font {
                 family: robotoRegularFont.name
@@ -331,6 +323,16 @@ ApplicationWindow {
             }
         }
     }
+
+    //StatisticsPopup { id: satisticsPopup }
+    ReferencePopup { id: referencePopup }
+    FeedbackPopup { id: feedbackPopup }
+    //Splashscreen { id: splashscreen }
+    ContextMenu { id: contextMenu }
+    AboutPopup { id: aboutWnd }
+    Shortcuts { id: totalShortcuts }
+    GoToPopup { id: goToPopup }
+    Hint { id: hint }
 
     Settings {
         id: settings

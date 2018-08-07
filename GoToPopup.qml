@@ -20,8 +20,7 @@ Popup {
     id: popup
     x: Math.round((parent.width - width) / 2)
     y: Math.round((parent.height - height) / 2)
-    width: 341
-    height: 44
+    width: 341; height: 45
     parent: Overlay.overlay
     modal: true
     focus: true
@@ -40,7 +39,7 @@ Popup {
         }
 
         Rectangle {
-            width: 2; height: 12
+            width: 2; height: 14
             anchors.centerIn: parent
             antialiasing: true
             color: "#4c4c4c"
@@ -49,7 +48,7 @@ Popup {
         }
 
         Rectangle {
-            width: 2; height: 12
+            width: 2; height: 14
             anchors.centerIn: parent
             antialiasing: true
             color: "#4c4c4c"
@@ -81,10 +80,15 @@ Popup {
         anchors {
             left: parent.left
             right: divider.left
-            margins: 16
-            verticalCenter: parent.verticalCenter
+            top: parent.top
+            leftMargin: 16
+            rightMargin: 16
+            topMargin: 5
         }
 
         placeholderText: "Введите тайминг"
+        background: Rectangle {
+            color: "white"
+        }
     }
 }

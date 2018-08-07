@@ -27,7 +27,6 @@ function msToTime(duration) {
     }
 }
 
-function errorInLoadingApp()
-{
+function errorInLoadingApp() {
     Qt.quit()
 }

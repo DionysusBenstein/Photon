@@ -14,5 +14,6 @@
         <file>images/icons/youtube-64.png</file>
         <file>images/icons/youtube.svg</file>
         <file>images/open-file.png</file>
+        <file>images/baseline_done_black_18dp.png</file>
     </qresource>
 </RCC>

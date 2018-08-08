@@ -27,9 +27,8 @@ ApplicationWindow {
     width: 854; height: 480
     title: qsTr("Photon Player v" + appVersion)
 
-    readonly property bool isMaximize: mainWindow.visibility === ApplicationWindow.Maximized
     readonly property bool isFullScreen: mainWindow.visibility === ApplicationWindow.FullScreen
-
+    readonly property bool isMaximize: mainWindow.visibility === ApplicationWindow.Maximized
     readonly property color lightFontColor: "#9a9a9a"
     readonly property color darkFontColor: "#404040"
     readonly property color primaryColor: "#ff0000"
@@ -67,12 +66,11 @@ ApplicationWindow {
         id: videoArea
         anchors.fill: parent
         hoverEnabled: true
-        //onEntered: videoArea.state = "active ui"
-        //onExited: videoArea.state = "inactive ui"
+        onEntered: videoArea.state = "active ui"
+        onExited: videoArea.state = "inactive ui"
         focus: true
         opacity: 0
-        state: "active ui"
-        //state: player.playbackState === MediaPlayer.PausedState ? "active ui" : "inactive ui"
+        state: player.playbackState === MediaPlayer.PausedState ? "active ui" : "inactive ui"
         states: [
             State {
                 name: "active ui"
@@ -102,8 +100,24 @@ ApplicationWindow {
         Keys.onEscapePressed: if (isFullScreen) mainWindow.showNormal()
         Keys.onRightPressed: if(player.hasAudio || player.hasAudio) player.seek(player.position + 5000)
         Keys.onLeftPressed: if(player.hasAudio || player.hasAudio) player.seek(player.position - 5000)
-        Keys.onUpPressed: volumeSlider.value += 0.05
-        Keys.onDownPressed: volumeSlider.value -= 0.05
+        Keys.onUpPressed: {
+            volumeSlider.value += 0.05
+            buttonIcon.source = "images/baseline-volume_up-24px.svg"
+            oButtonBackgroundAnim.running = true
+            sButtonBackgroundAnim.running = true
+            oButtonIconAnim.running       = true
+            sButtonIconAnim.running       = true
+        }
+
+        Keys.onDownPressed: {
+            volumeSlider.value -= 0.05
+            buttonIcon.source = "images/baseline-volume_down-24px.svg"
+            oButtonBackgroundAnim.running = true
+            sButtonBackgroundAnim.running = true
+            oButtonIconAnim.running       = true
+            sButtonIconAnim.running       = true
+        }
+
         Keys.onSpacePressed: {
             player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
             oButtonBackgroundAnim.running = true
@@ -138,6 +152,7 @@ ApplicationWindow {
             opacity: 0
         }
 
+        //Play/Pause animation
         Image {
             id: buttonIcon
             anchors.centerIn: buttonBackground
@@ -151,6 +166,19 @@ ApplicationWindow {
                                                : "images/baseline_pause_white_16dp.png"
                 }
             }
+        }
+
+        //Volume animation
+        Image {
+            id: volumeChangedIcon
+            anchors.centerIn: buttonBackground
+            opacity: 0
+        }
+
+        ColorOverlay {
+            anchors.fill: volumeChangedIcon
+            source: volumeChangedIcon
+            color: "#edeeef"
         }
 
         Rectangle {
@@ -359,11 +387,14 @@ ApplicationWindow {
     Settings {
         id: settings
         property alias repeatSwitchChecked: contextMenu.repeatSwitchChecked
+        //property alias videoSource: player.source
+        //property alias position: player.position
     }
 
     OpacityAnimator {
         id: oButtonBackgroundAnim
         target: buttonBackground
+        alwaysRunToEnd: false
         from: 0.53; to: 0
         running: false
         duration: 500
@@ -372,6 +403,7 @@ ApplicationWindow {
     OpacityAnimator {
         id: oButtonIconAnim
         target: buttonIcon
+        alwaysRunToEnd: false
         from: 1; to: 0
         running: false
         duration: 500
@@ -380,6 +412,7 @@ ApplicationWindow {
     ScaleAnimator {
         id: sButtonBackgroundAnim
         target: buttonBackground
+        alwaysRunToEnd: false
         from: 1; to: 2
         running: false
         duration: 500
@@ -388,6 +421,7 @@ ApplicationWindow {
     ScaleAnimator {
         id: sButtonIconAnim
         target: buttonIcon
+        alwaysRunToEnd: false
         from: 1; to: 2
         running: false
         duration: 500

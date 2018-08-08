@@ -74,7 +74,7 @@ Popup {
         onClicked: {
             if(player.hasAudio || player.hasAudio) {
                 console.log(input.text)
-                player.seek(Utils.timeToMs(0, 0, 20))
+                //player.seek(Utils.timeToMs(0, 0, 20))
             }
             close()
         }

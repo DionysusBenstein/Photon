@@ -19,16 +19,15 @@ Slider {
     id: control
     width: isMaximize || isFullScreen ? 90 : 64
     anchors {
-        left: playButton.right
+        left: volumeIcon.right
         bottom: parent.bottom
-        leftMargin:   isMaximize || isFullScreen ? 30 : 10
+        leftMargin:   isMaximize || isFullScreen ? 30 : 1
         bottomMargin: isMaximize || isFullScreen ? 12 : 6
     }
 
     MouseArea {
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
-
         onPressed: mouse.accepted = false
         onReleased: mouse.accepted = false
         onWheel: {

@@ -18,6 +18,7 @@ import "utils.js" as Utils
 import QtQuick.Dialogs 1.3
 import QtQuick.Controls 2.4
 import Qt.labs.settings 1.0
+import QtGraphicalEffects 1.0
 import QtQuick.Controls.Material 2.3
 
 ApplicationWindow {
@@ -66,11 +67,12 @@ ApplicationWindow {
         id: videoArea
         anchors.fill: parent
         hoverEnabled: true
-        onEntered: videoArea.state = "active ui"
-        onExited: videoArea.state = "inactive ui"
+        //onEntered: videoArea.state = "active ui"
+        //onExited: videoArea.state = "inactive ui"
         focus: true
         opacity: 0
-        state: player.playbackState === MediaPlayer.PausedState ? "active ui" : "inactive ui"
+        state: "active ui"
+        //state: player.playbackState === MediaPlayer.PausedState ? "active ui" : "inactive ui"
         states: [
             State {
                 name: "active ui"
@@ -221,6 +223,38 @@ ApplicationWindow {
 
         Timeline { id: seekBar; value: player.position / player.duration }
         VolumeSlider { id: volumeSlider; value: 1 }
+
+        Image {
+            id: volumeIcon
+            anchors {
+                left: playButton.right
+                bottom: parent.bottom
+                leftMargin:   isMaximize || isFullScreen ? 30 : 21
+                bottomMargin: isMaximize || isFullScreen ? 12 : 6
+            }
+
+            source: {
+                if (volumeSlider.value <= 0.5 && volumeSlider.value > 0) {
+                    "images/baseline-volume_down-24px.svg"
+                } else if (volumeSlider.value === 0) {
+                    "images/baseline-volume_off-24px.svg"
+                } else {
+                    "images/baseline-volume_up-24px.svg"
+                }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                onPressed: volumeSlider.value === 0 ? volumeSlider.value = 1 : volumeSlider.value = 0
+            }
+        }
+
+        ColorOverlay {
+            anchors.fill: volumeIcon
+            source: volumeIcon
+            color: "#edeeef"
+        }
 
         Text {
             id: time

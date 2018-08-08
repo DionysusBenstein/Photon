@@ -15,5 +15,8 @@
         <file>images/icons/youtube.svg</file>
         <file>images/open-file.png</file>
         <file>images/baseline_done_black_18dp.png</file>
+        <file>images/baseline-volume_up-24px.svg</file>
+        <file>images/baseline-volume_down-24px.svg</file>
+        <file>images/baseline-volume_off-24px.svg</file>
     </qresource>
 </RCC>

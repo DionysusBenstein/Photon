@@ -72,7 +72,10 @@ Popup {
         }
 
         onClicked: {
-            console.log(Utils.timeToMs(0, 0, 1))
+            if(player.hasAudio || player.hasAudio) {
+                console.log(input.text)
+                player.seek(Utils.timeToMs(0, 0, 20))
+            }
             close()
         }
     }

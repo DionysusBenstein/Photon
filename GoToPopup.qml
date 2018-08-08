@@ -22,7 +22,8 @@ Popup {
     //y: Math.round((parent.height - height) / 2)
     x: isMaximize || isFullScreen ? 24 : 16
     y: isMaximize || isFullScreen ? 24 : 16
-    width: 341; height: 45
+    /*width: 341;*/ height: 45
+    width: 246
     parent: Overlay.overlay
     modal: true
     focus: true
@@ -90,7 +91,7 @@ Popup {
         height: 28
         anchors {
             right: parent.right
-            rightMargin: 48 + 32
+            rightMargin: 48 + 36
             verticalCenter: parent.verticalCenter
         }
         color: "#d9d9d9"

@@ -27,9 +27,22 @@ function msToTime(duration) {
     }
 }
 
-function timeToMs(sec, min, hours) {
-
+function timeToMs(hours, minutes, seconds) {
     var ms;
+
+    if (hours !== undefined) {
+        ms = hours * 3600000;
+    }
+
+    if (minutes !== undefined) {
+        ms += minutes * 60000;
+    }
+
+    if (seconds !== undefined) {
+        ms += seconds * 1000;
+    }
+
+    return ms;
 }
 
 function errorInLoadingApp() {

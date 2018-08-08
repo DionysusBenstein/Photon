@@ -14,6 +14,7 @@
 
 import QtQuick 2.11
 import QtQuick.Controls 2.4
+import "utils.js" as Utils
 import QtQuick.Controls.Material 2.3
 
 Popup {
@@ -71,7 +72,7 @@ Popup {
         }
 
         onClicked: {
-            player.seek(player.position + parseInt(input.text))
+            console.log(Utils.timeToMs(0, 0, 1))
             close()
         }
     }

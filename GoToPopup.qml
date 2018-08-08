@@ -111,7 +111,7 @@ Popup {
         placeholderText: qsTr("Введите тайминг"/*"Enter timing"*/)
         background: Rectangle { color: "white" }
         validator: RegExpValidator {
-            regExp:  /^[0-5][0-9]:[0-5][0-9]:[0-5][0-9]$/
+            regExp:  /^[0-5]?[0-9]:[0-5]?[0-9]:[0-5][0-9]$/
        }
 
         MouseArea {

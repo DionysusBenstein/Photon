@@ -28,6 +28,7 @@ function msToTime(duration) {
 }
 
 function timeToMs(sec, min, hours) {
+
     var ms;
 }
 

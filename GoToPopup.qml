@@ -18,12 +18,9 @@ import QtQuick.Controls.Material 2.3
 
 Popup {
     id: popup
-    //x: Math.round((parent.width - width) / 2)
-    //y: Math.round((parent.height - height) / 2)
     x: isMaximize || isFullScreen ? 24 : 16
     y: isMaximize || isFullScreen ? 24 : 16
-    /*width: 341;*/ height: 45
-    width: 246
+    width: 246; height: 45
     parent: Overlay.overlay
     modal: true
     focus: true

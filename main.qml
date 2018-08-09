@@ -102,18 +102,18 @@ ApplicationWindow {
         Keys.onLeftPressed: if(player.hasAudio || player.hasAudio) player.seek(player.position - 5000)
         Keys.onUpPressed: {
             volumeSlider.value += 0.05
-            oButtonBackgroundAnim.running = true
-            sButtonBackgroundAnim.running = true
-            oButtonIconAnim.running       = true
-            sButtonIconAnim.running       = true
+            //oButtonBackgroundAnim.running = true
+            //sButtonBackgroundAnim.running = true
+            //oButtonIconAnim.running       = true
+            //sButtonIconAnim.running       = true
         }
 
         Keys.onDownPressed: {
-            volumeSlider.value -= 0.05
-            oButtonBackgroundAnim.running = true
-            sButtonBackgroundAnim.running = true
-            oButtonIconAnim.running       = true
-            sButtonIconAnim.running       = true
+            //volumeSlider.value -= 0.05
+            //oButtonBackgroundAnim.running = true
+            //sButtonBackgroundAnim.running = true
+            //oButtonIconAnim.running       = true
+            //sButtonIconAnim.running       = true
         }
 
         Keys.onSpacePressed: {

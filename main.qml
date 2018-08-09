@@ -102,7 +102,6 @@ ApplicationWindow {
         Keys.onLeftPressed: if(player.hasAudio || player.hasAudio) player.seek(player.position - 5000)
         Keys.onUpPressed: {
             volumeSlider.value += 0.05
-            buttonIcon.source = "images/baseline-volume_up-24px.svg"
             oButtonBackgroundAnim.running = true
             sButtonBackgroundAnim.running = true
             oButtonIconAnim.running       = true
@@ -111,7 +110,6 @@ ApplicationWindow {
 
         Keys.onDownPressed: {
             volumeSlider.value -= 0.05
-            buttonIcon.source = "images/baseline-volume_down-24px.svg"
             oButtonBackgroundAnim.running = true
             sButtonBackgroundAnim.running = true
             oButtonIconAnim.running       = true
@@ -119,11 +117,13 @@ ApplicationWindow {
         }
 
         Keys.onSpacePressed: {
-            player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-            oButtonBackgroundAnim.running = true
-            sButtonBackgroundAnim.running = true
-            oButtonIconAnim.running       = true
-            sButtonIconAnim.running       = true
+            if (player.hasVideo || player.hasAudio) {
+                player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+                oButtonBackgroundAnim.running = true
+                sButtonBackgroundAnim.running = true
+                oButtonIconAnim.running       = true
+                sButtonIconAnim.running       = true
+            }
         }
 
         onDoubleClicked: {
@@ -131,7 +131,7 @@ ApplicationWindow {
             isMaximize || isFullScreen ? mainWindow.showMaximized() : mainWindow.showFullScreen()
         }
 
-        onReleased: {
+        onPressed: {
             if (player.hasVideo && mouse.button === Qt.LeftButton) {
                 player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
                 oButtonBackgroundAnim.running = true
@@ -166,19 +166,6 @@ ApplicationWindow {
                                                : "images/baseline_pause_white_16dp.png"
                 }
             }
-        }
-
-        //Volume animation
-        Image {
-            id: volumeChangedIcon
-            anchors.centerIn: buttonBackground
-            opacity: 0
-        }
-
-        ColorOverlay {
-            anchors.fill: volumeChangedIcon
-            source: volumeChangedIcon
-            color: "#edeeef"
         }
 
         Rectangle {

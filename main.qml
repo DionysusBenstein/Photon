@@ -364,7 +364,7 @@ ApplicationWindow {
     //StatisticsPopup { id: satisticsPopup }
     ReferencePopup { id: referencePopup }
     FeedbackPopup { id: feedbackPopup }
-    //Splashscreen { id: splashscreen }
+    Splashscreen { id: splashscreen }
     ContextMenu { id: contextMenu }
     AboutPopup { id: aboutWnd }
     Shortcuts { id: totalShortcuts }

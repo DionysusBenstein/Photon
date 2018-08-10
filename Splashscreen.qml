@@ -13,31 +13,82 @@
 /*******************************************************************/
 
 import QtQuick 2.11
+import QtQuick.Window 2.2
+import QtQuick.Controls 2.2
 
-Item {
-    id: root
-    anchors.fill: parent
+Loader {
+    id: loader
 
-    property bool appIsReady: false
-    property bool splashIsReady: false
-    property bool ready: appIsReady && splashIsReady
+    Component {
+        id: splash
 
-    onReadyChanged: if (ready) readyToGo();
+        Window {
+            id: splashWindow
+            x: Math.round((mainWindow.width - width) / 2)
+            y: Math.round((mainWindow.height - height) / 2)
+            width: 300
+            height: 200
+            modality: Qt.ApplicationModal
+            flags: Qt.SplashScreen
+            color: "#DEDEDE"
 
-    signal readyToGo()
+            signal timeout()
 
-    Rectangle {
-        width: 426
-        height: 320
-        anchors.centerIn: parent
-        color: "red"
+            ProgressBar {
+                id: progress
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    bottom: parent.bottom
+                }
+
+                value: 0
+                to: 100
+                from: 0
+            }
+
+            Timer {
+                id: timer
+                interval: 50
+                running: true
+                repeat: true
+                onTriggered: {
+                    progress.value++;
+
+                    if(progress.value >= 100) {
+                        timer.stop();
+                        splashWindow.timeout();
+                    }
+                }
+            }
+        }
     }
 
-    Timer {
-        id: splashTimer
-        interval: 1000
-        onTriggered: splashIsReady = true
+    Component {
+        id: root
+
+        Window {
+            id: rootWindow
+            width: 800
+            height: 600
+        }
     }
 
-    Component.onCompleted: splashTimer.start()
+    sourceComponent: splash
+    active: true
+    visible: true
+    onStatusChanged: {
+        if (loader.status === Loader.Ready) {
+            item.show();
+        }
+    }
+
+    Connections {
+        id: connection
+        target: loader.item
+        onTimeout: {
+            connection.target = null;
+            loader.sourceComponent = root;
+        }
+    }
 }

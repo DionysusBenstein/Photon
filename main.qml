@@ -102,27 +102,27 @@ ApplicationWindow {
         Keys.onLeftPressed: if(player.hasAudio || player.hasAudio) player.seek(player.position - 5000)
         Keys.onUpPressed: {
             volumeSlider.value += 0.05
-            //oButtonBackgroundAnim.running = true
-            //sButtonBackgroundAnim.running = true
-            //oButtonIconAnim.running       = true
-            //sButtonIconAnim.running       = true
+            //oButtonBackgroundAnim.running = true;
+            //sButtonBackgroundAnim.running = true;
+            //oButtonIconAnim.running       = true;
+            //sButtonIconAnim.running       = true;
         }
 
         Keys.onDownPressed: {
             //volumeSlider.value -= 0.05
-            //oButtonBackgroundAnim.running = true
-            //sButtonBackgroundAnim.running = true
-            //oButtonIconAnim.running       = true
-            //sButtonIconAnim.running       = true
+            //oButtonBackgroundAnim.running = true;
+            //sButtonBackgroundAnim.running = true;
+            //oButtonIconAnim.running       = true;
+            //sButtonIconAnim.running       = true;
         }
 
         Keys.onSpacePressed: {
             if (player.hasVideo || player.hasAudio) {
                 player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-                oButtonBackgroundAnim.running = true
-                sButtonBackgroundAnim.running = true
-                oButtonIconAnim.running       = true
-                sButtonIconAnim.running       = true
+                oButtonBackgroundAnim.running = true;
+                sButtonBackgroundAnim.running = true;
+                oButtonIconAnim.running       = true;
+                sButtonIconAnim.running       = true;
             }
         }
 
@@ -134,10 +134,10 @@ ApplicationWindow {
         onPressed: {
             if (player.hasVideo && mouse.button === Qt.LeftButton) {
                 player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
-                oButtonBackgroundAnim.running = true
-                sButtonBackgroundAnim.running = true
-                oButtonIconAnim.running       = true
-                sButtonIconAnim.running       = true
+                oButtonBackgroundAnim.running = true;
+                sButtonBackgroundAnim.running = true;
+                oButtonIconAnim.running       = true;
+                sButtonIconAnim.running       = true;
             }
         }
 
@@ -250,11 +250,11 @@ ApplicationWindow {
 
             source: {
                 if (volumeSlider.value <= 0.5 && volumeSlider.value > 0) {
-                    "images/baseline-volume_down-24px.svg"
+                    "images/baseline-volume_down-24px.svg";
                 } else if (volumeSlider.value === 0) {
-                    "images/baseline-volume_off-24px.svg"
+                    "images/baseline-volume_off-24px.svg";
                 } else {
-                    "images/baseline-volume_up-24px.svg"
+                    "images/baseline-volume_up-24px.svg";
                 }
             }
 
@@ -319,10 +319,10 @@ ApplicationWindow {
             source: {
                 if (player.playbackState === MediaPlayer.PlayingState) {
                     isMaximize || isFullScreen ? "images/baseline_pause_white_24dp.png"
-                                               : "images/baseline_pause_white_16dp.png"
+                                               : "images/baseline_pause_white_16dp.png";
                 } else {
                     isMaximize || isFullScreen ? "images/baseline_play_arrow_white_24dp.png"
-                                               : "images/baseline_play_arrow_white_16dp.png"
+                                               : "images/baseline_play_arrow_white_16dp.png";
                 }
             }
 
@@ -345,11 +345,11 @@ ApplicationWindow {
 
             source: {
                 if (isFullScreen) {
-                    "images/baseline-fullscreen_exit-white-24dp.png"
+                    "images/baseline-fullscreen_exit-white-24dp.png";
                 } else if (isMaximize) {
-                    "images/baseline-fullscreen-white-24dp.png"
+                    "images/baseline-fullscreen-white-24dp.png";
                 } else {
-                    "images/baseline-fullscreen-white-16dp.png"
+                    "images/baseline-fullscreen-white-16dp.png";
                 }
             }
 

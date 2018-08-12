@@ -97,8 +97,9 @@ ApplicationWindow {
         ]
 
         acceptedButtons: Qt.LeftButton | Qt.RightButton
-        onMouseXChanged: console.log("x - " + mouseX)
-        onMouseYChanged: console.log("y - " + mouseY)
+        onMouseXChanged: videoArea.state = "active ui"
+        onMouseYChanged: videoArea.state = "active ui"
+        onClicked: if (mouse.button === Qt.RightButton) contextMenu.popup()
         Keys.onEscapePressed: if (isFullScreen) mainWindow.showNormal()
         Keys.onRightPressed: if(player.hasAudio || player.hasAudio) player.seek(player.position + 5000)
         Keys.onLeftPressed: if(player.hasAudio || player.hasAudio) player.seek(player.position - 5000)
@@ -126,10 +127,6 @@ ApplicationWindow {
                 oButtonIconAnim.running       = true;
                 sButtonIconAnim.running       = true;
             }
-        }
-
-        onClicked: {
-            if (mouse.button === Qt.RightButton) contextMenu.popup()
         }
 
         onDoubleClicked: {
@@ -382,6 +379,12 @@ ApplicationWindow {
         property alias repeatSwitchChecked: contextMenu.repeatSwitchChecked
         //property alias videoSource: player.source
         //property alias position: player.position
+    }
+
+    Timer {
+        interval: 4000
+        running: false
+        onTriggered: videoArea.state = "inactive ui"
     }
 
     OpacityAnimator {

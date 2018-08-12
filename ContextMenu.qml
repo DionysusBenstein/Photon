@@ -19,6 +19,11 @@ import QtQuick.Controls.Material 2.3
 Menu {
     id: contextMenu
     width: 325
+    background: Rectangle {
+        color: "#0d0d0d"
+        opacity: 0.85
+        radius: 2
+    }
 
     property alias isLoops: repeatSwitch.checked
     property alias repeatSwitchCheckable: repeatSwitch.checkable

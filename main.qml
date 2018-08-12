@@ -62,13 +62,7 @@ ApplicationWindow {
         id: videoArea
         anchors.fill: parent
         hoverEnabled: true
-        onEntered: {
-            if (videoArea.mouseX && videoArea.mouseY) {
-                videoArea.state = "inactive ui"
-            } else {
-                videoArea.state = "active ui"
-            }
-        }
+        onEntered: videoArea.state = "active ui"
         onExited: videoArea.state = "inactive ui"
         propagateComposedEvents: true
         focus: true

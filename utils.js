@@ -44,7 +44,3 @@ function timeToMs(hours, minutes, seconds) {
 
     return ms;
 }
-
-function errorInLoadingApp() {
-    Qt.quit()
-}

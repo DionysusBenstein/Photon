@@ -99,7 +99,6 @@ ApplicationWindow {
         acceptedButtons: Qt.LeftButton | Qt.RightButton
         onMouseXChanged: console.log("x - " + mouseX)
         onMouseYChanged: console.log("y - " + mouseY)
-        onClicked: if (mouse.button === Qt.RightButton) contextMenu.popup()
         Keys.onEscapePressed: if (isFullScreen) mainWindow.showNormal()
         Keys.onRightPressed: if(player.hasAudio || player.hasAudio) player.seek(player.position + 5000)
         Keys.onLeftPressed: if(player.hasAudio || player.hasAudio) player.seek(player.position - 5000)
@@ -112,7 +111,7 @@ ApplicationWindow {
         }
 
         Keys.onDownPressed: {
-            //volumeSlider.value -= 0.05
+            volumeSlider.value -= 0.05
             //oButtonBackgroundAnim.running = true;
             //sButtonBackgroundAnim.running = true;
             //oButtonIconAnim.running       = true;
@@ -129,14 +128,16 @@ ApplicationWindow {
             }
         }
 
+        onClicked: {
+            if (mouse.button === Qt.RightButton) contextMenu.popup()
+        }
+
         onDoubleClicked: {
             isMaximize ? mainWindow.showNormal() : mainWindow.showMaximized()
             isMaximize || isFullScreen ? mainWindow.showMaximized() : mainWindow.showFullScreen()
         }
 
         onPressed: {
-            mouse.accepted = false
-
             if (player.hasVideo && mouse.button === Qt.LeftButton) {
                 player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
                 oButtonBackgroundAnim.running = true;

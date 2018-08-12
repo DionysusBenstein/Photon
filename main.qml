@@ -106,7 +106,7 @@ ApplicationWindow {
         Keys.onRightPressed: if(player.hasAudio || player.hasAudio) player.seek(player.position + 5000)
         Keys.onLeftPressed: if(player.hasAudio || player.hasAudio) player.seek(player.position - 5000)
         Keys.onUpPressed: {
-            volumeSlider.value += 0.05
+            volumeSlider.value += 0.05;
             //oButtonBackgroundAnim.running = true;
             //sButtonBackgroundAnim.running = true;
             //oButtonIconAnim.running       = true;
@@ -114,7 +114,7 @@ ApplicationWindow {
         }
 
         Keys.onDownPressed: {
-            volumeSlider.value -= 0.05
+            volumeSlider.value -= 0.05;
             //oButtonBackgroundAnim.running = true;
             //sButtonBackgroundAnim.running = true;
             //oButtonIconAnim.running       = true;
@@ -123,7 +123,7 @@ ApplicationWindow {
 
         Keys.onSpacePressed: {
             if (player.hasVideo || player.hasAudio) {
-                player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+                player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play();
                 oButtonBackgroundAnim.running = true;
                 sButtonBackgroundAnim.running = true;
                 oButtonIconAnim.running       = true;
@@ -132,13 +132,13 @@ ApplicationWindow {
         }
 
         onDoubleClicked: {
-            isMaximize ? mainWindow.showNormal() : mainWindow.showMaximized()
-            isMaximize || isFullScreen ? mainWindow.showMaximized() : mainWindow.showFullScreen()
+            isMaximize ? mainWindow.showNormal() : mainWindow.showMaximized();
+            isMaximize || isFullScreen ? mainWindow.showMaximized() : mainWindow.showFullScreen();
         }
 
         onPressed: {
             if (player.hasVideo && mouse.button === Qt.LeftButton) {
-                player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
+                player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play();
                 oButtonBackgroundAnim.running = true;
                 sButtonBackgroundAnim.running = true;
                 oButtonIconAnim.running       = true;
@@ -165,10 +165,10 @@ ApplicationWindow {
             source: {
                 if (player.playbackState === MediaPlayer.PlayingState) {
                     isMaximize || isFullScreen ? "images/baseline_play_arrow_white_24dp.png"
-                                               : "images/baseline_play_arrow_white_16dp.png"
+                                               : "images/baseline_play_arrow_white_16dp.png";
                 } else {
                     isMaximize || isFullScreen ? "images/baseline_pause_white_24dp.png"
-                                               : "images/baseline_pause_white_16dp.png"
+                                               : "images/baseline_pause_white_16dp.png";
                 }
             }
         }

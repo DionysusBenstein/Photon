@@ -68,6 +68,7 @@ ApplicationWindow {
         hoverEnabled: true
         onEntered: videoArea.state = "active ui"
         onExited: videoArea.state = "inactive ui"
+        propagateComposedEvents: true
         focus: true
         opacity: 0
         state: player.playbackState === MediaPlayer.PausedState ? "active ui" : "inactive ui"
@@ -96,6 +97,8 @@ ApplicationWindow {
         ]
 
         acceptedButtons: Qt.LeftButton | Qt.RightButton
+        onMouseXChanged: console.log("x - " + mouseX)
+        onMouseYChanged: console.log("y - " + mouseY)
         onClicked: if (mouse.button === Qt.RightButton) contextMenu.popup()
         Keys.onEscapePressed: if (isFullScreen) mainWindow.showNormal()
         Keys.onRightPressed: if(player.hasAudio || player.hasAudio) player.seek(player.position + 5000)
@@ -132,6 +135,8 @@ ApplicationWindow {
         }
 
         onPressed: {
+            mouse.accepted = false
+
             if (player.hasVideo && mouse.button === Qt.LeftButton) {
                 player.playbackState === MediaPlayer.PlayingState ? player.pause() : player.play()
                 oButtonBackgroundAnim.running = true;

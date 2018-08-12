@@ -63,7 +63,7 @@ ApplicationWindow {
         anchors.fill: parent
         hoverEnabled: true
         onEntered: {
-            if (videoArea.mouseX === 0 && videoArea.mouseY === 0) {
+            if (videoArea.mouseX && videoArea.mouseY) {
                 videoArea.state = "inactive ui"
             } else {
                 videoArea.state = "active ui"

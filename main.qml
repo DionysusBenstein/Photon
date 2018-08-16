@@ -149,7 +149,7 @@ ApplicationWindow {
 
         Timer {
             id: timer
-            interval: 4/*sec*/ * 1000
+            interval: 4000
             running: false
             repeat: false
             onTriggered: {

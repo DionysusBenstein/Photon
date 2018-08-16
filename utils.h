@@ -11,7 +11,7 @@ class utils : public QObject
 public:
     explicit utils(QObject *parent = nullptr);
     Q_INVOKABLE QString msToTime(int duration);
-    Q_INVOKABLE int timeToMs(int hours, int minutes, int seconds);
+    Q_INVOKABLE int timeToMs(int hours = 0, int minutes = 0, int seconds = 0);
 
 };
 

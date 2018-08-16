@@ -20,3 +20,22 @@ QString utils::msToTime(int duration)
         return minutes + ":" + seconds;
     }
 }
+
+int utils::timeToMs(int hours = 0, int minutes = 0, int seconds = 0)
+{
+    int ms;
+
+    if (hours != 0) {
+        ms = hours * 3600000;
+    }
+
+    if (minutes != 0) {
+        ms += minutes * 60000;
+    }
+
+    if (seconds != 0) {
+        ms += seconds * 1000;
+    }
+
+    return ms;
+}

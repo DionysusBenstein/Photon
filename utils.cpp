@@ -8,11 +8,11 @@ QString utils::msToTime(int duration)
     QString minutes = QString::number((duration / (1000 * 60)) % 60);
     QString hours   = QString::number((duration / (1000 * 60 * 60)) % 60);
 
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
+    seconds = seconds.toInt() < 10 ? "0" + seconds : seconds;
 
-    if (hours !=  "0")
+    if (hours != "0")
     {
-        minutes = (minutes < 10) ? "0" + minutes : minutes;
+        minutes = minutes.toInt() < 10 ? "0" + minutes : minutes;
         return hours + ":" + minutes + ":" + seconds;
     }
     else

@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QString>
+#include <QDebug>
 
 class utils : public QObject
 {

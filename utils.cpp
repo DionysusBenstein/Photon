@@ -1,8 +1,23 @@
+/*******************************************************************/
+
+/* Original File Name: utils.qml                                   */
+
+/* Date: 18-07-2018                                                */
+
+/* Developer: Dionysus Benstein                                    */
+
+/* Copyright © 2018 Dionysus Benstein. All rights reserved.        */
+
+/* Description: Реализация Класса выполнения специализированных
+                типовых задач.                                     */
+
+/*******************************************************************/
+
 #include "utils.h"
 
-utils::utils(QObject *parent) : QObject(parent) {}
+Utils::Utils(QObject *parent) : QObject(parent) {}
 
-QString utils::msToTime(int duration)
+QString Utils::msToTime(int duration)
 {
     QString seconds = QString::number((duration / 1000) % 60);
     QString minutes = QString::number((duration / (1000 * 60)) % 60);
@@ -21,7 +36,7 @@ QString utils::msToTime(int duration)
     }
 }
 
-int utils::timeToMs(int hours, int minutes, int seconds)
+int Utils::timeToMs(int hours, int minutes, int seconds)
 {
     int ms;
 

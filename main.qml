@@ -14,12 +14,14 @@
 
 import QtQuick 2.11
 import QtMultimedia 5.9
-import "utils.js" as Utils
+//import "utils.js" as Utils
 import QtQuick.Dialogs 1.3
 import QtQuick.Controls 2.4
 import Qt.labs.settings 1.0
 import QtGraphicalEffects 1.0
 import QtQuick.Controls.Material 2.3
+
+import com.benstein.utils 1.0
 
 ApplicationWindow {
     id: mainWindow
@@ -281,7 +283,7 @@ ApplicationWindow {
 
             color: "#eeeeee"
 
-            text: "<b>" + Utils.msToTime(player.position) + "</b>" + " / " + Utils.msToTime(player.duration)
+            text: "<b>" + utils.msToTime(player.position) + "</b>" + " / " + utils.msToTime(player.duration)
             font {
                 family: robotoRegularFont.name
                 pixelSize: isMaximize || isFullScreen ? 18 : 13
@@ -368,6 +370,7 @@ ApplicationWindow {
     AboutPopup { id: aboutWnd }
     Shortcuts { id: totalShortcuts }
     GoToPopup { id: goToPopup }
+    Utils { id: utils }
     Hint { id: hint }
 
     Settings {

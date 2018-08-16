@@ -2,16 +2,15 @@
 #define UTILS_H
 
 #include <QObject>
+#include <QString>
 
 class utils : public QObject
 {
     Q_OBJECT
 public:
     explicit utils(QObject *parent = nullptr);
+    Q_INVOKABLE QString msToTime(int duration);
 
-signals:
-
-public slots:
 };
 
-#endif // UTILS_H
+#endif //UTILS_H

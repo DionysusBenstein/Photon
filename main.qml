@@ -37,6 +37,11 @@ ApplicationWindow {
     readonly property color darkColor: "#c20000"
     readonly property string appVersion: "0.1.0"
 
+    function mouseChanged() {
+        videoArea.state = "active ui";
+        timer.restart();
+    }
+
     FontLoader { id: robotoThinFont; source: "fonts/Roboto-Thin_0.ttf"       }
     FontLoader { id: robotoLightFont; source: "fonts/Roboto-Light.ttf"       }
     FontLoader { id: robotoMediumFont; source: "fonts/Roboto-Medium.ttf"     }
@@ -94,8 +99,8 @@ ApplicationWindow {
         ]
 
         acceptedButtons: Qt.LeftButton | Qt.RightButton
-        onMouseXChanged: timer.running = true
-        onMouseYChanged: timer.running = true
+        onMouseXChanged: mouseChanged()
+        onMouseYChanged: mouseChanged()
         onClicked: if (mouse.button === Qt.RightButton) contextMenu.popup()
         Keys.onEscapePressed: if (isFullScreen) mainWindow.showNormal()
         Keys.onRightPressed: if(player.hasAudio || player.hasAudio) player.seek(player.position + 5000)
@@ -139,6 +144,14 @@ ApplicationWindow {
                 oButtonIconAnim.running       = true;
                 sButtonIconAnim.running       = true;
             }
+        }
+
+        Timer {
+            id: timer
+            interval: 4/*sec*/ * 1000
+            running: false
+            repeat: false
+            onTriggered: videoArea.state = "inactive ui"
         }
 
         Rectangle {
@@ -377,13 +390,6 @@ ApplicationWindow {
         property alias repeatSwitchChecked: contextMenu.repeatSwitchChecked
         //property alias videoSource: player.source
         //property alias position: player.position
-    }
-
-    Timer {
-        id: timer
-        interval: 4000
-        running: false
-        onTriggered: videoArea.state = "inactive ui"
     }
 
     OpacityAnimator {

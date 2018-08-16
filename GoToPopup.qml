@@ -14,7 +14,7 @@
 
 import QtQuick 2.11
 import QtQuick.Controls 2.4
-import "utils.js" as Utils
+//import "utils.js" as Utils
 import QtQuick.Controls.Material 2.3
 
 Popup {
@@ -74,7 +74,7 @@ Popup {
         onClicked: {
             if(player.hasAudio || player.hasAudio) {
                 console.log(input.text)
-                //player.seek(Utils.timeToMs(0, 0, 20))
+                //player.seek(utils.timeToMs(0, 0, 20))
             }
             close()
         }

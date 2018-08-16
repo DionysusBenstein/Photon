@@ -63,12 +63,12 @@ ApplicationWindow {
         id: videoArea
         anchors.fill: parent
         hoverEnabled: true
-        onEntered: videoArea.state = "active ui"
-        onExited: videoArea.state = "inactive ui"
+        //onEntered: videoArea.state = "active ui"
+        //onExited: videoArea.state = "inactive ui"
         propagateComposedEvents: true
         focus: true
         opacity: 0
-        state: player.playbackState === MediaPlayer.PausedState ? "active ui" : "inactive ui"
+        state: "active ui"
         states: [
             State {
                 name: "active ui"
@@ -94,8 +94,8 @@ ApplicationWindow {
         ]
 
         acceptedButtons: Qt.LeftButton | Qt.RightButton
-        //onMouseXChanged: timer.running = true
-        //onMouseYChanged: timer.running = true
+        onMouseXChanged: timer.running = true
+        onMouseYChanged: timer.running = true
         onClicked: if (mouse.button === Qt.RightButton) contextMenu.popup()
         Keys.onEscapePressed: if (isFullScreen) mainWindow.showNormal()
         Keys.onRightPressed: if(player.hasAudio || player.hasAudio) player.seek(player.position + 5000)

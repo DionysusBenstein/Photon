@@ -38,6 +38,7 @@ ApplicationWindow {
     readonly property string appVersion: "0.1.0"
 
     function mouseChanged() {
+        videoArea.cursorShape = Qt.ArrowCursor;
         videoArea.state = "active ui";
         timer.restart();
     }
@@ -68,8 +69,8 @@ ApplicationWindow {
         id: videoArea
         anchors.fill: parent
         hoverEnabled: true
-        //onEntered: videoArea.state = "active ui"
-        //onExited: videoArea.state = "inactive ui"
+        onEntered: videoArea.state = "active ui"
+        onExited: videoArea.state = "inactive ui"
         propagateComposedEvents: true
         focus: true
         opacity: 0
@@ -151,7 +152,10 @@ ApplicationWindow {
             interval: 4/*sec*/ * 1000
             running: false
             repeat: false
-            onTriggered: videoArea.state = "inactive ui"
+            onTriggered: {
+                videoArea.cursorShape = Qt.BlankCursor;
+                videoArea.state = "inactive ui"
+            }
         }
 
         Rectangle {

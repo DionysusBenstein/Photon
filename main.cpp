@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     QGuiApplication::setApplicationVersion("0.1.0");
     QGuiApplication::setOrganizationName("Enclave Software");
 
-    qmlRegisterType<utils>("com.benstein.utils", 1, 0, "Utils");
+    qmlRegisterType<Utils>("com.benstein.utils", 1, 0, "Utils");
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

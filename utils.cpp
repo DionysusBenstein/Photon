@@ -21,7 +21,7 @@ QString utils::msToTime(int duration)
     }
 }
 
-int utils::timeToMs(int hours = 0, int minutes = 0, int seconds = 0)
+int utils::timeToMs(int hours, int minutes, int seconds)
 {
     int ms;
 

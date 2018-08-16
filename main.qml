@@ -234,16 +234,12 @@ ApplicationWindow {
 
                 MenuItem {
                     text: qsTr("О программе...")
-                    onTriggered: {
-                        aboutWnd.open()
-                    }
+                    onTriggered:  aboutWnd.open()
                 }
 
                 MenuItem {
                     text: qsTr("Справка")
-                    onTriggered: {
-                        referencePopup.open()
-                    }
+                    onTriggered: referencePopup.open()
                 }
 
                 MenuItem {

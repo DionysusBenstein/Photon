@@ -89,9 +89,15 @@ Popup {
 
             Menu {
                 id: contextMenu
+                MenuItem { text: qsTr("Отменить"/*"Undo"*/); onTriggered: feedbackMessage.undo()                                          }
+                MenuItem { text: qsTr("Повторить"/*"Redo"*/); onTriggered: feedbackMessage.redo()                                         }
+                MenuSeparator { contentItem: Rectangle { implicitHeight: 1; color: "#1E000000" }                                          }
                 MenuItem { text: qsTr("Вырезать"/*"Cut"*/); enabled: feedbackMessage.selectedText; onTriggered: feedbackMessage.cut()     }
                 MenuItem { text: qsTr("Копировать"/*"Copy"*/); enabled: feedbackMessage.selectedText; onTriggered: feedbackMessage.copy() }
                 MenuItem { text: qsTr("Вставить"/*"Paste"*/); enabled: feedbackMessage.canPaste; onTriggered: feedbackMessage.paste()     }
+                MenuItem { text: qsTr("Удалить"/*"Delete"*/); enabled: feedbackMessage.selectedText; onTriggered: feedbackMessage.clear() }
+                MenuSeparator { contentItem: Rectangle { implicitHeight: 1; color: "#1E000000" }                                          }
+                MenuItem { text: qsTr("Выделить всё"/*"Select All"*/); onTriggered: feedbackMessage.selectAll()                           }
             }
         }
     }

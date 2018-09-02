@@ -103,6 +103,7 @@ ApplicationWindow {
         onMouseXChanged: mouseChanged()
         onMouseYChanged: mouseChanged()
         onClicked: if (mouse.button === Qt.RightButton) contextMenu.popup()
+        onDoubleClicked: isFullScreen ? mainWindow.showMaximized() : mainWindow.showFullScreen()
         Keys.onEscapePressed: if (isFullScreen) mainWindow.showNormal()
         Keys.onRightPressed: if(player.hasAudio || player.hasAudio) player.seek(player.position + 5000)
         Keys.onLeftPressed: if(player.hasAudio || player.hasAudio) player.seek(player.position - 5000)
@@ -130,11 +131,6 @@ ApplicationWindow {
                 oButtonIconAnim.running       = true;
                 sButtonIconAnim.running       = true;
             }
-        }
-
-        onDoubleClicked: {
-            isMaximize ? mainWindow.showNormal() : mainWindow.showMaximized();
-            isMaximize || isFullScreen ? mainWindow.showMaximized() : mainWindow.showFullScreen();
         }
 
         onPressed: {

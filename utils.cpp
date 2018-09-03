@@ -40,17 +40,14 @@ int Utils::timeToMs(int hours, int minutes, int seconds)
 {
     int ms;
 
-    if (hours != 0) {
+    if (hours != 0)
         ms = hours * 3600000;
-    }
 
-    if (minutes != 0) {
+    if (minutes != 0)
         ms += minutes * 60000;
-    }
 
-    if (seconds != 0) {
+    if (seconds != 0)
         ms += seconds * 1000;
-    }
 
     return ms;
 }

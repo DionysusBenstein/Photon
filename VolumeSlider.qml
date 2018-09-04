@@ -31,6 +31,7 @@ Slider {
         onPressed: mouse.accepted = false
         onReleased: mouse.accepted = false
         onWheel: {
+            mouseChanged();
             control.value += 0.1 * wheel.angleDelta.y / 120;
 
             if (control.value < 0) {

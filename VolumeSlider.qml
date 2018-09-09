@@ -21,7 +21,6 @@ Slider {
     anchors {
         left: volumeIcon.right
         bottom: parent.bottom
-        leftMargin:   isMaximize || isFullScreen ? 30 : 1
         bottomMargin: isMaximize || isFullScreen ? 12 : 6
     }
 

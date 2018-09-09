@@ -250,6 +250,8 @@ ApplicationWindow {
 
         Image {
             id: volumeIcon
+            sourceSize.width: isMaximize || isFullScreen ? 36 : 24
+            sourceSize.height: isMaximize || isFullScreen ? 36 : 24
             anchors {
                 left: playButton.right
                 bottom: parent.bottom

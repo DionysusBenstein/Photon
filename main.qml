@@ -255,8 +255,8 @@ ApplicationWindow {
             anchors {
                 left: playButton.right
                 bottom: parent.bottom
-                leftMargin:   isMaximize || isFullScreen ? 30 : 21
-                bottomMargin: isMaximize || isFullScreen ? 12 : 6
+                leftMargin:   isMaximize || isFullScreen ? 42 : 21
+                bottomMargin: isMaximize || isFullScreen ? 8 : 6
             }
 
             source: {

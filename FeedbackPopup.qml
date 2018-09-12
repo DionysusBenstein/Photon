@@ -146,6 +146,7 @@ Popup {
         text: qsTr("Отправить")
         Material.foreground: "#4285f4"
         flat: true
+        onClicked: popup.close()
     }
 
     Button {

@@ -35,7 +35,7 @@ ApplicationWindow {
     readonly property color primaryColor: "#ff0000"
     readonly property color lightColor: "#ff5a36"
     readonly property color darkColor: "#c20000"
-    readonly property string appVersion: "0.1.0"
+    readonly property string appVersion: "1.0.0"
 
     function mouseChanged() {
         videoArea.cursorShape = Qt.ArrowCursor;

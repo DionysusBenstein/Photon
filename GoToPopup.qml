@@ -91,7 +91,7 @@ Popup {
         height: 28
         anchors {
             right: parent.right
-            rightMargin: 48 + 36
+            rightMargin: 84
             verticalCenter: parent.verticalCenter
         }
         color: "#d9d9d9"
@@ -111,7 +111,8 @@ Popup {
         focus: true
         selectByMouse: true
         persistentSelection: true
-        placeholderText: qsTr("Введите тайминг"/*"Enter timing"*/)
+        //placeholderText: qsTr("Введите тайминг"/*"Enter timing"*/)
+        placeholderText: "hh:mm:ss"
         background: Rectangle { color: "white" }
         validator: RegExpValidator { regExp:  /^[0-5]?[0-9]:[0-5]?[0-9]:[0-5][0-9]$/ }
 

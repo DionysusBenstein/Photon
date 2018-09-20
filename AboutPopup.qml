@@ -52,7 +52,7 @@ Popup {
         opacity: 0.53
         clip: true
 
-        //for material design press animation
+        //For material design press animation
         Button {
             anchors.fill: parent
             scale: 1.1

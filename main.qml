@@ -26,7 +26,7 @@ ApplicationWindow {
     id: mainWindow
     visible: true
     width: 854; height: 480
-    title: qsTr("Photon Player v" + appVersion)
+    title: qsTr("Photon Player v") + appVersion
 
     readonly property bool isFullScreen: mainWindow.visibility === ApplicationWindow.FullScreen
     readonly property bool isMaximize: mainWindow.visibility === ApplicationWindow.Maximized

@@ -44,7 +44,7 @@ Menu {
     }
 
     MenuItem {
-        text: qsTr("Перейти...")
+        text: qsTr("Перейти по таймингу")
         onTriggered: goToPopup.open()
     }
 

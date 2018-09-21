@@ -10,7 +10,6 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
     QGuiApplication::setApplicationName("Photon");
-    QGuiApplication::setApplicationVersion("1.0.0");
     QGuiApplication::setOrganizationName("Enclave Software");
 
     qmlRegisterType<Utils>("com.benstein.utils", 1, 0, "Utils");
